@@ -210,6 +210,84 @@ html.dark .clean-card-hover:hover {
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
 }
 
+/* =========================================================================
+   INTERACTIVE SERVICE & CAPABILITY CARDS - BORDER & TOUCH GLOW ENGINE
+   ========================================================================= */
+.service-interactive-card {
+  position: relative;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #e2e8f0 !important;
+  transition: border-color 0.22s ease, box-shadow 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.22s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+html.dark .service-interactive-card {
+  border-color: #1e293b !important;
+}
+
+/* Light Mode: Instant Hover, Touch-Active, and Selected State */
+.service-interactive-card:hover,
+.service-interactive-card:active,
+.service-interactive-card.is-active,
+.service-interactive-card:focus-within {
+  border-color: #65a30d !important;
+  box-shadow: 0 0 0 3px rgba(101, 163, 13, 0.28), 0 20px 30px -10px rgba(101, 163, 13, 0.18), 0 0 20px rgba(101, 163, 13, 0.15) !important;
+  transform: translateY(-4px);
+}
+
+/* Dark Mode: Vivid Neon Glow Border & Aura */
+html.dark .service-interactive-card:hover,
+html.dark .service-interactive-card:active,
+html.dark .service-interactive-card.is-active,
+html.dark .service-interactive-card:focus-within {
+  border-color: #84cc16 !important;
+  box-shadow: 0 0 0 3.5px rgba(132, 204, 22, 0.45), 0 0 32px rgba(132, 204, 22, 0.28), 0 20px 30px -8px rgba(0, 0, 0, 0.7) !important;
+  transform: translateY(-4px);
+}
+
+/* Subtle Top Accent Line */
+.service-interactive-card .card-top-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, #4d7c0f, #84cc16, #a3e635);
+  opacity: 0;
+  transform: scaleX(0.4);
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.service-interactive-card:hover .card-top-line,
+.service-interactive-card:active .card-top-line,
+.service-interactive-card.is-active .card-top-line {
+  opacity: 1 !important;
+  transform: scaleX(1) !important;
+}
+
+/* Glowing Ambient Surface Aura */
+.service-interactive-card .card-ambient-aura {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(132, 204, 22, 0.14), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.28s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.service-interactive-card:hover .card-ambient-aura,
+.service-interactive-card:active .card-ambient-aura,
+.service-interactive-card.is-active .card-ambient-aura {
+  opacity: 1 !important;
+}
+
 /* Subtle Technical Grid Background */
 .bg-tech-grid {
   background-size: 32px 32px;

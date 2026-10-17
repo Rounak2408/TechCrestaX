@@ -52,7 +52,7 @@ export default function ServicesPage() {
               <div
                 key={service.id}
                 id={service.slug}
-                className="bg-white dark:bg-slate-900 border-2 border-slate-200/90 dark:border-slate-800 hover:border-[#65a30d] dark:hover:border-[#84cc16] active:border-[#65a30d] dark:active:border-[#84cc16] hover:ring-4 hover:ring-lime-500/15 dark:hover:ring-lime-400/20 active:ring-4 active:ring-lime-500/15 rounded-3xl p-6 sm:p-10 lg:p-12 transition-all duration-300 shadow-xs hover:shadow-xl"
+                className="bg-white dark:bg-slate-900 service-interactive-card rounded-3xl p-6 sm:p-10 lg:p-12 transition-all duration-300 shadow-xs hover:shadow-xl"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                   {/* Left Column: Title and Overview */}
