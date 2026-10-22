@@ -4,80 +4,80 @@ export const servicesData = [
     slug: "website-development",
     title: "Website Development",
     badge: "Core Service",
-    tagline: "High-performance digital flagships engineered for modern brands",
-    shortDesc: "Custom business websites and high-converting marketing experiences built with modern React, semantic markup, and lightning-fast loading speeds.",
-    longDesc: "Your website is your company's primary digital asset. At TechCrestaX, we move beyond generic off-the-shelf templates to engineer bespoke websites tailored to your exact brand positioning and conversion goals. Every build is developed mobile-first, ensuring fluid layouts from 320px smartphones to 4K displays.",
+    tagline: "Fast, responsive and conversion-focused websites built for modern businesses",
+    shortDesc: "Fast, responsive and conversion-focused websites built for modern businesses using React, Next.js, and modern SEO architecture.",
+    longDesc: "Your website is your company's primary digital asset. At TechCrestaX, we build modern websites that combine striking aesthetics, lightning-fast load times, and intuitive user journeys to convert visitors into loyal clients. Every website is engineered mobile-first with zero layout shift.",
     icon: "Layout",
     problemsSolved: [
       "Outdated, slow-loading templates hurting search visibility and brand perception",
       "Cluttered interfaces causing high bounce rates and low inquiry conversions",
-      "Broken layouts across mobile devices and modern browser engines",
+      "Broken layouts across mobile phones, tablets, and modern browser engines",
       "Difficulty scaling content or integrating custom third-party business tools"
     ],
     keyCapabilities: [
-      "Custom React & Vite Component Architecture",
-      "Fluid Multi-Breakpoint Responsive Engineering (320px to 1920px+)",
+      "React & Next.js Component Architecture",
+      "100% Mobile & Tablet Responsive Engineering (320px to 4K)",
       "Technical On-Page SEO & Structured Semantic Metadata",
-      "Sub-second TTFB & Core Web Vitals Optimization",
-      "Headless CMS Integration (Sanity, Strapi, Contentful)",
+      "Core Web Vitals Optimization for Sub-Second Loading",
+      "Headless CMS Integration for Easy Content Management",
       "Accessible Navigation & Micro-Interactions (WCAG 2.2 AA)"
     ],
-    technologies: ["React", "Vite", "Tailwind CSS", "JavaScript / TypeScript", "HTML5 Semantics", "Vercel / Netlify"],
+    technologies: ["React", "Next.js", "Vite", "Tailwind CSS", "JavaScript", "HTML5 Semantics"],
     workflow: [
-      { step: "01", name: "Architecture & Wireframes", desc: "Formulating site hierarchy, responsive layouts, and conversion journey paths." },
-      { step: "02", name: "Custom Art Direction", desc: "Tailoring color systems, typography scale, and branded visual assets." },
-      { step: "03", name: "Modular Component Build", desc: "Crafting lightweight, clean, and reusable frontend components." },
-      { step: "04", name: "QA & Deployment", desc: "Cross-browser testing, Core Web Vitals auditing, and live domain configuration." }
+      { step: "01", name: "Strategy & Wireframes", desc: "Mapping user flows, content hierarchy, and conversion paths." },
+      { step: "02", name: "Art Direction", desc: "Tailoring color scales, typography hierarchy, and branded visual assets." },
+      { step: "03", name: "Component Build", desc: "Developing lightweight, clean, and reusable frontend components." },
+      { step: "04", name: "QA & Deployment", desc: "Cross-device testing, Core Web Vitals audit, and live domain release." }
     ],
     deliverables: [
-      "Production-ready, version-controlled source code repository",
-      "Automated deployment pipeline on modern edge hosts",
-      "Full mobile-tested and cross-browser verified build",
+      "Full production-ready source code repository (100% client ownership)",
+      "Mobile-responsive, cross-browser verified build",
+      "Technical SEO markup (JSON-LD Organization, LocalBusiness)",
       "Interactive enquiry and contact forms with spam protection"
     ],
-    relatedProjects: ["apex-fitness-platform", "culinary-artisan-showcase"],
+    relatedProjects: ["urbanfit-platform", "crave-restaurant"],
     faqs: [
       {
         q: "What is the typical turnaround time for a website build?",
-        a: "Standard business websites with 5–8 bespoke pages typically deliver within 1 to 3 weeks through our focused, milestone-driven sprints."
+        a: "A standard business website usually takes 1 to 3 weeks depending on the number of pages, features, and revision rounds."
       },
       {
-        q: "Will the website work seamlessly on mobile phones?",
-        a: "Yes, 100%. Every single project undergoes rigorous testing across 320px, 360px, 390px mobile viewports through desktop displays."
+        q: "Will the website be mobile responsive?",
+        a: "Yes. Every website is designed and tested for desktop, tablet, and mobile devices."
       },
       {
-        q: "Can you build with or integrate a CMS for content updates?",
-        a: "Absolutely. We support headless CMS integrations (such as Strapi, Sanity, or markdown-based workflows) so non-technical team members can update content effortlessly."
+        q: "Can you redesign an existing website?",
+        a: "Yes. We can improve the design, speed, responsiveness, structure, and conversion flow of an existing website while safeguarding SEO rankings."
       }
     ]
   },
   {
-    id: "web-applications",
-    slug: "web-applications",
-    title: "Web Applications & SaaS",
+    id: "app-development",
+    slug: "app-development",
+    title: "App Development",
     badge: "Full-Stack",
-    tagline: "Scalable, resilient web apps designed around real human workflows",
-    shortDesc: "Custom web applications, SaaS dashboards, and internal business tools built with robust state management, clean APIs, and rapid responsiveness.",
-    longDesc: "Complex business operations require software that performs reliably under real-world demands. We build purpose-driven web applications and client dashboards featuring intuitive user interfaces, real-time data visualizations, secure session flows, and modular API integrations.",
+    tagline: "Scalable mobile and web applications designed around real user needs",
+    shortDesc: "Scalable web applications, client portals, and SaaS dashboards designed around real human workflows with modern UI and secure backends.",
+    longDesc: "Complex business operations require software that performs reliably under real-world demands. We engineer purpose-driven web applications and client dashboards featuring intuitive user interfaces, real-time data visualizations, secure session flows, and modular API integrations.",
     icon: "Cpu",
     problemsSolved: [
       "Clunky, confusing operational tools that slow down internal teams",
       "Unresponsive dashboards unable to handle dynamic datasets smoothly",
       "Fragmented data workflows lacking unified API integration",
-      "Scalability bottlenecks in legacy monolithic web applications"
+      "Scalability bottlenecks in legacy monolithic software"
     ],
     keyCapabilities: [
       "Single Page Applications (SPA) with Client-Side Routing",
-      "Interactive Dashboards & Data Visualization Components",
-      "RESTful API & GraphQL Service Integration",
+      "Interactive Dashboards & Data Visualization Modules",
+      "Secure RESTful API & GraphQL Integration",
       "Role-Based Access Control (RBAC) UI Architecture",
       "Optimistic UI Updates & Fluid Loading States",
-      "State Management with Redux Toolkit or React Query"
+      "Modern State Management & Offline-Ready Caching"
     ],
-    technologies: ["React", "Node.js", "Express", "PostgreSQL", "REST APIs", "Tailwind CSS", "Chart.js / Recharts"],
+    technologies: ["React", "Node.js", "Express", "PostgreSQL", "MongoDB", "Tailwind CSS"],
     workflow: [
       { step: "01", name: "Domain & Schema Modeling", desc: "Defining user roles, entity models, and API contract specifications." },
-      { step: "02", name: "Interactive Prototyping", desc: "Validating operational workflows with interactive clickable UI mockups." },
+      { step: "02", name: "Interactive Prototyping", desc: "Validating operational workflows with clickable UI mockups." },
       { step: "03", name: "Full-Stack Implementation", desc: "Developing client state, API controllers, and resilient validation logic." },
       { step: "04", name: "Integration Testing & Stress QA", desc: "Benchmarking API latency, error handling, and browser performance." }
     ],
@@ -87,26 +87,74 @@ export const servicesData = [
       "Responsive operational dashboard views",
       "Deployment documentation & container-ready configurations"
     ],
-    relatedProjects: ["logistics-saas-dashboard", "career-elevation-funnel"],
+    relatedProjects: ["transitops-dashboard", "finora-dashboard"],
     faqs: [
       {
-        q: "Can you integrate our existing backend or database?",
-        a: "Yes. We regularly connect custom React frontends to existing REST APIs, Supabase, PostgreSQL, Firebase, or GraphQL microservices."
+        q: "Do you provide frontend and backend development?",
+        a: "Yes. We handle complete product development including UI, frontend, backend, database, APIs, and deployment."
       },
       {
-        q: "How do you ensure data security in the application interface?",
-        a: "We implement secure session handling, sanitize all inputs to prevent XSS, use HTTPS exclusively, and follow OWASP security best practices."
+        q: "Can you connect to our existing backend or database?",
+        a: "Yes. We connect custom React frontends to existing REST APIs, Supabase, PostgreSQL, Firebase, or GraphQL microservices."
+      }
+    ]
+  },
+  {
+    id: "ai-automation",
+    slug: "ai-automation",
+    title: "AI Automation",
+    badge: "Intelligence",
+    tagline: "Intelligent automation systems that save time and improve business efficiency",
+    shortDesc: "Intelligent automation systems, AI chatbots, and smart workflow integrations that save hours of manual overhead and streamline business operations.",
+    longDesc: "Modern businesses scale faster when routine processes run autonomously. We build intelligent workflow automations, custom AI chatbots, and automated lead qualifiers that connect your website directly to your CRM, WhatsApp, and internal business tools.",
+    icon: "Bot",
+    problemsSolved: [
+      "Delayed customer response times causing high inquiry drop-offs",
+      "Repetitive manual data entry across disconnected software tools",
+      "High operational staffing costs for basic customer support triage",
+      "Lack of intelligent conversational assistance for site visitors"
+    ],
+    keyCapabilities: [
+      "AI Customer Support Chatbots & Lead Assistants",
+      "Automated WhatsApp & Email Lead Notification Pipelines",
+      "CRM & Spreadsheet Synchronization Connectors",
+      "Intelligent Inquiry Routing & Categorization",
+      "Document Processing & Data Extraction Scripts",
+      "Third-Party AI API Integrations (OpenAI, Anthropic, Custom Models)"
+    ],
+    technologies: ["OpenAI API", "Python", "Node.js", "Webhook Pipelines", "WhatsApp Business API", "Zapier / Make"],
+    workflow: [
+      { step: "01", name: "Workflow Discovery", desc: "Mapping high-friction, repetitive manual tasks across your business." },
+      { step: "02", name: "Bot Prompt & Flow Design", desc: "Configuring knowledge bases, brand tone, and validation fallback rules." },
+      { step: "03", name: "Integration Engineering", desc: "Connecting webhook triggers, database logging, and dispatch endpoints." },
+      { step: "04", name: "Testing & Safeguards", desc: "Simulating edge-case user queries and stress-testing API rate limits." }
+    ],
+    deliverables: [
+      "Configured AI chatbot module embedded in your web platform",
+      "Automated lead notification workflows to WhatsApp and email",
+      "Custom integration connectors for your business software",
+      "Handover guide for updating knowledge base documents"
+    ],
+    relatedProjects: ["transitops-dashboard", "work2hire-platform"],
+    faqs: [
+      {
+        q: "Can an AI chatbot answer questions about our specific services?",
+        a: "Yes. We train the assistant on your specific service documentation, FAQs, pricing tiers, and contact protocols."
+      },
+      {
+        q: "What happens if the AI chatbot doesn't know the answer?",
+        a: "The chatbot gracefully collects the user's contact details and routes the inquiry directly to your team via WhatsApp or email."
       }
     ]
   },
   {
     id: "ui-ux-design",
     slug: "ui-ux-design",
-    title: "UI/UX & Design Systems",
+    title: "UI/UX Design",
     badge: "Design",
-    tagline: "Clean, intentional digital interfaces users understand instantly",
-    shortDesc: "End-to-end product design from customer journey mapping and wireframing to production design systems and WCAG-compliant design tokens.",
-    longDesc: "Exceptional digital products emerge when strategic empathy meets engineering reality. We create cohesive design systems with clear visual hierarchy, accessible color palettes, intuitive typography scales, and micro-interactions that elevate brand credibility.",
+    tagline: "Clean and engaging digital experiences that users understand and enjoy",
+    shortDesc: "Clean, intuitive, and conversion-focused digital experiences from wireframes and design systems to interactive prototypes and tokens.",
+    longDesc: "Great digital products emerge when user psychology aligns with visual elegance. We create cohesive design systems with clear visual hierarchy, accessible color palettes, intuitive typography scales, and subtle micro-interactions that elevate brand credibility.",
     icon: "Palette",
     problemsSolved: [
       "Inconsistent interfaces where buttons, fonts, and spacing look different across pages",
@@ -119,14 +167,14 @@ export const servicesData = [
       "Component-Driven Design Systems in Figma",
       "WCAG 2.2 AA Contrast & Accessibility Auditing",
       "High-Fidelity Interactive Clickable Prototypes",
-      "Micro-Interactions & Motion Choreography Specs",
+      "Subtle Micro-Interactions & Motion Specifications",
       "Production-Ready Design Token Architecture"
     ],
     technologies: ["Figma", "Design Tokens", "CSS Variables", "Tailwind CSS", "WCAG 2.2 Standards"],
     workflow: [
       { step: "01", name: "UX Discovery & Research", desc: "Analyzing target personas, user journeys, and friction points." },
       { step: "02", name: "Low-Fidelity Wireframes", desc: "Structuring screen layouts, visual hierarchy, and primary focal points." },
-      { step: "03", name: "Design System & Tokens", desc: "Establishing color scales, typography tokens, and reusable component libraries." },
+      { step: "03", name: "Design System & Tokens", desc: "Establishing color scales, typography tokens, and reusable components." },
       { step: "04", name: "Developer Handoff", desc: "Providing clean Figma files with exact spacing, assets, and CSS token mappings." }
     ],
     deliverables: [
@@ -135,11 +183,11 @@ export const servicesData = [
       "Accessibility contrast compliance report",
       "Exported SVG icons and optimized raster imagery"
     ],
-    relatedProjects: ["apex-fitness-platform", "logistics-saas-dashboard"],
+    relatedProjects: ["aaoghume-platform", "urbanfit-platform"],
     faqs: [
       {
         q: "Do you supply design files in Figma?",
-        a: "Yes, all design deliverables are organized in modular Figma files with Auto Layout, typography styles, and component variants."
+        a: "Yes. All design deliverables are organized in modular Figma files with Auto Layout, typography styles, and component variants."
       },
       {
         q: "Can you audit our current product's UX?",
@@ -148,17 +196,65 @@ export const servicesData = [
     ]
   },
   {
-    id: "digital-growth-seo",
-    slug: "digital-growth-seo",
+    id: "cloud-devops",
+    slug: "cloud-devops",
+    title: "Cloud & DevOps",
+    badge: "Infrastructure",
+    tagline: "Reliable infrastructure and deployment systems built for performance and scale",
+    shortDesc: "Automated cloud deployments, CI/CD pipelines, SSL configuration, and serverless architectures engineered for 99.9% uptime and zero maintenance headaches.",
+    longDesc: "Modern web applications require infrastructure that scales reliably without manual server babysitting. We configure automated CI/CD pipelines, edge CDN caching, SSL certificates, custom DNS routing, and uptime monitoring so your application stays fast and secure.",
+    icon: "Cloud",
+    problemsSolved: [
+      "Website downtime during traffic spikes or unexpected server restarts",
+      "Complex, manual deployment routines prone to human errors",
+      "Slow worldwide loading speeds due to lack of edge CDN distribution",
+      "Missing automated backups and unmonitored security certificates"
+    ],
+    keyCapabilities: [
+      "Automated CI/CD Pipelines (GitHub Actions, Vercel, Netlify)",
+      "Edge CDN Configuration & Global Asset Caching",
+      "Custom Domain DNS Cutover & Automated SSL Certificates",
+      "Serverless Functions & Microservice Deployment",
+      "Application Performance & Uptime Monitoring",
+      "Environment Secret & Config Management"
+    ],
+    technologies: ["Vercel", "AWS", "GitHub Actions", "Docker", "Cloudflare", "Linux / NGINX"],
+    workflow: [
+      { step: "01", name: "Architecture Assessment", desc: "Evaluating traffic expectations, latency targets, and budget constraints." },
+      { step: "02", name: "Pipeline Configuration", desc: "Automating branch previews, build testing, and production deployment hooks." },
+      { step: "03", name: "Edge & DNS Tuning", desc: "Configuring global CDN caching, SSL encryption, and security headers." },
+      { step: "04", name: "Monitoring & Handover", desc: "Setting up automated uptime alerts and transferring account ownership." }
+    ],
+    deliverables: [
+      "Configured automated deployment pipeline connected to GitHub",
+      "SSL certificate and DNS records verified for production",
+      "Environment variable security audit",
+      "Monitoring dashboard setup with automated downtime alerts"
+    ],
+    relatedProjects: ["transitops-dashboard", "finora-dashboard"],
+    faqs: [
+      {
+        q: "Who pays for the cloud hosting services?",
+        a: "We deploy directly to your own accounts (Vercel, AWS, Cloudflare, etc.) so you have total ownership with zero agency markup."
+      },
+      {
+        q: "Do you handle custom domain setup and email DNS records?",
+        a: "Yes. We configure all domain DNS records including A, CNAME, SPF, DKIM, and MX records for your business email."
+      }
+    ]
+  },
+  {
+    id: "digital-growth",
+    slug: "digital-growth",
     title: "Digital Growth & Technical SEO",
     badge: "Growth",
-    tagline: "Sustainable organic visibility and conversion rate optimization",
-    shortDesc: "Engineered SEO infrastructure, Core Web Vitals optimization, and high-converting landing pages built to compound organic traffic.",
+    tagline: "Content, landing pages and digital strategies designed to increase conversions",
+    shortDesc: "Engineered SEO infrastructure, Core Web Vitals optimization, and high-converting landing pages built to compound organic traffic and customer acquisition.",
     longDesc: "A great website is meaningless if your target audience never discovers it. We build SEO directly into the engineering foundation: fast server responses, structured JSON-LD data, semantic HTML5 tags, and conversion-focused landing pages that turn searchers into clients.",
     icon: "TrendingUp",
     problemsSolved: [
       "Websites invisible on Google search for relevant local and commercial queries",
-      "Slow page speeds causing high crawl budget waste and ranking penalties",
+      "Slow page speeds causing high bounce rates and ranking penalties",
       "Missing schema markups causing unformatted rich snippets in SERP results",
       "Marketing campaigns driving paid clicks to non-converting landing pages"
     ],
@@ -183,7 +279,7 @@ export const servicesData = [
       "Core Web Vitals diagnostic verification report",
       "Conversion tracking event architecture"
     ],
-    relatedProjects: ["culinary-artisan-showcase", "apex-fitness-platform"],
+    relatedProjects: ["crave-restaurant", "work2hire-platform"],
     faqs: [
       {
         q: "Does website speed directly impact SEO rankings?",
@@ -192,102 +288,6 @@ export const servicesData = [
       {
         q: "Do you configure Google Analytics and Search Console?",
         a: "Yes, we integrate Google Analytics (GA4) and Google Search Console tags as standard procedure."
-      }
-    ]
-  },
-  {
-    id: "website-redesign",
-    slug: "website-redesign",
-    title: "Website Modernization & Redesign",
-    badge: "Modernization",
-    tagline: "Transform outdated digital products into modern growth engines",
-    shortDesc: "Revitalize outdated, slow, or fragmented web properties with contemporary aesthetics, modern tech stacks, and streamlined conversion flows.",
-    longDesc: "If your current website feels dated, sluggish, or difficult to maintain, a structured redesign restores your competitive edge. We analyze what worked in your legacy site, eliminate friction, and relaunch on a clean, modern React stack without losing existing SEO equity.",
-    icon: "RefreshCw",
-    problemsSolved: [
-      "Legacy websites looking outdated compared to modern competitors",
-      "Bloated WordPress or outdated page builders causing slow performance",
-      "Non-responsive designs that break on modern mobile phones and tablets",
-      "Lost leads due to confusing navigation and buried contact forms"
-    ],
-    keyCapabilities: [
-      "Legacy Codebase & Asset Migration",
-      "301 Redirect Architecture to Preserve SEO Equity",
-      "Complete Visual Overhaul & Contemporary Branding Alignment",
-      "Mobile-First Responsive Rebuilding",
-      "Performance Compression & Modern Framework Migration",
-      "Conversion Funnel Redesign"
-    ],
-    technologies: ["React", "Vite", "Tailwind CSS", "Semantic HTML5", "301 Mapping"],
-    workflow: [
-      { step: "01", name: "Legacy Site Audit", desc: "Cataloging URLs, top-performing pages, and key pain points." },
-      { step: "02", name: "Redesign Art Direction", desc: "Presenting fresh, premium design concepts aligned with your evolved brand." },
-      { step: "03", name: "Clean Re-Engineering", desc: "Building the new frontend on a clean, maintainable tech stack." },
-      { step: "04", name: "Seamless Migration & Relaunch", desc: "Mapping redirects, testing form endpoints, and initiating zero-downtime switch." }
-    ],
-    deliverables: [
-      "Modernized responsive web application",
-      "SEO URL preservation & 301 redirection map",
-      "Before-and-after performance benchmarking report",
-      "Comprehensive handover documentation"
-    ],
-    relatedProjects: ["culinary-artisan-showcase", "logistics-saas-dashboard"],
-    faqs: [
-      {
-        q: "Will redesigning my site hurt my existing Google rankings?",
-        a: "Not when done properly. We audit your existing ranking URLs, preserve exact page paths where possible, and configure 301 redirects to safeguard your SEO value."
-      },
-      {
-        q: "How long does a typical redesign take?",
-        a: "Most website modernization projects are completed in 2 to 3 weeks from kickoff to launch."
-      }
-    ]
-  },
-  {
-    id: "ecommerce-platforms",
-    slug: "ecommerce-platforms",
-    title: "Digital Platforms & E-Commerce",
-    badge: "Commercial",
-    tagline: "Frictionless commerce, reservation flows, and product showcases",
-    shortDesc: "Conversion-optimized product showcases, booking systems, and digital storefronts engineered for smooth transactions and high customer trust.",
-    longDesc: "Digital transactions succeed on trust, clarity, and zero friction. We design custom digital platforms and e-commerce experiences with fast product filtering, intuitive booking flows, mobile checkout experiences, and seamless payment gateways.",
-    icon: "ShoppingBag",
-    problemsSolved: [
-      "High checkout abandonment caused by multi-step, confusing forms",
-      "Sluggish product catalog filtering and search latency",
-      "Lack of custom booking or reservation capabilities",
-      "Payment gateway drop-offs and poor mobile transactional flows"
-    ],
-    keyCapabilities: [
-      "Custom Product Showcases & Dynamic Filtering",
-      "Interactive Booking & Reservation Funnels",
-      "Stripe / Razorpay Payment Gateway Integration",
-      "Mobile-First One-Page Checkout Experiences",
-      "Inventory & Order Confirmation Email Workflows",
-      "Transactional Analytics & Conversion Tracking"
-    ],
-    technologies: ["React", "Tailwind CSS", "Stripe API", "Razorpay", "Node.js", "REST APIs"],
-    workflow: [
-      { step: "01", name: "Commercial Journey Mapping", desc: "Optimizing the path from item discovery to completed transaction." },
-      { step: "02", name: "Storefront UI/UX Design", desc: "Designing high-trust product cards, cart drawers, and checkout flows." },
-      { step: "03", name: "Payment & API Integration", desc: "Implementing secure webhooks and transactional event handlers." },
-      { step: "04", name: "Transaction Testing & Launch", desc: "End-to-end sandbox testing of credit cards, UPI, and order receipts." }
-    ],
-    deliverables: [
-      "Fully integrated storefront or booking platform",
-      "Tested payment gateway integration",
-      "Admin order management hooks or webhook setup",
-      "Automated customer notification emails"
-    ],
-    relatedProjects: ["culinary-artisan-showcase", "career-elevation-funnel"],
-    faqs: [
-      {
-        q: "Which payment gateways do you support?",
-        a: "We support industry-standard gateways including Stripe, Razorpay, PayPal, and custom merchant processors."
-      },
-      {
-        q: "Can we sell services and bookings instead of physical products?",
-        a: "Absolutely. We specialize in custom reservation engines, membership packages, and consulting booking systems."
       }
     ]
   }

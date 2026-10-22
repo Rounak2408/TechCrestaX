@@ -9,11 +9,12 @@ import { portfolioData } from '../data/portfolioData';
 
 export default function CaseStudyDetailPage() {
   const { slug } = useParams();
-  const project = portfolioData.find((p) => p.slug === slug);
+  const project = portfolioData.find((p) => p.slug === slug || p.legacySlugs?.includes(slug));
 
   useEffect(() => {
     if (project) {
       document.title = `${project.title} — TechCrestaX Case Study`;
+      window.scrollTo(0, 0);
     }
   }, [project]);
 
@@ -29,10 +30,10 @@ export default function CaseStudyDetailPage() {
     );
   }
 
-  const otherProjects = portfolioData.filter((p) => p.slug !== slug);
+  const otherProjects = portfolioData.filter((p) => p.id !== project.id);
 
   return (
-    <div className="py-8 sm:py-12">
+    <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
@@ -45,13 +46,13 @@ export default function CaseStudyDetailPage() {
         <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-12 mb-10 shadow-sm relative overflow-hidden transition-colors">
           <div className="max-w-4xl space-y-5">
             <div className="flex flex-wrap items-center gap-2.5">
-              <Badge variant="lime" size="md">
+              <Badge variant="blush" size="md">
                 {project.badge}
               </Badge>
               <span className="text-xs font-mono text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700">
                 {project.category}
               </span>
-              <span className="text-xs font-mono text-[#4d7c0f] dark:text-[#84cc16] font-semibold bg-lime-50 dark:bg-lime-950/60 px-3 py-1 rounded-full border border-lime-200 dark:border-lime-900">
+              <span className="text-xs font-mono text-[#96405d] dark:text-[#F7DCE5] font-semibold bg-[#F7DCE5]/40 dark:bg-[#F7DCE5]/10 px-3 py-1 rounded-full border border-[#eccbd6] dark:border-[#F7DCE5]/30">
                 {project.timeline} Turnaround
               </span>
             </div>
@@ -68,10 +69,10 @@ export default function CaseStudyDetailPage() {
             <div className="pt-6 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-4">
               <div>
                 <span className="text-[11px] font-mono uppercase text-slate-400 dark:text-slate-500 font-semibold block mb-1">
-                  Client / Vertical
+                  Type / Role
                 </span>
                 <span className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white">
-                  {project.clientType}
+                  {project.type}
                 </span>
               </div>
 
@@ -88,7 +89,7 @@ export default function CaseStudyDetailPage() {
                 <span className="text-[11px] font-mono uppercase text-slate-400 dark:text-slate-500 font-semibold block mb-1">
                   Sprint Duration
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-[#4d7c0f] dark:text-[#84cc16]">
+                <span className="text-xs sm:text-sm font-bold text-[#96405d] dark:text-[#F7DCE5]">
                   {project.timeline}
                 </span>
               </div>
@@ -105,9 +106,9 @@ export default function CaseStudyDetailPage() {
           </div>
         </div>
 
-        {/* Feature 2: High-Fidelity Dimensional Browser Mockup Showcase */}
+        {/* Browser Mockup Showcase */}
         <div className="mb-14 rounded-3xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl overflow-hidden">
-          {/* macOS Browser Header Frame */}
+          {/* Header Frame */}
           <div className="bg-slate-100 dark:bg-slate-800/80 px-4 py-3 border-b border-slate-200 dark:border-slate-700/80 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-rose-400/90 inline-block" />
@@ -116,7 +117,7 @@ export default function CaseStudyDetailPage() {
             </div>
 
             <div className="flex items-center gap-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-4 py-1 rounded-full text-xs font-mono text-slate-600 dark:text-slate-300">
-              <Globe className="w-3.5 h-3.5 text-[#4d7c0f] dark:text-[#84cc16]" />
+              <Globe className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5]" />
               <span>https://{project.slug}.techcrestax.app</span>
             </div>
 
@@ -129,7 +130,7 @@ export default function CaseStudyDetailPage() {
           <div className="relative group overflow-hidden bg-slate-950 max-h-[560px]">
             <img
               src={project.image}
-              alt={`${project.title} interface preview and design implementation`}
+              alt={`${project.title} interface preview`}
               className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
               loading="eager"
             />
@@ -143,20 +144,20 @@ export default function CaseStudyDetailPage() {
 
         {/* Narrative Columns: Problem & Solution */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-7 sm:p-9 space-y-3 shadow-xs">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 sm:p-9 space-y-3 shadow-xs">
             <span className="text-xs font-mono font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 block">
               01. The Challenge & Context
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-              Overcoming Legacy Constraints
+              Overcoming Operational & Design Friction
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
               {project.challenge}
             </p>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-7 sm:p-9 space-y-3 shadow-xs">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#4d7c0f] dark:text-[#84cc16] block">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 sm:p-9 space-y-3 shadow-xs">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#96405d] dark:text-[#F7DCE5] block">
               02. The Architectural Solution
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
@@ -177,7 +178,7 @@ export default function CaseStudyDetailPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {project.keyFeatures.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-xl p-3.5">
-                  <Check className="w-4 h-4 text-[#4d7c0f] dark:text-[#84cc16] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5] shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-medium">
                     {feat}
                   </span>
@@ -221,21 +222,26 @@ export default function CaseStudyDetailPage() {
 
         {/* Client Quote & Verified Outcomes */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-stretch">
-          <div className="lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-7 sm:p-9 flex flex-col justify-between shadow-xs">
+          <div className="lg:col-span-8 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 sm:p-9 flex flex-col justify-between shadow-xs">
             <div className="space-y-4">
-              <Quote className="w-8 h-8 text-[#4d7c0f]/40 dark:text-[#84cc16]/40" />
+              <Quote className="w-8 h-8 text-[#96405d]/40 dark:text-[#F7DCE5]/40" />
               <p className="text-base sm:text-lg text-slate-800 dark:text-slate-200 italic leading-relaxed">
                 "{project.clientQuote}"
               </p>
+              {project.clientAuthor && (
+                <p className="text-xs font-bold font-mono text-[#96405d] dark:text-[#F7DCE5]">
+                  — {project.clientAuthor}
+                </p>
+              )}
             </div>
             <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-6 text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Verified Feedback • Recorded Post-Delivery Survey
+              Verified Feedback • Confirmed Company Deliverable
             </div>
           </div>
 
-          <div className="lg:col-span-4 bg-slate-900 dark:bg-slate-950 border dark:border-slate-800 text-white rounded-2xl p-7 flex flex-col justify-between shadow-sm">
+          <div className="lg:col-span-4 bg-slate-900 dark:bg-slate-950 border border-slate-800 text-white rounded-3xl p-7 flex flex-col justify-between shadow-sm">
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#84cc16] font-bold block mb-4">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#F7DCE5] font-bold block mb-4">
                 Verified Benchmarks
               </span>
               <div className="space-y-5">
@@ -258,13 +264,13 @@ export default function CaseStudyDetailPage() {
           </div>
         </div>
 
-        {/* Other Projects with Visual Thumbnails */}
+        {/* Other Projects */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white">
               Explore Related Work
             </h3>
-            <Link to="/work" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#4d7c0f] dark:hover:text-[#84cc16]">
+            <Link to="/work" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5]">
               View All Case Studies
             </Link>
           </div>
@@ -273,9 +279,8 @@ export default function CaseStudyDetailPage() {
             {otherProjects.slice(0, 3).map((p) => (
               <div
                 key={p.id}
-                className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl overflow-hidden transition-all shadow-xs flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 rounded-3xl overflow-hidden transition-all shadow-xs flex flex-col justify-between group"
               >
-                {/* Thumbnail */}
                 <div className="relative h-44 overflow-hidden bg-slate-900">
                   <img
                     src={p.image}
@@ -293,7 +298,7 @@ export default function CaseStudyDetailPage() {
                 <div className="p-5 flex flex-col justify-between flex-grow">
                   <div>
                     <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                      <Link to={`/work/${p.slug}`} className="hover:text-[#4d7c0f] dark:hover:text-[#84cc16]">
+                      <Link to={`/work/${p.slug}`} className="hover:text-[#96405d] dark:hover:text-[#F7DCE5]">
                         {p.title}
                       </Link>
                     </h4>
@@ -303,7 +308,7 @@ export default function CaseStudyDetailPage() {
                   </div>
 
                   <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                    <Link to={`/work/${p.slug}`} className="font-bold text-slate-900 dark:text-white hover:text-[#4d7c0f] dark:hover:text-[#84cc16] inline-flex items-center gap-1">
+                    <Link to={`/work/${p.slug}`} className="font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] inline-flex items-center gap-1">
                       <span>Read Study</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </Link>
@@ -317,7 +322,7 @@ export default function CaseStudyDetailPage() {
           </div>
         </div>
 
-        {/* Contextual Contact & Closing CTA */}
+        {/* Closing CTA */}
         <ClosingCTA />
       </div>
     </div>

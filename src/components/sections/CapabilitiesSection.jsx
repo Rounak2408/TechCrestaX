@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowUpRight, Layout, Cpu, Palette, TrendingUp, RefreshCw, ShoppingBag, Check } from 'lucide-react';
+import { ArrowUpRight, Layout, Cpu, Bot, Palette, Cloud, TrendingUp, Check } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
@@ -9,10 +9,10 @@ import { servicesData } from '../../data/servicesData';
 const iconMap = {
   Layout: Layout,
   Cpu: Cpu,
+  Bot: Bot,
   Palette: Palette,
+  Cloud: Cloud,
   TrendingUp: TrendingUp,
-  RefreshCw: RefreshCw,
-  ShoppingBag: ShoppingBag,
 };
 
 export default function CapabilitiesSection() {
@@ -55,10 +55,10 @@ export default function CapabilitiesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <SectionHeading
-            eyebrow="Core Capabilities"
-            title="Engineered services built for"
-            highlight="real business growth"
-            description="From bespoke marketing websites to full-stack cloud software, we provide specialized digital services that solve concrete business challenges."
+            eyebrow="What We Build"
+            title="Technology solutions designed to"
+            highlight="accelerate growth"
+            description="From first idea to final deployment, we create digital products that look premium, perform smoothly, and solve real business problems."
           />
 
           <div className="shrink-0">
@@ -91,7 +91,7 @@ export default function CapabilitiesSection() {
                 onTouchStart={() => handleCardInteraction(service.id)}
                 onPointerDown={() => handleCardInteraction(service.id)}
                 onClick={() => handleCardClick(service)}
-                className={`group relative rounded-3xl p-6 sm:p-7 service-interactive-card flex flex-col justify-between overflow-hidden cursor-pointer select-none text-left touch-manipulation bg-white dark:bg-slate-900 ${
+                className={`group relative rounded-3xl p-6 sm:p-7 service-interactive-card flex flex-col justify-between overflow-hidden cursor-pointer select-none text-left touch-manipulation bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 transition-all ${
                   isCardActive ? 'is-active' : ''
                 }`}
               >
@@ -114,30 +114,25 @@ export default function CapabilitiesSection() {
                     <div
                       className={`w-12 h-12 rounded-2xl border transition-all duration-300 shadow-xs flex items-center justify-center ${
                         isCardActive
-                          ? 'bg-[#0b1329] dark:bg-white text-[#84cc16] dark:text-slate-900 border-transparent scale-110 -rotate-3 shadow-md'
-                          : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 group-hover:scale-110 group-hover:-rotate-3 group-hover:text-[#65a30d] dark:group-hover:text-[#84cc16]'
+                          ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent scale-105 shadow-sm'
+                          : 'bg-[#F7DCE5]/40 dark:bg-slate-800 border-[#eccbd6] dark:border-slate-700 text-slate-900 dark:text-slate-200 group-hover:scale-105'
                       }`}
                     >
                       <Icon className="w-5 h-5 transition-transform duration-300" />
                     </div>
                     <Badge
-                      variant="neutral"
+                      variant="blush"
                       size="sm"
-                      className={`transition-colors ${
-                        isCardActive
-                          ? 'border-lime-400 dark:border-lime-600 text-lime-800 dark:text-lime-300 bg-lime-50/80 dark:bg-lime-950/40'
-                          : 'group-hover:border-lime-400 dark:group-hover:border-lime-600 group-hover:text-lime-700 dark:group-hover:text-lime-300'
-                      }`}
                     >
                       {service.badge}
                     </Badge>
                   </div>
 
                   <h3
-                    className={`text-xl font-bold transition-colors duration-200 mb-2 ${
+                    className={`text-xl font-bold font-display transition-colors duration-200 mb-2 ${
                       isCardActive
-                        ? 'text-[#4d7c0f] dark:text-[#84cc16]'
-                        : 'text-slate-900 dark:text-white group-hover:text-[#4d7c0f] dark:group-hover:text-[#84cc16]'
+                        ? 'text-slate-950 dark:text-white'
+                        : 'text-slate-900 dark:text-white group-hover:text-slate-950 dark:group-hover:text-white'
                     }`}
                   >
                     {service.title}
@@ -146,39 +141,6 @@ export default function CapabilitiesSection() {
                   <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
                     {service.shortDesc}
                   </p>
-
-                  {/* Micro Dimensional Accent for first two cards */}
-                  {index === 0 && (
-                    <div
-                      className={`mb-5 p-2.5 rounded-xl border text-[11px] font-mono flex items-center justify-between transition-all duration-300 ${
-                        isCardActive
-                          ? 'bg-white dark:bg-slate-800 border-lime-300 dark:border-lime-700/60 shadow-xs text-slate-800 dark:text-slate-200'
-                          : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-300'
-                      }`}
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                        <span>Responsive Browser Engine</span>
-                      </span>
-                      <span className="font-bold text-slate-800 dark:text-slate-200">100% QA</span>
-                    </div>
-                  )}
-
-                  {index === 1 && (
-                    <div
-                      className={`mb-5 p-2.5 rounded-xl border text-[11px] font-mono flex items-center justify-between transition-all duration-300 ${
-                        isCardActive
-                          ? 'bg-white dark:bg-slate-800 border-lime-300 dark:border-lime-700/60 shadow-xs text-slate-800 dark:text-slate-200'
-                          : 'bg-slate-50 dark:bg-slate-800/80 border-slate-200/80 dark:border-slate-700 text-slate-600 dark:text-slate-300'
-                      }`}
-                    >
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
-                        <span>REST & GraphQL APIs</span>
-                      </span>
-                      <span className="font-bold text-slate-800 dark:text-slate-200">&lt;100ms Latency</span>
-                    </div>
-                  )}
 
                   {/* Highlights */}
                   <ul className="space-y-2 mb-6 border-t border-slate-100 dark:border-slate-800 pt-4">
@@ -189,7 +151,7 @@ export default function CapabilitiesSection() {
                           isCardActive ? 'translate-x-1' : ''
                         }`}
                       >
-                        <Check className="w-3.5 h-3.5 text-[#65a30d] dark:text-[#84cc16] shrink-0" />
+                        <Check className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
                         <span>{cap}</span>
                       </li>
                     ))}
@@ -200,29 +162,13 @@ export default function CapabilitiesSection() {
                   <Link
                     to={`/services/${service.slug}`}
                     onClick={(e) => e.stopPropagation()}
-                    className={`inline-flex items-center gap-1.5 text-xs font-bold rounded-lg py-1 px-2 -ml-1 transition-all duration-200 ${
-                      isCardActive
-                        ? 'text-[#4d7c0f] dark:text-[#84cc16] bg-lime-50 dark:bg-lime-950/50'
-                        : 'text-slate-900 dark:text-white group-hover:text-[#4d7c0f] dark:group-hover:text-[#84cc16]'
-                    }`}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold rounded-lg py-1 px-2 -ml-1 text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] transition-colors"
                   >
-                    <span>Explore Specifications</span>
-                    <ArrowUpRight
-                      className={`w-3.5 h-3.5 transition-all duration-300 ${
-                        isCardActive
-                          ? 'text-[#4d7c0f] dark:text-[#84cc16] translate-x-1 -translate-y-1'
-                          : 'text-slate-400 group-hover:text-[#4d7c0f] dark:group-hover:text-[#84cc16] group-hover:translate-x-1 group-hover:-translate-y-1'
-                      }`}
-                    />
+                    <span>View Specifications</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </Link>
 
-                  <span
-                    className={`text-xs font-mono transition-all duration-200 ${
-                      isCardActive
-                        ? 'text-slate-900 dark:text-white font-bold'
-                        : 'text-slate-400 dark:text-slate-500'
-                    }`}
-                  >
+                  <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
                     0{index + 1}
                   </span>
                 </div>

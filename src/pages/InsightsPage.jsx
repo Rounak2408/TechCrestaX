@@ -19,22 +19,22 @@ export default function InsightsPage() {
 
         {/* Page Header */}
         <div className="max-w-3xl mb-12">
-          <Badge variant="lime" size="md" className="mb-3">
-            Thought Leadership
+          <Badge variant="blush" size="md" className="mb-3">
+            Technical Methodology
           </Badge>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
             Engineering Insights.{' '}
-            <span className="text-[#4d7c0f] dark:text-[#84cc16]">Design</span> Philosophy.
+            <span className="text-[#96405d] dark:text-[#f7dce5]">Design</span> Philosophy.
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
             Technical analysis, frontend performance strategies, and user experience methodologies developed by the TechCrestaX engineering team.
           </p>
 
           <div className="mt-5 p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-300 shadow-xs">
-            <span className="text-[#4d7c0f] dark:text-[#84cc16] font-mono font-bold uppercase tracking-wider block mb-1">
-              Demonstration Content Notice
+            <span className="text-[#96405d] dark:text-[#f7dce5] font-mono font-bold uppercase tracking-wider block mb-1">
+              Methodology & Engineering Standards
             </span>
-            Articles published in this section represent curated thought-leadership samples demonstrating our approach to modern web architecture, design tokens, and conversion optimization.
+            Insights published in this section represent our technical approach to modern web architecture, Core Web Vitals optimization, and robust design systems.
           </div>
         </div>
 
@@ -43,18 +43,18 @@ export default function InsightsPage() {
           {insightsData.map((article) => (
             <article
               key={article.id}
-              className="group bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-3xl p-6 sm:p-7 transition-all duration-200 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
+              className="group bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#F7DCE5] dark:hover:border-[#F7DCE5]/40 rounded-3xl p-6 sm:p-7 transition-all duration-200 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3.5">
-                  <span className="text-[#4d7c0f] dark:text-[#84cc16] font-semibold">{article.category}</span>
+                  <span className="text-[#96405d] dark:text-[#f7dce5] font-semibold">{article.category}</span>
                   <span className="flex items-center gap-1">
                     <Clock className="w-3.5 h-3.5" />
                     {article.readTime}
                   </span>
                 </div>
 
-                <h2 className="text-lg sm:text-xl font-bold font-display text-slate-900 dark:text-white group-hover:text-[#4d7c0f] dark:group-hover:text-[#84cc16] transition-colors mb-3 leading-snug">
+                <h2 className="text-lg sm:text-xl font-bold font-display text-slate-900 dark:text-white group-hover:text-[#96405d] dark:group-hover:text-[#f7dce5] transition-colors mb-3 leading-snug">
                   <Link to={`/insights/${article.slug}`}>
                     {article.title}
                   </Link>
@@ -79,7 +79,7 @@ export default function InsightsPage() {
               <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
                 <Link
                   to={`/insights/${article.slug}`}
-                  className="font-bold text-slate-900 dark:text-white hover:text-[#4d7c0f] dark:hover:text-[#84cc16] inline-flex items-center gap-1 transition-colors"
+                  className="font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#f7dce5] inline-flex items-center gap-1 transition-colors"
                 >
                   <span>Read Article</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

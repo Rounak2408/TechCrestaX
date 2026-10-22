@@ -28,10 +28,11 @@ export default function Button({
 
   const variantStyles = {
     primary: "bg-[#0f172a] text-white hover:bg-[#1e293b] dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow active:scale-[0.99]",
-    secondary: "bg-white text-[#0f172a] dark:bg-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-xs active:scale-[0.99]",
+    blush: "bg-[#F7DCE5] text-slate-900 font-semibold border border-[#eccbd6] hover:bg-[#f3cbd7] dark:bg-[#F7DCE5] dark:text-slate-900 dark:hover:bg-[#fae6ee] shadow-xs active:scale-[0.99]",
+    secondary: "bg-white text-[#0f172a] dark:bg-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-xs active:scale-[0.99]",
     outline: "bg-transparent text-[#0f172a] dark:text-white border border-slate-300 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white hover:bg-slate-50/50 dark:hover:bg-slate-800/50 active:scale-[0.99]",
-    ghost: "bg-transparent text-[#475569] dark:text-slate-300 hover:text-[#0f172a] dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-slate-800/70 active:scale-[0.99]",
-    lime: "bg-[#4d7c0f] text-white hover:bg-[#3f6212] dark:bg-[#65a30d] dark:hover:bg-[#4d7c0f] shadow-sm active:scale-[0.99]",
+    ghost: "bg-transparent text-[#475569] dark:text-slate-300 hover:text-[#0f172a] dark:hover:text-white hover:bg-[#F7DCE5]/30 dark:hover:bg-slate-800/70 active:scale-[0.99]",
+    lime: "bg-[#F7DCE5] text-slate-900 font-semibold border border-[#eccbd6] hover:bg-[#f3cbd7] shadow-xs active:scale-[0.99]",
     dark: "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm",
     white: "bg-white text-slate-900 font-bold hover:bg-slate-100 shadow-sm active:scale-[0.99]",
     darkOutline: "bg-slate-800/90 text-white font-medium border border-slate-700 hover:bg-slate-700 hover:border-slate-600 shadow-xs active:scale-[0.99]",

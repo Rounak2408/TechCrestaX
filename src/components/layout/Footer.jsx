@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { companyData } from '../../data/companyData';
 import { servicesData } from '../../data/servicesData';
 
@@ -10,20 +10,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800 text-slate-300 relative overflow-hidden" role="contentinfo">
+    <footer className="bg-slate-950 border-t border-slate-900 text-slate-300 relative overflow-hidden" role="contentinfo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-16">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" className="flex items-center gap-3 inline-block">
-              <div className="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
-                <svg viewBox="0 0 24 24" className="w-4 h-4 text-[#84cc16]" fill="none" stroke="currentColor">
-                  <path d="M12 2L4 7V17L12 22L20 17V7L12 2Z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M9 10L15 14M15 10L9 14" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" />
-                </svg>
-              </div>
-              <span className="font-display font-extrabold text-xl tracking-tight text-white">
-                TechCresta<span className="text-[#84cc16]">X</span>
+              <img
+                src="/logo.png"
+                alt="TechCrestaX Official Logo"
+                className="w-9 h-9 rounded-xl object-contain bg-white/10 p-0.5 border border-white/10"
+              />
+              <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center">
+                TechCrestaX
+                <span className="ml-1.5 w-1.5 h-1.5 rounded-full bg-[#F7DCE5]" />
               </span>
             </Link>
 
@@ -36,7 +36,7 @@ export default function Footer() {
                 href={companyData.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:border-slate-500 transition-colors"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:border-[#F7DCE5]/40 transition-colors"
                 aria-label="TechCrestaX on LinkedIn"
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
@@ -47,7 +47,7 @@ export default function Footer() {
                 href={companyData.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-300 hover:text-white hover:border-slate-500 transition-colors"
+                className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-300 hover:text-white hover:border-[#F7DCE5]/40 transition-colors"
                 aria-label="TechCrestaX on Instagram"
               >
                 <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -60,10 +60,10 @@ export default function Footer() {
                 href={companyData.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs font-mono text-slate-200 hover:border-emerald-500 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200 hover:border-emerald-500/50 transition-colors"
               >
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>WhatsApp Active</span>
+                <span>WhatsApp Desk</span>
               </a>
             </div>
           </div>
@@ -87,15 +87,15 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Links */}
+          {/* Company Navigation Links */}
           <div>
             <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
-              Navigation
+              Company
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link to="/work" className="text-slate-400 hover:text-white transition-colors">
-                  Portfolio & Case Studies
+                  Portfolio & Work
                 </Link>
               </li>
               <li>
@@ -105,12 +105,12 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/about" className="text-slate-400 hover:text-white transition-colors">
-                  About Studio
+                  About Us & Team
                 </Link>
               </li>
               <li>
-                <Link to="/insights" className="text-slate-400 hover:text-white transition-colors">
-                  Agency Insights
+                <Link to="/faq" className="text-slate-400 hover:text-white transition-colors">
+                  Frequently Asked Questions
                 </Link>
               </li>
               <li>
@@ -120,24 +120,24 @@ export default function Footer() {
               </li>
               <li>
                 <Link to="/privacy" className="text-slate-400 hover:text-white transition-colors">
-                  Privacy Policy & Terms
+                  Privacy Policy
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Direct */}
+          {/* Contact Direct & Verified Presence */}
           <div>
             <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold mb-4">
               Contact & Location
             </h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5 text-slate-400">
-                <MapPin className="w-4 h-4 text-[#84cc16] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#F7DCE5] shrink-0 mt-0.5" />
                 <span>{companyData.location.addressString}</span>
               </li>
               <li className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#84cc16] shrink-0" />
+                <Mail className="w-4 h-4 text-[#F7DCE5] shrink-0" />
                 <a
                   href={`mailto:${companyData.contact.primaryEmail}`}
                   className="text-slate-400 hover:text-white transition-colors break-all"
@@ -146,7 +146,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#84cc16] shrink-0" />
+                <Phone className="w-4 h-4 text-[#F7DCE5] shrink-0" />
                 <a
                   href={companyData.contact.whatsappLink}
                   target="_blank"
@@ -158,29 +158,29 @@ export default function Footer() {
               </li>
             </ul>
 
-            <div className="mt-6 p-3 rounded-xl bg-slate-800/80 border border-slate-700/80 text-xs text-slate-400">
+            <div className="mt-6 p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-400">
               <span className="text-white font-medium block mb-1">Standard Turnaround:</span>
-              Typical project delivery in 1 to 3 weeks across dedicated agile milestones.
+              1 to 3 weeks across milestone-driven agile sprints.
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
             <span>© {new Date().getFullYear()} TechCrestaX. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
-            <span>Independent Design & Engineering Proposal</span>
+            <span>Independent Digital Engineering & Design</span>
           </div>
 
           <div className="flex items-center gap-4">
             <Link to="/privacy" className="hover:text-slate-300 transition-colors">
-              Privacy & Legal
+              Privacy Policy
             </Link>
             <button
               type="button"
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 p-2 rounded-full bg-slate-800 hover:bg-slate-700 text-white transition-colors focus-visible:ring-2 focus-visible:ring-white"
+              className="inline-flex items-center gap-1.5 p-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white transition-colors focus-visible:ring-2 focus-visible:ring-white border border-slate-800"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />

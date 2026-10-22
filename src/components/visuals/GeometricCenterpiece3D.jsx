@@ -32,7 +32,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
     // Create connecting lines
     const linePoints = [];
     const lineColors = [];
-    const lime = new THREE.Color('#84cc16');
+    const blush = new THREE.Color('#F7DCE5');
     const slate = new THREE.Color('#64748b');
     const faintSlate = new THREE.Color('#94a3b8');
 
@@ -40,7 +40,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
     unique.forEach((node, idx) => {
       linePoints.push(0, 0, 0);
       linePoints.push(node.x, node.y, node.z);
-      const col = idx % 3 === 0 ? lime : slate;
+      const col = idx % 3 === 0 ? blush : slate;
       lineColors.push(col.r, col.g, col.b);
       lineColors.push(col.r, col.g, col.b);
     });
@@ -52,7 +52,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
         if (dist < 1.7) {
           linePoints.push(unique[i].x, unique[i].y, unique[i].z);
           linePoints.push(unique[j].x, unique[j].y, unique[j].z);
-          const col = (i + j) % 5 === 0 ? lime : faintSlate;
+          const col = (i + j) % 5 === 0 ? blush : faintSlate;
           lineColors.push(col.r, col.g, col.b);
           lineColors.push(col.r, col.g, col.b);
         }
@@ -87,7 +87,6 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
 
     // Subtle, elegant continuous rotation
     if (masterGroupRef.current) {
-      // Damped pointer parallax tracking on desktop
       const targetRotX = (state.pointer.y * 0.45);
       const targetRotY = (state.pointer.x * 0.55);
       const targetPosX = (state.pointer.x * 0.22);
@@ -167,35 +166,35 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
       <mesh ref={coreRef} castShadow receiveShadow>
         <octahedronGeometry args={[0.85, 0]} />
         <meshPhysicalMaterial
-          color="#f8fafc"
-          emissive="#0f172a"
-          emissiveIntensity={0.25}
+          color="#ffffff"
+          emissive="#1e293b"
+          emissiveIntensity={0.2}
           roughness={0.15}
-          metalness={0.2}
+          metalness={0.15}
           clearcoat={1.0}
-          clearcoatRoughness={0.12}
+          clearcoatRoughness={0.1}
           transmission={0.4}
           thickness={0.8}
           transparent
-          opacity={0.88}
+          opacity={0.9}
           flatShading
         />
       </mesh>
 
       {/* Central Wireframe Accent */}
       <lineSegments geometry={coreWireframe}>
-        <lineBasicMaterial color="#334155" transparent opacity={0.35} />
+        <lineBasicMaterial color="#475569" transparent opacity={0.3} />
       </lineSegments>
 
       {/* 2. Inner Glowing Nucleus Core */}
       <mesh ref={innerCoreRef}>
         <dodecahedronGeometry args={[0.36, 0]} />
         <meshStandardMaterial
-          color="#84cc16"
-          emissive="#65a30d"
-          emissiveIntensity={0.85}
+          color="#F7DCE5"
+          emissive="#e89db1"
+          emissiveIntensity={0.8}
           roughness={0.2}
-          metalness={0.8}
+          metalness={0.5}
           flatShading
         />
       </mesh>
@@ -208,7 +207,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
       {/* 4. Connected 3D Vertex Nodes */}
       {nodePositions.map((pos, idx) => {
         const isHovered = hoveredNode === idx;
-        const isLime = idx % 2 === 0;
+        const isBlush = idx % 2 === 0;
         return (
           <group key={idx} position={[pos.x, pos.y, pos.z]}>
             <mesh
@@ -224,21 +223,21 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
             >
               <sphereGeometry args={[0.065, 16, 16]} />
               <meshStandardMaterial
-                color={isHovered ? '#a3e635' : isLime ? '#84cc16' : '#64748b'}
-                emissive={isHovered ? '#84cc16' : isLime ? '#65a30d' : '#1e293b'}
-                emissiveIntensity={isHovered ? 1.2 : isLime ? 0.6 : 0.2}
+                color={isHovered ? '#ffffff' : isBlush ? '#F7DCE5' : '#64748b'}
+                emissive={isHovered ? '#F7DCE5' : isBlush ? '#e89db1' : '#1e293b'}
+                emissiveIntensity={isHovered ? 1.2 : isBlush ? 0.6 : 0.2}
                 roughness={0.25}
-                metalness={0.7}
+                metalness={0.6}
               />
             </mesh>
             {/* Subtle halo ring around primary nodes */}
-            {isLime && (
+            {isBlush && (
               <mesh rotation={[Math.PI / 2, 0, 0]}>
                 <ringGeometry args={[0.09, 0.105, 16]} />
                 <meshBasicMaterial
-                  color="#84cc16"
+                  color="#F7DCE5"
                   transparent
-                  opacity={isHovered ? 0.8 : 0.35}
+                  opacity={isHovered ? 0.8 : 0.4}
                   side={THREE.DoubleSide}
                 />
               </mesh>
@@ -255,11 +254,11 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
         >
           <sphereGeometry args={[0.045, 12, 12]} />
           <meshStandardMaterial
-            color="#a3e635"
-            emissive="#84cc16"
-            emissiveIntensity={1.0}
-            roughness={0.1}
-            metalness={0.9}
+            color="#F7DCE5"
+            emissive="#e89db1"
+            emissiveIntensity={0.9}
+            roughness={0.15}
+            metalness={0.8}
           />
         </mesh>
       ))}
@@ -268,11 +267,11 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
       <group ref={ringsGroupRef}>
         <mesh rotation={[Math.PI / 3, 0.2, 0]}>
           <torusGeometry args={[2.0, 0.007, 16, 96]} />
-          <meshBasicMaterial color="#84cc16" transparent opacity={0.45} />
+          <meshBasicMaterial color="#F7DCE5" transparent opacity={0.5} />
         </mesh>
         <mesh rotation={[-Math.PI / 3.5, -0.3, 0]}>
           <torusGeometry args={[1.5, 0.005, 16, 80]} />
-          <meshBasicMaterial color="#94a3b8" transparent opacity={0.35} />
+          <meshBasicMaterial color="#cbd5e1" transparent opacity={0.35} />
         </mesh>
       </group>
     </group>
@@ -287,7 +286,6 @@ export default function GeometricCenterpiece3D({ className = '' }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Check WebGL availability
     const checkWebGL = () => {
       try {
         const canvas = document.createElement('canvas');
@@ -305,14 +303,12 @@ export default function GeometricCenterpiece3D({ className = '' }) {
       return;
     }
 
-    // Check prefers-reduced-motion
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(motionQuery.matches);
 
     const handleMotionChange = (e) => setPrefersReducedMotion(e.matches);
     motionQuery.addEventListener('change', handleMotionChange);
 
-    // Pause rendering when not visible in viewport to prevent GPU drain
     const container = mountRef.current;
     let observer;
     if (container && 'IntersectionObserver' in window) {
@@ -333,16 +329,15 @@ export default function GeometricCenterpiece3D({ className = '' }) {
     };
   }, []);
 
-  // WebGL Fallback: Clean Responsive SVG
   if (!hasWebGL) {
     return (
       <div className={`relative flex items-center justify-center ${className}`}>
         <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-slate-200/80 bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center">
           <svg viewBox="0 0 100 100" className="w-48 h-48 text-slate-700" fill="none" stroke="currentColor">
             <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" strokeWidth="1.2" strokeOpacity="0.5" />
-            <polygon points="50,25 75,40 75,65 50,80 25,65 25,40" strokeWidth="1" strokeOpacity="0.7" stroke="#65a30d" />
+            <polygon points="50,25 75,40 75,65 50,80 25,65 25,40" strokeWidth="1" strokeOpacity="0.7" stroke="#F7DCE5" />
             <circle cx="50" cy="50" r="10" fill="#f8fafc" stroke="#0f172a" strokeWidth="1.5" />
-            <circle cx="50" cy="50" r="4" fill="#84cc16" />
+            <circle cx="50" cy="50" r="4" fill="#F7DCE5" />
           </svg>
         </div>
       </div>
@@ -366,20 +361,17 @@ export default function GeometricCenterpiece3D({ className = '' }) {
         className="w-full h-full cursor-grab active:cursor-grabbing"
         onCreated={() => setIsLoaded(true)}
       >
-        {/* Soft, Studio Lighting */}
         <ambientLight intensity={1.3} />
         <directionalLight position={[4, 5, 4]} intensity={1.6} color="#ffffff" />
-        <directionalLight position={[-4, -3, -3]} intensity={1.0} color="#84cc16" />
-        <pointLight position={[0, 0, 0]} intensity={1.6} distance={5} color="#84cc16" />
+        <directionalLight position={[-4, -3, -3]} intensity={1.0} color="#F7DCE5" />
+        <pointLight position={[0, 0, 0]} intensity={1.6} distance={5} color="#F7DCE5" />
 
-        {/* 3D Scene */}
         <DimensionalScene prefersReducedMotion={prefersReducedMotion} isVisible={isVisible} />
       </Canvas>
 
-      {/* Loading overlay if canvas takes a moment */}
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/50 backdrop-blur-xs">
-          <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-lime-600 animate-spin" />
+          <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[#F7DCE5] animate-spin" />
         </div>
       )}
     </div>

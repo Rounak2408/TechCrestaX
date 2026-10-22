@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   MessageSquare, X, ChevronLeft, ChevronRight, CheckCircle2, 
-  ShieldCheck, Star, ArrowUpRight, Send, Lock, Phone, Mail, Award,
+  ShieldCheck, Star, Send, Lock, Phone, Mail,
   ChevronDown, Check
 } from 'lucide-react';
 import { reviewsData } from '../../data/reviewsData';
@@ -30,11 +30,11 @@ export default function TalkToExpertModal() {
 
   const servicesList = [
     'Website Development',
-    'Web Applications & SaaS',
-    'UI/UX & Design Systems',
+    'App Development',
+    'AI Automation',
+    'UI/UX Design',
+    'Cloud & DevOps',
     'Digital Growth & Technical SEO',
-    'Website Modernization & Redesign',
-    'Digital Platforms & E-Commerce',
   ];
 
   // Keyboard escape handler and body scroll lock
@@ -139,16 +139,16 @@ export default function TalkToExpertModal() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-[#0b1329] dark:bg-slate-900 hover:bg-slate-900 dark:hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-2xl shadow-slate-900/40 border border-slate-700/80 hover:border-slate-500 hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-[#0b1329] dark:bg-slate-900 hover:bg-slate-900 dark:hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-2xl shadow-slate-900/40 border border-slate-700/80 hover:border-[#F7DCE5]/80 hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
           aria-label="Talk to an expert"
         >
           {/* Active Status Pulse Dot */}
           <span className="relative flex h-2.5 w-2.5 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#84cc16] opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#84cc16]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F7DCE5] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F7DCE5]" />
           </span>
 
-          <MessageSquare className="w-4 h-4 text-white group-hover:rotate-6 transition-transform" />
+          <MessageSquare className="w-4 h-4 text-[#F7DCE5] group-hover:rotate-6 transition-transform" />
           <span className="tracking-tight">Talk to an expert</span>
         </button>
       </div>
@@ -177,34 +177,33 @@ export default function TalkToExpertModal() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* Mobile Top Trust Bar (Visible only on mobile screens < lg) */}
+            {/* Mobile Top Trust Bar */}
             <div className="lg:hidden bg-gradient-to-r from-[#0b1329] via-[#0f172a] to-[#111c38] text-white px-4 py-3 border-b border-slate-800 flex items-center justify-between pr-12">
               <div className="flex items-center gap-2">
-                <span className="flex h-2 w-2 rounded-full bg-[#84cc16] animate-pulse" />
+                <span className="flex h-2 w-2 rounded-full bg-[#F7DCE5] animate-pulse" />
                 <span className="text-[11px] font-mono font-medium text-slate-200">
-                  Engineering Studio
+                  TechCrestaX Studio
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#84cc16] bg-lime-950/60 border border-lime-800/40 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-mono text-[#F7DCE5] bg-[#F7DCE5]/20 border border-[#F7DCE5]/40 px-2 py-0.5 rounded-full">
                 Response &lt;12h
               </span>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-0 flex-1 overflow-y-auto">
               
-              {/* LEFT COLUMN: Dark Navy Editorial Testimonial Showcase (Visible on lg+) */}
+              {/* LEFT COLUMN: Dark Navy Verified Testimonial Showcase */}
               <div className="hidden lg:flex lg:col-span-5 bg-gradient-to-br from-[#0b1329] via-[#0f172a] to-[#111c38] text-white p-7 sm:p-9 flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
-                {/* Decorative subtle ambient light */}
-                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-lime-500/10 blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-[#F7DCE5]/10 blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-slate-700/20 blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-6">
                   <div>
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-[#84cc16] font-bold block mb-2">
-                      Engineering Partnerships
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-[#F7DCE5] font-bold block mb-2">
+                      Verified Client Feedback
                     </span>
                     <h2 className="text-2xl sm:text-[26px] font-bold font-display leading-snug tracking-tight text-white">
-                      Build AI-Powered, Secure, and Scalable Apps
+                      We Build Websites That Move Businesses Forward
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
                       You have a Vision, we are here to help you Achieve it!
@@ -213,7 +212,7 @@ export default function TalkToExpertModal() {
 
                   {/* Rotating Testimonial Card */}
                   <div className="bg-slate-900/90 text-slate-100 p-5 sm:p-6 rounded-2xl shadow-xl space-y-4 relative border border-slate-700/80">
-                    <div className="text-blue-400 font-serif text-3xl leading-none select-none">
+                    <div className="text-[#F7DCE5] font-serif text-3xl leading-none select-none">
                       “
                     </div>
 
@@ -260,21 +259,21 @@ export default function TalkToExpertModal() {
                   </div>
                 </div>
 
-                {/* Bottom Trust Brands Banner */}
+                {/* Bottom Projects List */}
                 <div className="pt-6 border-t border-slate-800/80 relative z-10 mt-6 lg:mt-0">
                   <div className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-2.5 font-bold">
-                    Trusted by Global Brands and Industry Leaders
+                    Featured Work & Case Studies
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono font-semibold text-slate-400">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono font-semibold text-slate-300">
+                    <span className="hover:text-white transition-colors">TransitOps</span>
+                    <span>•</span>
                     <span className="hover:text-white transition-colors">UrbanFit</span>
                     <span>•</span>
+                    <span className="hover:text-white transition-colors">Crave Restaurant</span>
+                    <span>•</span>
+                    <span className="hover:text-white transition-colors">AaoGhume</span>
+                    <span>•</span>
                     <span className="hover:text-white transition-colors">Finora</span>
-                    <span>•</span>
-                    <span className="hover:text-white transition-colors">Crave</span>
-                    <span>•</span>
-                    <span className="hover:text-white transition-colors">Nexora</span>
-                    <span>•</span>
-                    <span className="hover:text-white transition-colors">Vanguard</span>
                   </div>
                 </div>
               </div>
@@ -288,7 +287,7 @@ export default function TalkToExpertModal() {
                         Start Your Project Discussion
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
-                        Response guaranteed within <span className="font-semibold text-slate-800 dark:text-slate-200">12 hours</span>.
+                        Guaranteed technical response within <span className="font-semibold text-slate-800 dark:text-slate-200">12 hours</span>.
                       </p>
                     </div>
 
@@ -365,7 +364,6 @@ export default function TalkToExpertModal() {
 
                     {/* Service & Company */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                      {/* Responsive Custom Dropdown (Fixes horizontal overflow bug) */}
                       <div className="relative min-w-0" ref={dropdownRef}>
                         <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
                           Project Category
@@ -383,7 +381,6 @@ export default function TalkToExpertModal() {
                           <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 shrink-0 ${isCategoryOpen ? 'rotate-180' : ''}`} />
                         </button>
 
-                        {/* Dropdown Options Popup (Guaranteed within bounds) */}
                         {isCategoryOpen && (
                           <div
                             role="listbox"
@@ -403,13 +400,13 @@ export default function TalkToExpertModal() {
                                   }}
                                   className={`w-full px-3.5 py-2 text-left text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
                                     isSelected
-                                      ? 'bg-lime-50 dark:bg-lime-950/40 text-slate-900 dark:text-lime-200 font-semibold'
+                                      ? 'bg-[#F7DCE5] text-[#96405d] dark:bg-[#F7DCE5]/20 dark:text-[#f7dce5] font-semibold'
                                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/60'
                                   }`}
                                 >
                                   <span className="truncate pr-2">{serviceName}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#65a30d] dark:text-[#84cc16] shrink-0" />
+                                    <Check className="w-3.5 h-3.5 text-[#96405d] dark:text-[#f7dce5] shrink-0" />
                                   )}
                                 </button>
                               );
@@ -442,7 +439,7 @@ export default function TalkToExpertModal() {
                         rows={3}
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        placeholder="Briefly describe what you're looking to design, engineer, or scale..."
+                        placeholder="Briefly describe what you're looking to design, engineer, or automate..."
                         className={`w-full px-3.5 py-2 text-xs sm:text-sm rounded-xl border bg-white dark:bg-slate-800 text-slate-900 dark:text-white ${
                           errors.message ? 'border-rose-400 ring-1 ring-rose-300' : 'border-slate-200 dark:border-slate-700'
                         } focus:outline-none focus:ring-2 focus:ring-slate-900 dark:focus:ring-white resize-none`}
@@ -453,51 +450,51 @@ export default function TalkToExpertModal() {
                     {/* Submit CTA Button */}
                     <button
                       type="submit"
-                      className="w-full py-3 sm:py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
+                      className="w-full py-3 sm:py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer border border-[#F7DCE5]/40"
                     >
-                      <Send className="w-4 h-4" />
-                      <span>Get a Free Consultation</span>
+                      <Send className="w-4 h-4 text-[#F7DCE5]" />
+                      <span>Request Free Consultation</span>
                     </button>
 
                     {/* NDA Checkbox */}
                     <div className="flex items-center gap-2 pt-0.5 text-[11px] sm:text-xs text-slate-600 dark:text-slate-400">
                       <Lock className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                      <span>Your idea is 100% protected by our Non-Disclosure Agreement.</span>
+                      <span>Your idea is protected with strict confidentiality &amp; 100% IP ownership.</span>
                     </div>
 
-                    {/* Trust Badges Footer matching reference */}
+                    {/* Confirmed Official Badges */}
                     <div className="pt-3 border-t border-slate-100 dark:border-slate-800 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] text-slate-600 dark:text-slate-400">
                       <div className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <span className="font-bold text-slate-800 dark:text-slate-200 block">ISO 9001</span>
-                        <span>Certified</span>
+                        <span className="font-bold text-slate-900 dark:text-white block">25+ Projects</span>
+                        <span>Delivered</span>
                       </div>
                       <div className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <span className="font-bold text-slate-800 dark:text-slate-200 block">ISO 27001</span>
-                        <span>Security Ready</span>
+                        <span className="font-bold text-slate-900 dark:text-white block">98% Rating</span>
+                        <span>Satisfaction</span>
                       </div>
                       <div className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <span className="font-bold text-slate-800 dark:text-slate-200 block">Clutch 4.9</span>
-                        <span className="text-amber-500">★★★★★</span>
+                        <span className="font-bold text-slate-900 dark:text-white block">100% IP</span>
+                        <span>Client Ownership</span>
                       </div>
                       <div className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                        <span className="font-bold text-slate-800 dark:text-slate-200 block">DesignRush</span>
-                        <span className="text-amber-500">4.9 ★★★★★</span>
+                        <span className="font-bold text-slate-900 dark:text-white block">24/7 Desk</span>
+                        <span>Post-Launch</span>
                       </div>
                     </div>
                   </form>
                 ) : (
                   /* Form Submission Confirmation View */
                   <div className="space-y-6 text-center my-auto py-6">
-                    <div className="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
+                    <div className="w-14 h-14 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
 
                     <div>
                       <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                        Discussion Request Prepared!
+                        Discussion Request Formulated!
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-md mx-auto">
-                        Thank you, {formData.firstName}. We have formulated your project brief. Choose how you would like to connect immediately:
+                        Thank you, {formData.firstName}. We have prepared your project summary. Connect directly with our engineering team:
                       </p>
                     </div>
 

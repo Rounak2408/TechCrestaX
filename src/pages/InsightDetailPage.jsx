@@ -20,8 +20,8 @@ export default function InsightDetailPage() {
   if (!article) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4 text-slate-900">Article Not Found</h1>
-        <p className="text-slate-600 mb-8">The requested publication could not be found.</p>
+        <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Article Not Found</h1>
+        <p className="text-slate-600 dark:text-slate-400 mb-8">The requested publication could not be found.</p>
         <Button to="/insights" variant="primary">
           Back to Insights
         </Button>
@@ -44,7 +44,7 @@ export default function InsightDetailPage() {
         {/* Article Header */}
         <header className="mb-10 space-y-4">
           <div className="flex flex-wrap items-center gap-2.5">
-            <Badge variant="lime" size="sm">
+            <Badge variant="blush" size="sm">
               {article.category}
             </Badge>
             <span className="text-xs font-mono text-slate-500 flex items-center gap-1.5">
@@ -60,13 +60,13 @@ export default function InsightDetailPage() {
             {article.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed border-l-2 border-[#4d7c0f] dark:border-[#84cc16] pl-4 italic">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed border-l-2 border-[#F7DCE5] pl-4 italic">
             {article.summary}
           </p>
 
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-[#4d7c0f] dark:text-[#84cc16]" />
+              <User className="w-4 h-4 text-[#96405d] dark:text-[#f7dce5]" />
               <span className="font-semibold text-slate-800 dark:text-slate-200">{article.author}</span>
             </div>
 
@@ -103,7 +103,7 @@ export default function InsightDetailPage() {
               Published by {article.author}
             </h4>
             <p className="text-xs text-slate-500 dark:text-slate-400">
-              Demonstration publication highlighting modern web engineering best practices.
+              Technical publication highlighting modern web engineering best practices.
             </p>
           </div>
 
@@ -122,13 +122,13 @@ export default function InsightDetailPage() {
               {otherArticles.slice(0, 2).map((other) => (
                 <div
                   key={other.id}
-                  className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl p-6 transition-all shadow-xs"
+                  className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#F7DCE5] dark:hover:border-[#F7DCE5]/40 rounded-2xl p-6 transition-all shadow-xs"
                 >
-                  <span className="text-[11px] font-mono text-[#4d7c0f] dark:text-[#84cc16] font-semibold uppercase block mb-1.5">
+                  <span className="text-[11px] font-mono text-[#96405d] dark:text-[#f7dce5] font-semibold uppercase block mb-1.5">
                     {other.category}
                   </span>
                   <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                    <Link to={`/insights/${other.slug}`} className="hover:text-[#4d7c0f] dark:hover:text-[#84cc16]">
+                    <Link to={`/insights/${other.slug}`} className="hover:text-[#96405d] dark:hover:text-[#f7dce5]">
                       {other.title}
                     </Link>
                   </h4>
@@ -137,7 +137,7 @@ export default function InsightDetailPage() {
                   </p>
                   <Link
                     to={`/insights/${other.slug}`}
-                    className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#4d7c0f] dark:hover:text-[#84cc16] inline-flex items-center gap-1"
+                    className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#f7dce5] inline-flex items-center gap-1"
                   >
                     <span>Read Article</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

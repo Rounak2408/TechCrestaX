@@ -1,44 +1,56 @@
 export const faqsData = [
   {
     id: 1,
-    question: "How long does a standard business website development take?",
-    answer: "A standard custom business website with 5 to 8 bespoke pages usually takes between 1 to 3 weeks depending on the number of features, custom integrations, and revision turnaround. We work in dedicated agile sprints with continuous progress visibility.",
-    category: "Delivery & Timelines"
+    question: "How long does a website project take?",
+    answer: "A standard business website usually takes 1 to 3 weeks depending on the number of pages, features, and revision rounds. We work in dedicated agile milestone sprints with continuous preview links.",
+    category: "Delivery & Timelines",
   },
   {
     id: 2,
-    question: "Will our website be 100% mobile responsive across all devices?",
-    answer: "Yes, absolutely. Every website and web application engineered by TechCrestaX is designed mobile-first and tested rigorously across smartphones (320px, 360px, 390px, 428px), tablets, laptops, and ultra-wide desktop monitors.",
-    category: "Technical Standards"
+    question: "Do you provide frontend and backend development?",
+    answer: "Yes. We handle complete product development including UI, frontend, backend, database, APIs, and cloud deployment.",
+    category: "Technical Capabilities",
   },
   {
     id: 3,
-    question: "Can you redesign or modernize our existing website?",
-    answer: "Yes. We frequently revitalize outdated websites to modernize their visual design, optimize loading speed, fix mobile responsiveness bugs, and rebuild conversion funnels while carefully preserving existing Google search rankings through proper 301 redirection mapping.",
-    category: "Services"
+    question: "Will the website be mobile responsive?",
+    answer: "Yes. Every website is designed and tested for desktop, tablet, and mobile devices (320px to 4K displays) with zero unexpected layout shifts.",
+    category: "Quality Standards",
   },
   {
     id: 4,
-    question: "What modern technologies does TechCrestaX use?",
-    answer: "We specialize in modern frontend and full-stack technologies including React, Vite, Next.js, Tailwind CSS, TypeScript, Node.js, and headless CMS integrations. We avoid bloated generic templates and obsolete frameworks in favor of clean, maintainable code.",
-    category: "Technical Standards"
+    question: "Can you redesign an existing website?",
+    answer: "Yes. We can improve the design, speed, responsiveness, structure, and conversion flow of an existing website while safely preserving your existing Google search rankings through proper 301 redirection mapping.",
+    category: "Services",
   },
   {
     id: 5,
-    question: "Do we own the full source code and digital assets after delivery?",
-    answer: "Yes, 100%. Upon final delivery and project completion, all intellectual property, source code repositories, design files, and deployment accounts belong entirely to you with zero recurring agency lock-in fees.",
-    category: "Ownership & Terms"
+    question: "Do you provide support after launch?",
+    answer: "Yes. We provide post-launch support, bug fixes, and optional monthly maintenance plans to ensure your platform runs securely and at peak performance.",
+    category: "Support & Warranty",
   },
   {
     id: 6,
-    question: "How do we communicate and track progress during the project?",
-    answer: "We provide direct access to our technical leads through Slack, WhatsApp, or scheduled video check-ins. You receive staging preview links at each major milestone so you can test real-time progress before launch.",
-    category: "Process & Communication"
+    question: "What modern technologies does TechCrestaX use?",
+    answer: "We specialize in modern frontend and full-stack technologies including React, Next.js, Vite, Tailwind CSS, TypeScript, Node.js, and headless CMS integrations. We avoid bloated generic templates in favor of clean, maintainable code.",
+    category: "Technical Capabilities",
   },
   {
     id: 7,
-    question: "Do you provide post-launch support and ongoing maintenance?",
-    answer: "Yes. Every project includes a standard post-launch warranty period covering any bug fixes. We also offer ongoing monthly maintenance and feature expansion partnerships for growing businesses.",
-    category: "Support"
-  }
+    question: "Do we own the full source code and digital assets after delivery?",
+    answer: "Yes, 100%. Upon project completion, all intellectual property, source code repositories, design files, and deployment accounts belong entirely to you with zero recurring agency lock-in fees.",
+    category: "Ownership & Terms",
+  },
+  {
+    id: 8,
+    question: "How do we communicate and track progress during the project?",
+    answer: "We provide direct, transparent communication via WhatsApp, email, or scheduled video check-ins. You receive staging preview links at each major milestone so you can test real-time progress before launch.",
+    category: "Process & Communication",
+  },
+  {
+    id: 9,
+    question: "What are your payment terms and pricing structure?",
+    answer: "We offer transparent milestone-based pricing with no hidden charges. Engagements typically begin with a deposit upon scope agreement, followed by milestone approvals upon design and final release handoff.",
+    category: "Ownership & Terms",
+  },
 ];

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Check, AlertCircle, Layout, Cpu, Palette, TrendingUp, RefreshCw, ShoppingBag, Clock, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Check, AlertCircle, Layout, Cpu, Palette, TrendingUp, RefreshCw, ShoppingBag, Bot, Cloud } from 'lucide-react';
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
-import SectionHeading from '../components/ui/SectionHeading';
 import FAQSection from '../components/sections/FAQSection';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import InteractiveServiceVisual from '../components/visuals/InteractiveServiceVisual';
@@ -18,6 +17,8 @@ const iconMap = {
   TrendingUp,
   RefreshCw,
   ShoppingBag,
+  Bot,
+  Cloud,
 };
 
 export default function ServiceDetailPage() {
@@ -33,8 +34,8 @@ export default function ServiceDetailPage() {
   if (!service) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-3xl font-bold mb-4 text-slate-900">Service Not Found</h1>
-        <p className="text-slate-600 mb-8">The requested service specification does not exist.</p>
+        <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Service Not Found</h1>
+        <p className="text-slate-600 dark:text-slate-400 mb-8">The requested service specification does not exist.</p>
         <Button to="/services" variant="primary">
           Return to All Services
         </Button>
@@ -62,10 +63,10 @@ export default function ServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[#4d7c0f] dark:text-[#84cc16]">
+                <div className="w-10 h-10 rounded-xl bg-[#F7DCE5]/50 dark:bg-[#F7DCE5]/20 border border-[#F7DCE5] flex items-center justify-center text-[#96405d] dark:text-[#f7dce5]">
                   <Icon className="w-5 h-5" />
                 </div>
-                <Badge variant="lime" size="md">
+                <Badge variant="blush" size="md">
                   {service.badge}
                 </Badge>
               </div>
@@ -74,7 +75,7 @@ export default function ServiceDetailPage() {
                 {service.title}
               </h1>
 
-              <p className="text-base sm:text-lg text-[#4d7c0f] dark:text-[#84cc16] font-semibold">
+              <p className="text-base sm:text-lg text-[#96405d] dark:text-[#f7dce5] font-semibold">
                 {service.tagline}
               </p>
 
@@ -92,7 +93,7 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* 3D Visual on Service Detail */}
+            {/* Visual on Service Detail */}
             <div className="lg:col-span-5 flex items-center justify-center">
               <div className="w-full max-w-sm">
                 <InteractiveServiceVisual slug={service.slug} />
@@ -127,7 +128,7 @@ export default function ServiceDetailPage() {
           {/* Key Capabilities */}
           <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-7 shadow-xs">
             <div className="flex items-center gap-2 mb-5">
-              <div className="w-7 h-7 rounded-lg bg-lime-50 dark:bg-lime-950/60 flex items-center justify-center text-lime-800 dark:text-lime-300">
+              <div className="w-7 h-7 rounded-lg bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/20 flex items-center justify-center text-[#96405d] dark:text-[#f7dce5]">
                 <Check className="w-4 h-4" />
               </div>
               <h2 className="text-xl font-bold font-display text-slate-900 dark:text-white">
@@ -138,7 +139,7 @@ export default function ServiceDetailPage() {
             <ul className="space-y-3.5">
               {service.keyCapabilities.map((cap, idx) => (
                 <li key={idx} className="flex items-start gap-2.5 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-                  <Check className="w-4 h-4 text-[#4d7c0f] dark:text-[#84cc16] shrink-0 mt-0.5" />
+                  <Check className="w-4 h-4 text-[#96405d] dark:text-[#f7dce5] shrink-0 mt-0.5" />
                   <span className="font-semibold text-slate-900 dark:text-white">{cap}</span>
                 </li>
               ))}
@@ -157,7 +158,7 @@ export default function ServiceDetailPage() {
                 Verified Technologies
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 mt-1.5">
-                We select robust, battle-tested modern tools built for maintainability and speed.
+                We select robust, battle-tested modern tools built for maintainability, speed, and business growth.
               </p>
             </div>
             <div className="lg:col-span-8 flex flex-wrap gap-2">
@@ -180,7 +181,7 @@ export default function ServiceDetailPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {service.workflow.map((wf) => (
                 <div key={wf.step} className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700 rounded-xl p-5">
-                  <span className="text-xl font-mono font-bold text-[#4d7c0f] dark:text-[#84cc16] block mb-2">
+                  <span className="text-xl font-mono font-bold text-[#96405d] dark:text-[#f7dce5] block mb-2">
                     {wf.step}
                   </span>
                   <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-1">
@@ -199,7 +200,7 @@ export default function ServiceDetailPage() {
         {relatedProjects.length > 0 && (
           <div className="mb-16">
             <div className="mb-6">
-              <Badge variant="lime" size="sm" className="mb-2">
+              <Badge variant="blush" size="sm" className="mb-2">
                 Proof in Production
               </Badge>
               <h3 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
@@ -214,11 +215,11 @@ export default function ServiceDetailPage() {
                   className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl p-6 sm:p-7 transition-all shadow-xs flex flex-col justify-between"
                 >
                   <div>
-                    <span className="text-xs font-mono text-[#4d7c0f] dark:text-[#84cc16] font-semibold uppercase tracking-wider block mb-2">
+                    <span className="text-xs font-mono text-[#96405d] dark:text-[#f7dce5] font-semibold uppercase tracking-wider block mb-2">
                       {proj.category}
                     </span>
                     <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                      <Link to={`/work/${proj.slug}`} className="hover:text-[#4d7c0f] dark:hover:text-[#84cc16]">
+                      <Link to={`/work/${proj.slug}`} className="hover:text-[#96405d] dark:hover:text-[#f7dce5]">
                         {proj.title}
                       </Link>
                     </h4>
@@ -230,7 +231,7 @@ export default function ServiceDetailPage() {
                   <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                     <Link
                       to={`/work/${proj.slug}`}
-                      className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#4d7c0f] dark:hover:text-[#84cc16] inline-flex items-center gap-1.5"
+                      className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#f7dce5] inline-flex items-center gap-1.5"
                     >
                       <span>Read Case Study</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />

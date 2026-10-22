@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { CheckCircle2, Clock, ShieldCheck, ArrowRight, Layers, FileCheck, Sparkles } from 'lucide-react';
+import { CheckCircle2, Clock, ArrowRight, FileCheck } from 'lucide-react';
 
 export default function IsometricWorkflow3D({ steps = [] }) {
   const [activeStep, setActiveStep] = useState(0);
@@ -60,7 +60,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                 onKeyDown={(e) => handleKeyDown(e, idx)}
                 className={`group text-left p-6 rounded-2xl transition-all duration-200 border cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-white ${
                   isSelected
-                    ? 'bg-white dark:bg-slate-900 border-slate-900 dark:border-white shadow-xl shadow-slate-200/70 dark:shadow-none scale-[1.02] ring-2 ring-slate-900/10 dark:ring-white/10'
+                    ? 'bg-white dark:bg-slate-900 border-slate-900 dark:border-white shadow-xl shadow-slate-200/70 dark:shadow-none scale-[1.02] ring-2 ring-[#F7DCE5]'
                     : 'bg-white/80 dark:bg-slate-900/80 hover:bg-white dark:hover:bg-slate-900 border-slate-200 dark:border-slate-800 shadow-xs hover:border-slate-300 dark:hover:border-slate-700'
                 }`}
               >
@@ -79,7 +79,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                   <span
                     className={`text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full transition-colors ${
                       isSelected
-                        ? 'bg-lime-100 dark:bg-lime-950/80 text-lime-900 dark:text-lime-300 border border-lime-200 dark:border-lime-900'
+                        ? 'bg-[#F7DCE5] text-[#96405d] dark:bg-[#F7DCE5]/20 dark:text-[#f7dce5] border border-[#F7DCE5]'
                         : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                     }`}
                   >
@@ -87,7 +87,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5 group-hover:text-[#4d7c0f] dark:group-hover:text-[#84cc16] transition-colors">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1.5 group-hover:text-[#96405d] dark:group-hover:text-[#f7dce5] transition-colors">
                   {step.title}
                 </h3>
 
@@ -104,7 +104,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                     Stage Deliverable
                   </span>
                   <span className="text-xs font-semibold text-slate-800 dark:text-slate-200 line-clamp-1 flex items-center gap-1.5">
-                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-[#84cc16]' : 'bg-slate-300 dark:bg-slate-600'}`} />
+                    <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-[#96405d] dark:bg-[#f7dce5]' : 'bg-slate-300 dark:bg-slate-600'}`} />
                     {step.deliverable}
                   </span>
                 </div>
@@ -129,7 +129,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Stage Overview */}
             <div className="lg:col-span-7 space-y-5">
-              <div className="flex items-center gap-2 text-xs font-mono text-[#84cc16]">
+              <div className="flex items-center gap-2 text-xs font-mono text-[#F7DCE5]">
                 <Clock className="w-4 h-4" />
                 <span>STAGE {currentStep.step} / 04 ACTIVE SPRINT DEEP DIVE</span>
               </div>
@@ -161,7 +161,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                         key={i}
                         className="flex items-start gap-2 bg-white/5 border border-white/10 rounded-xl p-3 text-xs text-slate-200"
                       >
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#84cc16] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-[#F7DCE5] shrink-0 mt-0.5" />
                         <span className="leading-snug">{activity}</span>
                       </div>
                     ))}
@@ -177,7 +177,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                   Guaranteed Milestone Output
                 </span>
                 <div className="text-base font-bold text-white flex items-center gap-2">
-                  <FileCheck className="w-5 h-5 text-[#84cc16] shrink-0" />
+                  <FileCheck className="w-5 h-5 text-[#F7DCE5] shrink-0" />
                   <span>{currentStep.deliverable}</span>
                 </div>
               </div>
@@ -189,7 +189,7 @@ export default function IsometricWorkflow3D({ steps = [] }) {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 font-mono">Client Review Gate:</span>
-                  <span className="font-semibold text-[#84cc16]">Interactive Sign-Off</span>
+                  <span className="font-semibold text-[#F7DCE5]">Interactive Sign-Off</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-400 font-mono">Next Milestone:</span>

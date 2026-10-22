@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Copy, Check, Send, AlertCircle, ArrowRight, ArrowLeft, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Mail, MessageSquare, Copy, Check, Send, AlertCircle, ArrowRight, ArrowLeft, ShieldCheck, CheckCircle2, Clock, Calendar, HelpCircle } from 'lucide-react';
 import Button from '../ui/Button';
 import { companyData } from '../../data/companyData';
 
@@ -12,8 +12,8 @@ export default function ProjectEnquiryForm() {
     phone: '',
     serviceInterest: ['Website Development'],
     message: '',
-    budgetRange: '$2,000 – $5,000',
-    timeline: 'Standard (2–4 weeks)',
+    budgetRange: 'Standard Business Website ($1,200 – $2,500)',
+    timeline: 'Standard Agile (1–3 Weeks)',
   });
 
   const [errors, setErrors] = useState({});
@@ -22,26 +22,26 @@ export default function ProjectEnquiryForm() {
 
   const availableServices = [
     'Website Development',
-    'Web Applications & SaaS',
-    'UI/UX Design & Systems',
-    'Digital Growth & SEO',
-    'Website Redesign',
+    'App Development',
+    'AI Automation',
+    'UI/UX Design',
     'Cloud & DevOps',
+    'Digital Growth & Technical SEO',
   ];
 
   const budgetOptions = [
-    'Under $2,000',
-    '$2,000 – $5,000',
-    '$5,000 – $10,000',
-    '$10,000+',
-    'Flexible / Milestone-based',
+    'Starter / Landing Page ($500 – $1,200)',
+    'Standard Business Website ($1,200 – $2,500)',
+    'Custom Web App / SaaS ($2,500 – $6,000)',
+    'AI & Workflow Automation ($1,500 – $4,000)',
+    'Flexible / Milestone-Based',
   ];
 
   const timelineOptions = [
-    'Urgent (1–2 weeks)',
-    'Standard (2–4 weeks)',
-    'Comprehensive (1–2 months)',
-    'Flexible / Phased Roadmap',
+    'Standard Agile (1–3 Weeks)',
+    'Fast-Track Priority (1–2 Weeks)',
+    'Comprehensive Phased Roadmap (1–2 Months)',
+    'Flexible / Long-Term Retainer',
   ];
 
   const toggleService = (service) => {
@@ -71,7 +71,7 @@ export default function ProjectEnquiryForm() {
       stepErrors.name = 'Please provide your full name.';
     }
     if (!formData.email.trim()) {
-      stepErrors.email = 'Please provide your email address.';
+      stepErrors.email = 'Please provide your business email address.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       stepErrors.email = 'Please provide a valid email format (e.g. name@company.com).';
     }
@@ -85,7 +85,7 @@ export default function ProjectEnquiryForm() {
       stepErrors.serviceInterest = 'Please select at least one service category.';
     }
     if (!formData.message.trim()) {
-      stepErrors.message = 'Please provide a brief description of your project.';
+      stepErrors.message = 'Please provide a brief description of your project or goals.';
     } else if (formData.message.trim().length < 15) {
       stepErrors.message = `Project description is too short (${formData.message.trim().length}/15 characters minimum).`;
     }
@@ -118,31 +118,33 @@ export default function ProjectEnquiryForm() {
   const getFormattedPayload = () => {
     return `PROJECT ENQUIRY FOR TECHCRESTAX
 ====================================
-Client Name:    ${formData.name}
-Email Address:  ${formData.email}
-Company/Brand:  ${formData.company || 'Direct Engagement / Stealth'}
+CLIENT DETAILS:
+Name:           ${formData.name}
+Email:          ${formData.email}
+Company/Brand:  ${formData.company || 'Direct Engagement'}
 Phone / WA:     ${formData.phone || 'Not Provided'}
 
-PROJECT SPECIFICATIONS:
+PROJECT SCOPE:
 Services:       ${formData.serviceInterest.join(', ')}
 Budget Range:   ${formData.budgetRange}
-Desired Timing: ${formData.timeline}
+Timeline:       ${formData.timeline}
 
 PROJECT OVERVIEW:
 ${formData.message}
 ====================================
-Submitted via TechCrestaX Interactive Project Hub`;
+Official Contact: hello@techcrestax.com | WhatsApp: +91 83404 26550
+Rajkot, Gujarat, India`;
   };
 
   const handleMailtoDispatch = () => {
-    const subject = encodeURIComponent(`Project Brief: ${formData.name} — ${formData.serviceInterest[0] || 'Digital Project'}`);
+    const subject = encodeURIComponent(`Project Enquiry: ${formData.name} — ${formData.serviceInterest[0] || 'Web Project'}`);
     const body = encodeURIComponent(getFormattedPayload());
     window.location.href = `mailto:${companyData.contact.primaryEmail}?subject=${subject}&body=${body}`;
   };
 
   const handleWhatsAppDispatch = () => {
     const text = encodeURIComponent(
-      `Hello TechCrestaX team! I am submitting an inquiry for a project:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company || 'N/A'}\n*Services:* ${formData.serviceInterest.join(', ')}\n*Budget:* ${formData.budgetRange}\n*Timeline:* ${formData.timeline}\n\n*Brief:* ${formData.message}`
+      `Hello TechCrestaX! I am submitting an inquiry for a project:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company || 'N/A'}\n*Services:* ${formData.serviceInterest.join(', ')}\n*Budget:* ${formData.budgetRange}\n*Timeline:* ${formData.timeline}\n\n*Brief:* ${formData.message}`
     );
     window.open(`https://wa.me/918340426550?text=${text}`, '_blank', 'noopener,noreferrer');
   };
@@ -154,18 +156,18 @@ Submitted via TechCrestaX Interactive Project Hub`;
   };
 
   return (
-    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-lg shadow-slate-200/50 dark:shadow-none relative overflow-hidden transition-colors">
+    <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-10 shadow-lg shadow-slate-200/40 dark:shadow-none relative overflow-hidden transition-colors">
       {/* Step Progress Header */}
       {!isReadyToDispatch && (
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#4d7c0f] dark:text-[#84cc16]">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#96405d] dark:text-[#F7DCE5]">
               Step {currentStep} of 3
             </span>
             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-              {currentStep === 1 && 'Contact Details'}
-              {currentStep === 2 && 'Project Scope & Requirements'}
-              {currentStep === 3 && 'Investment & Final Review'}
+              {currentStep === 1 && '1. Contact Details'}
+              {currentStep === 2 && '2. Project Scope & Deliverables'}
+              {currentStep === 3 && '3. Pricing Clarity & Next Steps'}
             </span>
           </div>
 
@@ -173,27 +175,27 @@ Submitted via TechCrestaX Interactive Project Hub`;
           <div className="grid grid-cols-3 gap-2" role="progressbar" aria-valuenow={currentStep} aria-valuemin={1} aria-valuemax={3}>
             <div
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentStep >= 1 ? 'bg-slate-900 dark:bg-white' : 'bg-slate-100 dark:bg-slate-800'
+                currentStep >= 1 ? 'bg-[#eccbd6] dark:bg-[#F7DCE5]' : 'bg-slate-100 dark:bg-slate-800'
               }`}
             />
             <div
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentStep >= 2 ? 'bg-slate-900 dark:bg-white' : 'bg-slate-100 dark:bg-slate-800'
+                currentStep >= 2 ? 'bg-[#eccbd6] dark:bg-[#F7DCE5]' : 'bg-slate-100 dark:bg-slate-800'
               }`}
             />
             <div
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentStep >= 3 ? 'bg-[#84cc16]' : 'bg-slate-100 dark:bg-slate-800'
+                currentStep >= 3 ? 'bg-slate-900 dark:bg-white' : 'bg-slate-100 dark:bg-slate-800'
               }`}
             />
           </div>
 
-          {/* Step Pill Buttons for Easy Backtrack */}
+          {/* Step Pill Buttons for Easy Navigation */}
           <div className="flex items-center justify-between mt-3 text-xs font-medium text-slate-500 dark:text-slate-400">
             <button
               type="button"
               onClick={() => setCurrentStep(1)}
-              className={`hover:text-slate-900 dark:hover:text-white transition-colors ${
+              className={`hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer ${
                 currentStep === 1 ? 'font-bold text-slate-900 dark:text-white' : ''
               }`}
             >
@@ -202,7 +204,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
             <button
               type="button"
               onClick={() => validateStep1() && setCurrentStep(2)}
-              className={`hover:text-slate-900 dark:hover:text-white transition-colors ${
+              className={`hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer ${
                 currentStep === 2 ? 'font-bold text-slate-900 dark:text-white' : ''
               }`}
             >
@@ -211,11 +213,11 @@ Submitted via TechCrestaX Interactive Project Hub`;
             <button
               type="button"
               onClick={() => validateStep1() && validateStep2() && setCurrentStep(3)}
-              className={`hover:text-slate-900 dark:hover:text-white transition-colors ${
+              className={`hover:text-slate-900 dark:hover:text-white transition-colors cursor-pointer ${
                 currentStep === 3 ? 'font-bold text-slate-900 dark:text-white' : ''
               }`}
             >
-              3. Review
+              3. Pricing & Review
             </button>
           </div>
         </div>
@@ -231,7 +233,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
                   Let's start with your contact details
                 </h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  We'll use this to send your project scope review, technical architecture suggestions, and direct communication.
+                  We'll use this to send your technical roadmap, preliminary scope review, and milestone timeline.
                 </p>
               </div>
 
@@ -252,7 +254,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? 'name-error' : undefined}
                     className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors ${
-                      errors.name ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white'
+                      errors.name ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
                     }`}
                   />
                   {errors.name && (
@@ -275,11 +277,11 @@ Submitted via TechCrestaX Interactive Project Hub`;
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: null });
                     }}
-                    placeholder="sarah@yourbrand.com"
+                    placeholder="sarah@yourcompany.com"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors ${
-                      errors.email ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white'
+                      errors.email ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
                     }`}
                   />
                   {errors.email && (
@@ -299,8 +301,8 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    placeholder="e.g. Finora SaaS or Studio Vance"
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-slate-900 dark:focus:border-white transition-colors"
+                    placeholder="e.g. Nexora Studio or Stealth Startup"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
                   />
                 </div>
 
@@ -313,16 +315,16 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="+1 (555) 000-0000 or +91..."
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-slate-900 dark:focus:border-white transition-colors"
+                    placeholder="+91 ... or international"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
                   />
                 </div>
               </div>
 
               <div className="pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                  <ShieldCheck className="w-4 h-4 text-[#4d7c0f] shrink-0" />
-                  <span>Strict NDA and data confidentiality observed</span>
+                  <ShieldCheck className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
+                  <span>Confidentiality guaranteed. No spam, ever.</span>
                 </div>
                 <Button type="button" onClick={handleNext} variant="primary" showArrow>
                   Continue to Project Scope
@@ -336,17 +338,17 @@ Submitted via TechCrestaX Interactive Project Hub`;
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                  Define your project scope & requirements
+                  Define your project scope & deliverables
                 </h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  Choose the services you require and summarize what you want to achieve.
+                  Select the services you need and tell us what you would like to build.
                 </p>
               </div>
 
               {/* Service Selection Pills */}
               <div>
                 <label className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2.5 font-semibold">
-                  Required Services <span className="text-rose-500">*</span>
+                  Required Capabilities <span className="text-rose-500">*</span>
                 </label>
                 <div className="flex flex-wrap gap-2">
                   {availableServices.map((service) => {
@@ -356,13 +358,13 @@ Submitted via TechCrestaX Interactive Project Hub`;
                         key={service}
                         type="button"
                         onClick={() => toggleService(service)}
-                        className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 border ${
+                        className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 border cursor-pointer ${
                           isSelected
                             ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
-                            : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                            : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-[#eccbd6]'
                         }`}
                       >
-                        {isSelected && <span className="mr-1.5 font-bold">✓</span>}
+                        {isSelected && <span className="mr-1.5 font-bold text-[#F7DCE5] dark:text-slate-900">✓</span>}
                         {service}
                       </button>
                     );
@@ -380,7 +382,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
               <div>
                 <div className="flex items-center justify-between mb-1.5">
                   <label htmlFor="message" className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 font-semibold">
-                    Project Overview & Goals <span className="text-rose-500">*</span>
+                    Project Goals & Requirements <span className="text-rose-500">*</span>
                   </label>
                   <span className="text-[11px] font-mono text-slate-400">
                     {formData.message.trim().length} chars (min 15)
@@ -394,11 +396,11 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     setFormData({ ...formData, message: e.target.value });
                     if (errors.message) setErrors({ ...errors, message: null });
                   }}
-                  placeholder="Tell us about the product or website you need built, your core goals, key integrations, or any reference websites you admire..."
+                  placeholder="Describe your current business, target audience, key pages or features, integrations needed (e.g. WhatsApp, booking, Stripe), or reference sites you admire..."
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl p-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors leading-relaxed ${
-                    errors.message ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-slate-900 dark:focus:border-white'
+                    errors.message ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
                   }`}
                 />
                 {errors.message && (
@@ -415,21 +417,32 @@ Submitted via TechCrestaX Interactive Project Hub`;
                   Back
                 </Button>
                 <Button type="button" onClick={handleNext} variant="primary" showArrow>
-                  Continue to Budget & Review
+                  Continue to Pricing & Next Steps
                 </Button>
               </div>
             </div>
           )}
 
-          {/* ================= STEP 3: OPTIONAL REQUIREMENTS & REVIEW ================= */}
+          {/* ================= STEP 3: PRICING CLARITY & NEXT STEPS ================= */}
           {currentStep === 3 && (
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                  Investment range & final review
+                  Pricing clarity & next steps
                 </h3>
                 <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                  Specify your ideal budget and timeline, then review your brief before submitting.
+                  We believe in transparent, fixed-scope proposals without hidden agency markups.
+                </p>
+              </div>
+
+              {/* Pricing Clarity Notice Box */}
+              <div className="p-4 rounded-2xl bg-[#F7DCE5]/30 dark:bg-[#F7DCE5]/10 border border-[#eccbd6] dark:border-[#F7DCE5]/30 text-xs text-slate-700 dark:text-slate-300 space-y-1.5">
+                <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5]" />
+                  <span>Transparent Milestone Pricing & 1–3 Week Sprints</span>
+                </div>
+                <p className="leading-relaxed">
+                  Every proposal includes clear milestone deliverables (Discovery → UI/UX → React Build → Launch). No surprise add-ons. You retain 100% code ownership and post-launch bug warranty.
                 </p>
               </div>
 
@@ -437,13 +450,13 @@ Submitted via TechCrestaX Interactive Project Hub`;
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label htmlFor="budgetRange" className="block text-xs font-mono uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2 font-semibold">
-                    Target Budget Range
+                    Expected Investment Scope
                   </label>
                   <select
                     id="budgetRange"
                     value={formData.budgetRange}
                     onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-slate-900 dark:focus:border-white transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
                   >
                     {budgetOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -461,7 +474,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     id="timeline"
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-slate-900 dark:focus:border-white transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
                   >
                     {timelineOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -472,22 +485,43 @@ Submitted via TechCrestaX Interactive Project Hub`;
                 </div>
               </div>
 
+              {/* What Happens Next 3-Step Sequence */}
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-700 p-4 bg-slate-50/60 dark:bg-slate-800/50 space-y-2.5">
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block">
+                  Next Steps After Submission:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+                    <span className="font-mono font-bold text-slate-900 dark:text-white block mb-0.5">01. 24h Review</span>
+                    <span className="text-slate-500 dark:text-slate-400">Technical feasibility review and preliminary scope breakdown.</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+                    <span className="font-mono font-bold text-slate-900 dark:text-white block mb-0.5">02. 20-Min Call</span>
+                    <span className="text-slate-500 dark:text-slate-400">Direct strategy discussion with our technical engineering lead.</span>
+                  </div>
+                  <div className="p-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/80 dark:border-slate-700">
+                    <span className="font-mono font-bold text-slate-900 dark:text-white block mb-0.5">03. Roadmap</span>
+                    <span className="text-slate-500 dark:text-slate-400">Fixed-scope roadmap, milestone dates, and clear quote.</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Live Review Summary Box */}
-              <div className="bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-3">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-700">
+              <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 space-y-2.5">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-100 dark:border-slate-700">
                   <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold">
                     Project Brief Summary
                   </span>
                   <button
                     type="button"
                     onClick={() => setCurrentStep(1)}
-                    className="text-xs font-semibold text-[#4d7c0f] dark:text-[#84cc16] hover:underline"
+                    className="text-xs font-semibold text-[#96405d] dark:text-[#F7DCE5] hover:underline cursor-pointer"
                   >
                     Edit Details
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                   <div>
                     <span className="text-slate-400 block font-mono">Contact:</span>
                     <span className="font-semibold text-slate-900 dark:text-white">
@@ -503,25 +537,18 @@ Submitted via TechCrestaX Interactive Project Hub`;
                     </div>
                   )}
                   <div>
-                    <span className="text-slate-400 block font-mono">Scope:</span>
+                    <span className="text-slate-400 block font-mono">Capabilities:</span>
                     <span className="font-semibold text-slate-900 dark:text-white">
                       {formData.serviceInterest.join(', ')}
                     </span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block font-mono">Budget / Timing:</span>
+                    <span className="text-slate-400 block font-mono">Timing / Budget:</span>
                     <span className="font-semibold text-slate-900 dark:text-white">
-                      {formData.budgetRange} • {formData.timeline}
+                      {formData.timeline} • {formData.budgetRange}
                     </span>
                   </div>
                 </div>
-
-                {formData.message && (
-                  <div className="pt-2 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-300">
-                    <span className="text-slate-400 block font-mono mb-1">Brief Overview:</span>
-                    <p className="line-clamp-2 italic">"{formData.message}"</p>
-                  </div>
-                )}
               </div>
 
               <div className="pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
@@ -538,16 +565,16 @@ Submitted via TechCrestaX Interactive Project Hub`;
         </form>
       ) : (
         /* ================= HONEST DISPATCH SCREEN ================= */
-        <div className="py-4 space-y-6 animate-fadeIn">
+        <div className="py-4 space-y-6">
           <div className="text-center max-w-lg mx-auto space-y-3">
-            <div className="w-14 h-14 bg-lime-100 dark:bg-lime-950/80 rounded-2xl flex items-center justify-center mx-auto text-[#4d7c0f] dark:text-[#84cc16]">
+            <div className="w-14 h-14 bg-[#F7DCE5] rounded-2xl flex items-center justify-center mx-auto text-[#96405d]">
               <Check className="w-7 h-7" strokeWidth={2.5} />
             </div>
             <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white">
               Project Brief Compiled & Ready
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-              We provide a direct, transparent communication path with TechCrestaX leadership. Choose your preferred dispatch channel below:
+              We provide direct communication with TechCrestaX leadership. Choose your preferred dispatch channel to connect with us immediately:
             </p>
           </div>
 
@@ -555,9 +582,9 @@ Submitted via TechCrestaX Interactive Project Hub`;
             <button
               type="button"
               onClick={handleMailtoDispatch}
-              className="flex items-center gap-3 p-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all text-left shadow-sm group"
+              className="flex items-center gap-3 p-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all text-left shadow-sm group cursor-pointer border border-slate-800"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#84cc16] shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F7DCE5] shrink-0 group-hover:scale-105 transition-transform">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -574,7 +601,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
             <button
               type="button"
               onClick={handleWhatsAppDispatch}
-              className="flex items-center gap-3 p-4 bg-[#25D366] text-white rounded-2xl hover:bg-[#20ba59] transition-all text-left shadow-sm group"
+              className="flex items-center gap-3 p-4 bg-[#25D366] text-white rounded-2xl hover:bg-[#20ba59] transition-all text-left shadow-sm group cursor-pointer"
             >
               <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center text-white shrink-0 group-hover:scale-105 transition-transform">
                 <MessageSquare className="w-5 h-5" />
@@ -585,7 +612,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
                   <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <div className="text-xs text-emerald-100 font-mono">
-                  Fastest response (under 2 hrs)
+                  Fastest response (+91 83404 26550)
                 </div>
               </div>
             </button>
@@ -600,7 +627,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
               <button
                 type="button"
                 onClick={handleCopyPayload}
-                className="text-xs font-mono text-[#4d7c0f] dark:text-[#84cc16] hover:underline flex items-center gap-1.5"
+                className="text-xs font-mono text-[#96405d] dark:text-[#F7DCE5] hover:underline flex items-center gap-1.5 cursor-pointer font-bold"
               >
                 {copied ? (
                   <>
@@ -627,7 +654,7 @@ Submitted via TechCrestaX Interactive Project Hub`;
                 setIsReadyToDispatch(false);
                 setCurrentStep(1);
               }}
-              className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline font-mono"
+              className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white underline font-mono cursor-pointer"
             >
               ← Edit brief or start over
             </button>

@@ -2,13 +2,14 @@ import React from 'react';
 
 export default function Badge({
   children,
-  variant = 'lime',
+  variant = 'blush',
   size = 'md',
   dot = true,
   className = '',
 }) {
   const variantStyles = {
-    lime: "bg-lime-50 dark:bg-lime-950/60 text-lime-900 dark:text-lime-300 border-lime-200/90 dark:border-lime-900",
+    blush: "bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 text-slate-900 dark:text-[#F7DCE5] border-[#eccbd6] dark:border-[#F7DCE5]/30",
+    lime: "bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 text-slate-900 dark:text-[#F7DCE5] border-[#eccbd6] dark:border-[#F7DCE5]/30", // graceful alias
     neutral: "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700",
     emerald: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900",
     cyan: "bg-sky-50 dark:bg-sky-950/60 text-sky-900 dark:text-sky-300 border-sky-200 dark:border-sky-900",
@@ -17,12 +18,13 @@ export default function Badge({
   };
 
   const dotColors = {
-    lime: "bg-lime-600",
+    blush: "bg-[#b05273] dark:bg-[#F7DCE5]",
+    lime: "bg-[#b05273] dark:bg-[#F7DCE5]",
     neutral: "bg-slate-500",
     emerald: "bg-emerald-600",
     cyan: "bg-sky-600",
     amber: "bg-amber-600",
-    dark: "bg-lime-400",
+    dark: "bg-[#F7DCE5]",
   };
 
   const sizeStyles = {
@@ -34,13 +36,13 @@ export default function Badge({
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full font-mono border font-medium ${
-        variantStyles[variant] || variantStyles.lime
+        variantStyles[variant] || variantStyles.blush
       } ${sizeStyles[size] || sizeStyles.md} ${className}`}
     >
       {dot && (
         <span
           className={`w-1.5 h-1.5 rounded-full shrink-0 ${
-            dotColors[variant] || dotColors.lime
+            dotColors[variant] || dotColors.blush
           }`}
         />
       )}

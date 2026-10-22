@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Cpu, Share2, Sparkles, Zap, ArrowUpRight } from 'lucide-react';
+import { Share2 } from 'lucide-react';
 
 export default function ConnectedNodes3D({ className = "" }) {
   const [hoveredNode, setHoveredNode] = useState(null);
@@ -25,16 +25,16 @@ export default function ConnectedNodes3D({ className = "" }) {
   ];
 
   return (
-    <div className={`relative bg-white border border-slate-200/90 rounded-2xl p-5 shadow-lg shadow-slate-200/40 overflow-hidden ${className}`}>
+    <div className={`relative bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-5 shadow-lg shadow-slate-200/40 dark:shadow-none overflow-hidden ${className}`}>
       {/* Top Banner */}
-      <div className="flex items-center justify-between pb-3 border-b border-slate-100 mb-2">
+      <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800 mb-2">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-lime-100 text-lime-800 flex items-center justify-center">
+          <div className="w-6 h-6 rounded-md bg-[#F7DCE5] text-[#96405d] flex items-center justify-center">
             <Share2 className="w-3.5 h-3.5" />
           </div>
-          <span className="text-xs font-bold text-slate-900">Connected Growth Architecture</span>
+          <span className="text-xs font-bold text-slate-900 dark:text-white">Connected Growth Architecture</span>
         </div>
-        <span className="text-[11px] font-mono text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+        <span className="text-[11px] font-mono text-[#96405d] dark:text-[#f7dce5] bg-[#F7DCE5]/50 dark:bg-[#F7DCE5]/20 px-2 py-0.5 rounded-full border border-[#F7DCE5]">
           Real-Time Synced
         </span>
       </div>
@@ -58,7 +58,7 @@ export default function ConnectedNodes3D({ className = "" }) {
                 y1={start.cy}
                 x2={end.cx}
                 y2={end.cy}
-                stroke={isHighlighted ? "#65a30d" : "#cbd5e1"}
+                stroke={isHighlighted ? "#96405d" : "#cbd5e1"}
                 strokeWidth={isHighlighted ? "1.5" : "0.8"}
                 strokeDasharray={idx % 2 === 0 ? "none" : "2,2"}
                 className="transition-colors duration-300"
@@ -82,8 +82,8 @@ export default function ConnectedNodes3D({ className = "" }) {
                   cx={node.cx}
                   cy={node.cy}
                   r={node.r + (isHovered ? 4 : 2)}
-                  fill={isCenter ? "#84cc16" : "#65a30d"}
-                  opacity={isHovered ? 0.25 : 0.1}
+                  fill={isCenter ? "#F7DCE5" : "#e89db1"}
+                  opacity={isHovered ? 0.35 : 0.15}
                   className="transition-all duration-300"
                 />
                 {/* Main circle */}
@@ -92,7 +92,7 @@ export default function ConnectedNodes3D({ className = "" }) {
                   cy={node.cy}
                   r={node.r}
                   fill={isCenter ? "#0f172a" : "#ffffff"}
-                  stroke={isCenter ? "#65a30d" : "#334155"}
+                  stroke={isCenter ? "#F7DCE5" : "#334155"}
                   strokeWidth={isCenter ? "1.5" : "1"}
                   className="transition-transform duration-200"
                 />
@@ -101,7 +101,7 @@ export default function ConnectedNodes3D({ className = "" }) {
                   cx={node.cx}
                   cy={node.cy}
                   r={isCenter ? 2.5 : 1.5}
-                  fill={isCenter ? "#84cc16" : "#65a30d"}
+                  fill={isCenter ? "#F7DCE5" : "#96405d"}
                 />
                 {/* Label text */}
                 <text
@@ -109,7 +109,7 @@ export default function ConnectedNodes3D({ className = "" }) {
                   y={node.cy + node.r + 4}
                   textAnchor="middle"
                   className={`text-[3.2px] font-mono font-medium ${
-                    isHovered ? 'fill-slate-900 font-bold' : 'fill-slate-500'
+                    isHovered ? 'fill-slate-900 dark:fill-white font-bold' : 'fill-slate-500 dark:fill-slate-400'
                   }`}
                 >
                   {node.label}
@@ -120,9 +120,9 @@ export default function ConnectedNodes3D({ className = "" }) {
         </svg>
       </div>
 
-      <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-500 border-t border-slate-100">
+      <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800">
         <span>Continuous telemetry sync</span>
-        <span className="text-emerald-700 font-semibold">100% Reachability</span>
+        <span className="text-[#96405d] dark:text-[#f7dce5] font-semibold">100% Reachability</span>
       </div>
     </div>
   );

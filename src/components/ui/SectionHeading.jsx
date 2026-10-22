@@ -7,7 +7,7 @@ export default function SectionHeading({
   highlight,
   description,
   align = 'left',
-  badgeVariant = 'lime',
+  badgeVariant = 'blush',
   className = '',
   children,
 }) {
@@ -29,7 +29,7 @@ export default function SectionHeading({
         <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold tracking-tight text-slate-900 dark:text-white leading-[1.25]">
           {title}{' '}
           {highlight && (
-            <span className="text-[#4d7c0f] dark:text-[#84cc16] font-bold inline-block">{highlight}</span>
+            <span className="text-[#96405d] dark:text-[#F7DCE5] font-bold inline-block">{highlight}</span>
           )}
         </h2>
       )}
