@@ -10,6 +10,9 @@ import InteractiveServiceVisual from '../components/visuals/InteractiveServiceVi
 import { servicesData } from '../data/servicesData';
 import { portfolioData } from '../data/portfolioData';
 
+import SEO from '../components/seo/SEO';
+import { createServiceSchema, createBreadcrumbSchema, createFAQSchema } from '../data/seoSchemas';
+
 const iconMap = {
   Layout,
   Cpu,
@@ -25,15 +28,13 @@ export default function ServiceDetailPage() {
   const { slug } = useParams();
   const service = servicesData.find((s) => s.slug === slug);
 
-  useEffect(() => {
-    if (service) {
-      document.title = `${service.title} — TechCrestaX Services`;
-    }
-  }, [service]);
-
   if (!service) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <SEO
+          title="Service Not Found — TechCrestaX"
+          description="The requested service specification does not exist."
+        />
         <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Service Not Found</h1>
         <p className="text-slate-600 dark:text-slate-400 mb-8">The requested service specification does not exist.</p>
         <Button to="/services" variant="primary">
@@ -43,6 +44,19 @@ export default function ServiceDetailPage() {
     );
   }
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Services', to: '/services' },
+        { label: service.title }
+      ]),
+      createServiceSchema(service),
+      ...(service.faqs ? [createFAQSchema(service.faqs)] : [])
+    ]
+  };
+
   const Icon = iconMap[service.icon] || Layout;
   const relatedProjects = portfolioData.filter((p) =>
     service.relatedProjects?.includes(p.slug)
@@ -50,6 +64,19 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="py-8 sm:py-12">
+      <SEO
+        title={`${service.title} Services — TechCrestaX`}
+        description={service.longDesc}
+        keywords={[
+          service.title,
+          service.tagline,
+          ...service.technologies,
+          'TechCrestaX services',
+          'software engineering Rajkot Gujarat'
+        ]}
+        canonical={`https://www.techcrestax.com/services/${service.slug}`}
+        schema={serviceSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[

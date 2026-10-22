@@ -7,19 +7,20 @@ import Button from '../components/ui/Button';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import { insightsData } from '../data/insightsData';
 
+import SEO from '../components/seo/SEO';
+import { createBreadcrumbSchema } from '../data/seoSchemas';
+
 export default function InsightDetailPage() {
   const { slug } = useParams();
   const article = insightsData.find((a) => a.slug === slug);
 
-  useEffect(() => {
-    if (article) {
-      document.title = `${article.title} — TechCrestaX Insights`;
-    }
-  }, [article]);
-
   if (!article) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <SEO
+          title="Article Not Found — TechCrestaX"
+          description="The requested publication could not be found."
+        />
         <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Article Not Found</h1>
         <p className="text-slate-600 dark:text-slate-400 mb-8">The requested publication could not be found.</p>
         <Button to="/insights" variant="primary">
@@ -29,10 +30,53 @@ export default function InsightDetailPage() {
     );
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Insights', to: '/insights' },
+        { label: article.title }
+      ]),
+      {
+        "@type": "BlogPosting",
+        "headline": article.title,
+        "description": article.summary,
+        "datePublished": article.date,
+        "author": {
+          "@type": "Person",
+          "name": article.author
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TechCrestaX",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.techcrestax.com/logo.png"
+          }
+        }
+      }
+    ]
+  };
+
   const otherArticles = insightsData.filter((a) => a.slug !== slug);
 
   return (
     <div className="py-8 sm:py-12">
+      <SEO
+        title={`${article.title} — TechCrestaX Insights`}
+        description={article.summary}
+        keywords={[
+          article.title,
+          article.category,
+          ...article.tags,
+          "TechCrestaX insights",
+          "web engineering guide"
+        ]}
+        canonical={`https://www.techcrestax.com/insights/${article.slug}`}
+        ogType="article"
+        schema={articleSchema}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[

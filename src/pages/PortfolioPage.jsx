@@ -5,13 +5,14 @@ import Breadcrumbs from '../components/ui/Breadcrumbs';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
 import ClosingCTA from '../components/sections/ClosingCTA';
+import SEO from '../components/seo/SEO';
 import { portfolioData } from '../data/portfolioData';
+import { createBreadcrumbSchema } from '../data/seoSchemas';
 
 export default function PortfolioPage() {
   const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
-    document.title = "Portfolio & Case Studies — TechCrestaX";
     window.scrollTo(0, 0);
   }, []);
 
@@ -26,8 +27,43 @@ export default function PortfolioPage() {
     ? portfolioData
     : portfolioData.filter((p) => p.categoryKey === activeFilter);
 
+  const portfolioSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Work' }
+      ]),
+      {
+        "@type": "ItemList",
+        "name": "TechCrestaX Portfolio & Case Studies",
+        "itemListElement": portfolioData.map((p, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": p.title,
+          "url": `https://www.techcrestax.com/work/${p.slug}`,
+          "description": p.summary
+        }))
+      }
+    ]
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title="Portfolio & Production Case Studies — TechCrestaX"
+        description="Explore verified client projects and case studies engineered by TechCrestaX, including SaaS dashboards, commercial platforms, and high-performance React web applications."
+        keywords={[
+          "web development portfolio",
+          "case studies digital engineering",
+          "React web apps showcase",
+          "TechCrestaX work",
+          "SaaS dashboard case study",
+          "web application design Rajkot"
+        ]}
+        canonical="https://www.techcrestax.com/work"
+        schema={portfolioSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Work & Case Studies' }]} />
 
@@ -37,36 +73,28 @@ export default function PortfolioPage() {
             Selected Work
           </Badge>
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
-            Digital Products Built for{' '}
-            <span className="text-[#96405d] dark:text-[#F7DCE5]">Real Business Results</span>.
+            Engineering Proof.{' '}
+            <span className="text-[#96405d] dark:text-[#F7DCE5]">Real</span> Deliverables.
           </h1>
           <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-            Explore authentic digital platforms, SaaS dashboards, and high-converting websites created around performance, usability and measurable business growth.
+            Every project we deploy solves distinct commercial and technical objectives. Explore verified case studies highlighting architecture, performance, and UI execution.
           </p>
-
-          <div className="mt-5 flex items-center gap-2 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-600 dark:text-slate-300 max-w-xl shadow-xs">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>
-              All case studies reflect genuine client deliverables and confirmed company projects.
-            </span>
-          </div>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center flex-wrap gap-2 mb-10 border-b border-slate-200 dark:border-slate-800 pb-4">
-          <div className="flex items-center gap-1.5 text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mr-2 font-semibold">
-            <Filter className="w-3.5 h-3.5" />
-            <span>Filter:</span>
-          </div>
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 border-b border-slate-200 dark:border-slate-800">
+          <span className="text-xs font-mono uppercase text-slate-400 mr-2 flex items-center gap-1.5 shrink-0">
+            <Filter className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5]" /> Filter by:
+          </span>
           {filterOptions.map((opt) => (
             <button
               key={opt.key}
               type="button"
               onClick={() => setActiveFilter(opt.key)}
-              className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap cursor-pointer ${
                 activeFilter === opt.key
-                  ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 shadow-xs'
-                  : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:text-slate-900 dark:hover:text-white hover:border-[#eccbd6]'
+                  ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               {opt.label}
@@ -85,7 +113,7 @@ export default function PortfolioPage() {
               <div className="relative aspect-[16/10] bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 overflow-hidden group/img">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — ${project.category} Case Study by TechCrestaX`}
                   loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />
@@ -120,34 +148,52 @@ export default function PortfolioPage() {
                 </div>
               </div>
 
-              {/* Text Info */}
-              <div className="p-6 sm:p-8 flex-grow flex flex-col justify-between">
+              {/* Card Body */}
+              <div className="p-6 sm:p-8 space-y-4 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="text-xs font-mono text-[#96405d] dark:text-[#F7DCE5] font-semibold mb-2 uppercase tracking-wide">
-                    {project.type} • {project.timeline} Sprints
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-2">
+                    <span className="text-[#96405d] dark:text-[#F7DCE5] font-semibold">{project.timeline}</span>
+                    <span>{project.clientType}</span>
                   </div>
 
-                  <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mb-2.5 group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors">
+                  <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors">
                     <Link to={`/work/${project.slug}`}>
                       {project.title}
                     </Link>
                   </h2>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 font-normal">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
                     {project.summary}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Button to={`/work/${project.slug}`} variant="primary" size="sm" showArrow>
-                      View Case Study
-                    </Button>
+                {/* Metric Strip */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800">
+                  <div className="grid grid-cols-3 gap-2 py-2">
+                    {project.metrics.map((m, i) => (
+                      <div key={i} className="text-center sm:text-left">
+                        <div className="text-base sm:text-lg font-bold font-mono text-slate-900 dark:text-white">
+                          {m.value}
+                        </div>
+                        <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 font-mono">
+                          {m.label}
+                        </div>
+                      </div>
+                    ))}
                   </div>
 
-                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                    {project.timeline} Turnaround
-                  </span>
+                  <div className="pt-4 flex items-center justify-between">
+                    <Link
+                      to={`/work/${project.slug}`}
+                      className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] inline-flex items-center gap-1.5 transition-colors"
+                    >
+                      <span>Explore Case Study</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                    <span className="text-xs font-mono text-slate-400">
+                      ID: TCX-0{project.id}
+                    </span>
+                  </div>
                 </div>
               </div>
             </article>

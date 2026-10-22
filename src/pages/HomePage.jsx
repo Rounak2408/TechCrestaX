@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import SEO from '../components/seo/SEO';
 import Hero from '../components/sections/Hero';
 import TrustedBrandsMarquee from '../components/ui/TrustedBrandsMarquee';
 import CapabilitiesSection from '../components/sections/CapabilitiesSection';
@@ -9,14 +10,38 @@ import PostLaunchSupportSection from '../components/sections/PostLaunchSupportSe
 import TestimonialsSection from '../components/sections/TestimonialsSection';
 import FAQSection from '../components/sections/FAQSection';
 import ClosingCTA from '../components/sections/ClosingCTA';
+import { organizationSchema, websiteSchema, createFAQSchema } from '../data/seoSchemas';
+import { faqsData } from '../data/faqsData';
 
 export default function HomePage() {
-  useEffect(() => {
-    document.title = "TechCrestaX | Website Development & Digital Solutions";
-  }, []);
+  const homeSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      organizationSchema,
+      websiteSchema,
+      createFAQSchema(faqsData.slice(0, 5))
+    ]
+  };
 
   return (
     <div>
+      <SEO
+        title="TechCrestaX — Website Development, App Development & AI Solutions | Rajkot, Gujarat"
+        description="TechCrestaX builds websites that move businesses forward. Premier web development and digital solutions company in Rajkot, Gujarat specializing in modern websites, web apps, and AI automation."
+        keywords={[
+          "website development Rajkot",
+          "web development company Gujarat",
+          "custom web applications",
+          "AI automation services",
+          "UI UX design studio India",
+          "React website development",
+          "TechCrestaX digital solutions",
+          "hire web developer Rajkot"
+        ]}
+        canonical="https://www.techcrestax.com/"
+        schema={homeSchema}
+      />
+
       {/* 1. Hero Section */}
       <section id="hero" className="scroll-mt-24">
         <Hero />

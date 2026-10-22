@@ -8,15 +8,28 @@ import ClosingCTA from '../components/sections/ClosingCTA';
 import { faqsData } from '../data/faqsData';
 import { companyData } from '../data/companyData';
 
+import SEO from '../components/seo/SEO';
+import { createBreadcrumbSchema, createFAQSchema } from '../data/seoSchemas';
+
 export default function FAQPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [openId, setOpenId] = useState(1);
 
   useEffect(() => {
-    document.title = "Frequently Asked Questions — TechCrestaX Official";
     window.scrollTo(0, 0);
   }, []);
+
+  const faqPageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Frequently Asked Questions' }
+      ]),
+      createFAQSchema(faqsData)
+    ]
+  };
 
   const categories = ['All', ...new Set(faqsData.map((f) => f.category))];
 
@@ -34,6 +47,19 @@ export default function FAQPage() {
 
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title="Frequently Asked Questions — Pricing, Timelines & Process | TechCrestaX"
+        description="Find answers to common questions about TechCrestaX web development sprints, 1-3 week delivery timelines, milestone pricing, and 100% code ownership."
+        keywords={[
+          "TechCrestaX FAQ",
+          "web development pricing Rajkot",
+          "website delivery timeline",
+          "code ownership agreement",
+          "post-launch maintenance support Gujarat"
+        ]}
+        canonical="https://www.techcrestax.com/faq"
+        schema={faqPageSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Frequently Asked Questions' }]} />
 

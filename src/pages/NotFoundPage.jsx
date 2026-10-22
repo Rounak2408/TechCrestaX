@@ -4,13 +4,15 @@ import { Home, ArrowRight, Compass } from 'lucide-react';
 import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
 
-export default function NotFoundPage() {
-  useEffect(() => {
-    document.title = "404 — Route Not Found | TechCrestaX";
-  }, []);
+import SEO from '../components/seo/SEO';
 
+export default function NotFoundPage() {
   return (
     <div className="py-16 lg:py-24 flex items-center justify-center">
+      <SEO
+        title="404 — Page Not Found | TechCrestaX"
+        description="The requested page could not be located on TechCrestaX."
+      />
       <div className="max-w-2xl mx-auto px-4 text-center space-y-6">
         <div className="inline-block">
           <Badge variant="amber" size="md">

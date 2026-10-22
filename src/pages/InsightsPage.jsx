@@ -7,13 +7,52 @@ import Button from '../components/ui/Button';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import { insightsData } from '../data/insightsData';
 
+import SEO from '../components/seo/SEO';
+import { createBreadcrumbSchema } from '../data/seoSchemas';
+
 export default function InsightsPage() {
-  useEffect(() => {
-    document.title = "Insights & Technical Strategy — TechCrestaX";
-  }, []);
+  const insightsSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Insights & Strategy' }
+      ]),
+      {
+        "@type": "Blog",
+        "name": "TechCrestaX Engineering Insights",
+        "description": "Technical analysis, web performance strategies, and user experience methodologies.",
+        "blogPost": insightsData.map((a) => ({
+          "@type": "BlogPosting",
+          "headline": a.title,
+          "description": a.summary,
+          "url": `https://www.techcrestax.com/insights/${a.slug}`,
+          "datePublished": a.date,
+          "author": {
+            "@type": "Person",
+            "name": a.author
+          }
+        }))
+      }
+    ]
+  };
 
   return (
     <div className="py-8 sm:py-12">
+      <SEO
+        title="Engineering Insights & Technical Strategy — TechCrestaX"
+        description="Read engineering insights, frontend performance benchmarks, Core Web Vitals optimization guides, and UI/UX architecture strategies from TechCrestaX."
+        keywords={[
+          "engineering insights",
+          "Core Web Vitals guide",
+          "frontend performance optimization",
+          "design tokens architecture",
+          "conversion rate optimization",
+          "web engineering blog"
+        ]}
+        canonical="https://www.techcrestax.com/insights"
+        schema={insightsSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Insights & Strategy' }]} />
 

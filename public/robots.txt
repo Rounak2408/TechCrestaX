@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://www.techcrestax.com/sitemap.xml
+Host: https://www.techcrestax.com

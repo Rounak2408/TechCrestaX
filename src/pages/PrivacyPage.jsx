@@ -4,13 +4,22 @@ import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
 import { companyData } from '../data/companyData';
 
-export default function PrivacyPage() {
-  useEffect(() => {
-    document.title = "Privacy Policy & Engagement Terms — TechCrestaX";
-  }, []);
+import SEO from '../components/seo/SEO';
 
+export default function PrivacyPage() {
   return (
     <div className="py-8 sm:py-12">
+      <SEO
+        title="Privacy Policy & Engagement Terms — TechCrestaX"
+        description="Read the TechCrestaX privacy policy, data protection practices, non-disclosure terms, and intellectual property ownership standards."
+        keywords={[
+          "TechCrestaX privacy policy",
+          "terms of engagement",
+          "IP ownership agreement",
+          "confidentiality agreement"
+        ]}
+        canonical="https://www.techcrestax.com/privacy"
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Privacy & Terms' }]} />
 

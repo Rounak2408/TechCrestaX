@@ -12,6 +12,9 @@ import InteractiveServiceVisual from '../components/visuals/InteractiveServiceVi
 import { servicesData } from '../data/servicesData';
 import { companyData } from '../data/companyData';
 
+import SEO from '../components/seo/SEO';
+import { createBreadcrumbSchema } from '../data/seoSchemas';
+
 const iconMap = {
   Layout,
   Cpu,
@@ -23,12 +26,44 @@ const iconMap = {
 
 export default function ServicesPage() {
   useEffect(() => {
-    document.title = "Services & Technical Capabilities — TechCrestaX";
     window.scrollTo(0, 0);
   }, []);
 
+  const servicesPageSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([{ label: 'Home', to: '/' }, { label: 'Services' }]),
+      {
+        "@type": "ItemList",
+        "name": "TechCrestaX Engineering Services",
+        "itemListElement": servicesData.map((s, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "name": s.title,
+          "url": `https://www.techcrestax.com/services/${s.slug}`,
+          "description": s.tagline
+        }))
+      }
+    ]
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title="Services & Capabilities — Website, App & AI Solutions | TechCrestaX"
+        description="Explore TechCrestaX's 6 core digital engineering services: Website Development, Mobile & Web Applications, AI Automation, UI/UX Design, Cloud & DevOps, and Technical SEO."
+        keywords={[
+          "web development services Rajkot",
+          "app development company Gujarat",
+          "AI automation agency India",
+          "UI UX design services",
+          "cloud devops consulting",
+          "technical SEO audit",
+          "custom software engineering"
+        ]}
+        canonical="https://www.techcrestax.com/services"
+        schema={servicesPageSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Services' }]} />
 

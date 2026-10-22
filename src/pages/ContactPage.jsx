@@ -6,14 +6,49 @@ import ProjectEnquiryForm from '../components/forms/ProjectEnquiryForm';
 import { companyData } from '../data/companyData';
 import { reviewsData } from '../data/reviewsData';
 
+import SEO from '../components/seo/SEO';
+import { organizationSchema, createBreadcrumbSchema } from '../data/seoSchemas';
+
 export default function ContactPage() {
   useEffect(() => {
-    document.title = "Contact TechCrestaX — Project Enquiry & Consultation";
     window.scrollTo(0, 0);
   }, []);
 
+  const contactSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Contact & Inquiries' }
+      ]),
+      {
+        "@type": "ContactPage",
+        "@id": "https://www.techcrestax.com/contact#webpage",
+        "url": "https://www.techcrestax.com/contact",
+        "name": "Contact TechCrestaX",
+        "description": "Get in touch with TechCrestaX in Rajkot, Gujarat. Technical consultations and project estimates.",
+        "mainEntity": organizationSchema
+      }
+    ]
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title="Contact Us — Start Your Web Project | TechCrestaX, Rajkot"
+        description="Get in touch with TechCrestaX in Rajkot, Gujarat. Submit your project requirements for an estimate and technical consultation within 24 hours."
+        keywords={[
+          "contact TechCrestaX",
+          "hire web developer Rajkot",
+          "project inquiry TechCrestaX",
+          "web development agency contact Gujarat",
+          "hello@techcrestax.com",
+          "+91 83404 26550",
+          "website quotation Rajkot"
+        ]}
+        canonical="https://www.techcrestax.com/contact"
+        schema={contactSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Contact & Inquiries' }]} />
 

@@ -36,7 +36,7 @@ export default function PortfolioPreview() {
               <div className="relative aspect-[16/10] bg-slate-900 border-b border-slate-200/80 dark:border-slate-800 overflow-hidden group/img">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} — ${project.category} Project by TechCrestaX`}
                   loading="lazy"
                   className="w-full h-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                 />

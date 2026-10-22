@@ -7,14 +7,48 @@ import SectionHeading from '../components/ui/SectionHeading';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import { companyData } from '../data/companyData';
 
+import SEO from '../components/seo/SEO';
+import { organizationSchema, createBreadcrumbSchema } from '../data/seoSchemas';
+
 export default function AboutPage() {
   useEffect(() => {
-    document.title = "About Us — TechCrestaX | Digital Innovation & Team";
     window.scrollTo(0, 0);
   }, []);
 
+  const aboutSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'About TechCrestaX' }
+      ]),
+      {
+        "@type": "AboutPage",
+        "@id": "https://www.techcrestax.com/about#webpage",
+        "url": "https://www.techcrestax.com/about",
+        "name": "About TechCrestaX",
+        "description": "Learn about TechCrestaX, founded in 2026 in Rajkot, Gujarat. Meet our leadership team and discover our digital engineering mission.",
+        "mainEntity": organizationSchema
+      }
+    ]
+  };
+
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title="About Us — Digital Engineering Team & Mission | TechCrestaX"
+        description="Discover TechCrestaX, founded in 2026 in Rajkot, Gujarat. Learn about our leadership team, core engineering values, and dedication to building websites that move businesses forward."
+        keywords={[
+          "about TechCrestaX",
+          "web development agency Rajkot",
+          "Rishu Thakur founder",
+          "digital solutions team Gujarat",
+          "TechCrestaX headquarters",
+          "web engineering company India"
+        ]}
+        canonical="https://www.techcrestax.com/about"
+        schema={aboutSchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'About TechCrestaX' }]} />
 
@@ -122,7 +156,8 @@ export default function AboutPage() {
                   <div className="relative aspect-square rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
                     <img
                       src={member.image}
-                      alt={member.name}
+                      alt={`${member.name} — ${member.role} at TechCrestaX`}
+                      loading="lazy"
                       className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent pointer-events-none" />

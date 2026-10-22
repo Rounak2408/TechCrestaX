@@ -7,20 +7,24 @@ import Button from '../components/ui/Button';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import { portfolioData } from '../data/portfolioData';
 
+import SEO from '../components/seo/SEO';
+import { createBreadcrumbSchema } from '../data/seoSchemas';
+
 export default function CaseStudyDetailPage() {
   const { slug } = useParams();
   const project = portfolioData.find((p) => p.slug === slug || p.legacySlugs?.includes(slug));
 
   useEffect(() => {
-    if (project) {
-      document.title = `${project.title} — TechCrestaX Case Study`;
-      window.scrollTo(0, 0);
-    }
+    window.scrollTo(0, 0);
   }, [project]);
 
   if (!project) {
     return (
       <div className="max-w-4xl mx-auto px-4 py-20 text-center">
+        <SEO
+          title="Case Study Not Found — TechCrestaX"
+          description="The requested project breakdown could not be located."
+        />
         <h1 className="text-3xl font-bold mb-4 text-slate-900 dark:text-white">Case Study Not Found</h1>
         <p className="text-slate-600 dark:text-slate-400 mb-8">The requested project breakdown could not be located.</p>
         <Button to="/work" variant="primary">
@@ -30,10 +34,56 @@ export default function CaseStudyDetailPage() {
     );
   }
 
+  const caseStudySchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      createBreadcrumbSchema([
+        { label: 'Home', to: '/' },
+        { label: 'Work', to: '/work' },
+        { label: project.title }
+      ]),
+      {
+        "@type": "CreativeWork",
+        "name": `${project.title} Case Study`,
+        "headline": project.title,
+        "description": project.summary,
+        "image": project.image,
+        "author": {
+          "@type": "Organization",
+          "name": "TechCrestaX",
+          "url": "https://www.techcrestax.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "TechCrestaX",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.techcrestax.com/logo.png"
+          }
+        }
+      }
+    ]
+  };
+
   const otherProjects = portfolioData.filter((p) => p.id !== project.id);
 
   return (
     <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+      <SEO
+        title={`${project.title} Case Study — TechCrestaX`}
+        description={project.summary}
+        keywords={[
+          project.title,
+          project.category,
+          ...project.techStack,
+          "TechCrestaX case study",
+          "web engineering deliverables",
+          "software agency Rajkot"
+        ]}
+        canonical={`https://www.techcrestax.com/work/${project.slug}`}
+        ogImage={project.image}
+        schema={caseStudySchema}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs
           items={[
