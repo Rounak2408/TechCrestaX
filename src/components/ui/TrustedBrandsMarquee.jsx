@@ -1,146 +1,115 @@
 import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
-const brands = [
+const authenticClients = [
   {
-    name: "UrbanFit",
-    category: "Fitness & Athletics",
-    svg: (
-      <svg viewBox="0 0 140 32" className="h-6 w-auto fill-current">
-        <text x="0" y="24" fontFamily="Manrope, sans-serif" fontWeight="800" fontSize="22" letterSpacing="-1">URBANFIT</text>
-      </svg>
-    ),
+    name: "Scalpel.in",
+    tagline: "Doctor Appointment Platform",
+    domain: "scalpel.in",
+    badge: "Live Medical Platform",
+    isLive: true,
   },
   {
-    name: "Finora",
-    category: "Fintech SaaS",
-    svg: (
-      <svg viewBox="0 0 130 32" className="h-6 w-auto fill-current">
-        <circle cx="14" cy="16" r="10" fill="none" stroke="currentColor" strokeWidth="3" />
-        <path d="M14 9v14M9 16h10" stroke="currentColor" strokeWidth="2.5" />
-        <text x="34" y="23" fontFamily="Manrope, sans-serif" fontWeight="700" fontSize="20" letterSpacing="-0.5">Finora</text>
-      </svg>
-    ),
+    name: "Agriqen Seeds",
+    tagline: "Biotech & Agriculture",
+    domain: "agriqen.com",
+    badge: "Live Corporate Platform",
+    isLive: true,
   },
   {
-    name: "RoadRunner",
-    category: "Fleet Logistics",
-    svg: (
-      <svg viewBox="0 0 160 32" className="h-6 w-auto fill-current">
-        <text x="0" y="22" fontFamily="Manrope, sans-serif" fontWeight="800" fontSize="19" fontStyle="italic">RoadRunner</text>
-        <path d="M110 24c15 0 25-4 40-10" fill="none" stroke="currentColor" strokeWidth="2" />
-      </svg>
-    ),
+    name: "Sahyog Sagar",
+    tagline: "Restaurant & Local SEO",
+    domain: "sahyogsagar.in",
+    badge: "Live Hospitality",
+    isLive: true,
   },
   {
-    name: "PRECIZION",
-    category: "Engineering Partners",
-    svg: (
-      <svg viewBox="0 0 150 32" className="h-6 w-auto fill-current">
-        <rect x="0" y="4" width="140" height="24" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
-        <text x="10" y="21" fontFamily="JetBrains Mono, monospace" fontWeight="800" fontSize="15" letterSpacing="1">PRECIZION</text>
-      </svg>
-    ),
+    name: "Law & Legal Bureau",
+    tagline: "Professional Legal Practice",
+    domain: "lawandlegalbureau.com",
+    badge: "Live Legal Firm",
+    isLive: true,
   },
   {
-    name: "Crave",
-    category: "Hospitality & Dining",
-    svg: (
-      <svg viewBox="0 0 110 32" className="h-6 w-auto fill-current">
-        <text x="0" y="24" fontFamily="Manrope, sans-serif" fontWeight="800" fontSize="24" letterSpacing="-1">CRAVE</text>
-      </svg>
-    ),
+    name: "YOG4YOU",
+    tagline: "Yoga & Wellness Platform",
+    domain: "yog4you.org",
+    badge: "Live Wellness Hub",
+    isLive: true,
   },
   {
-    name: "Alloy Systems",
-    category: "Enterprise Tech",
-    svg: (
-      <svg viewBox="0 0 130 32" className="h-6 w-auto fill-current">
-        <circle cx="15" cy="16" r="11" fill="none" stroke="currentColor" strokeWidth="3" />
-        <polygon points="15,8 21,22 9,22" fill="currentColor" />
-        <text x="34" y="23" fontFamily="Manrope, sans-serif" fontWeight="700" fontSize="21" letterSpacing="-0.5">Alloy</text>
-      </svg>
-    ),
+    name: "Dew Drops Tourism",
+    tagline: "Travel & Tour Operator",
+    domain: "dewdropstourism.in",
+    badge: "Live Tourism Platform",
+    isLive: true,
   },
   {
-    name: "Nexora",
-    category: "Global Supply Chain",
-    svg: (
-      <svg viewBox="0 0 130 32" className="h-6 w-auto fill-current">
-        <text x="0" y="23" fontFamily="Manrope, sans-serif" fontWeight="800" fontSize="21" letterSpacing="1">NEXORA</text>
-      </svg>
-    ),
+    name: "The Fyoli Project",
+    tagline: "Cultural Brand & Project",
+    domain: "thefyoliproject.com",
+    badge: "Live Storytelling",
+    isLive: true,
   },
   {
-    name: "NorthStar",
-    category: "Infrastructure",
-    svg: (
-      <svg viewBox="0 0 150 32" className="h-6 w-auto fill-current">
-        <path d="M16 6l2 7 7 2-7 2-2 7-2-7-7-2 7-2z" fill="currentColor" />
-        <text x="32" y="22" fontFamily="Manrope, sans-serif" fontWeight="700" fontSize="19">NorthStar</text>
-      </svg>
-    ),
+    name: "BLKMND",
+    tagline: "Fashion E-commerce",
+    domain: "blkmndofficial.com",
+    badge: "Live E-commerce",
+    isLive: true,
   },
   {
-    name: "Vanguard",
-    category: "Advisory & Talent",
-    svg: (
-      <svg viewBox="0 0 140 32" className="h-6 w-auto fill-current">
-        <text x="0" y="23" fontFamily="Manrope, sans-serif" fontWeight="800" fontSize="20" letterSpacing="-0.5">VANGUARD</text>
-      </svg>
-    ),
-  },
-  {
-    name: "Nycom",
-    category: "Technology Systems",
-    svg: (
-      <svg viewBox="0 0 120 32" className="h-6 w-auto fill-current">
-        <text x="0" y="24" fontFamily="JetBrains Mono, monospace" fontWeight="900" fontSize="22" letterSpacing="2">nycom</text>
-      </svg>
-    ),
+    name: "Divine Mane Naturals",
+    tagline: "Haircare & Product Website",
+    domain: "divinemanenaturals.com",
+    badge: "Live Product Website",
+    isLive: true,
   },
 ];
 
-export default function TrustedBrandsMarquee({ title = "Trusted by Industry Leaders & Fast-Growing Modern Brands" }) {
+export default function TrustedBrandsMarquee() {
   return (
-    <section className="py-10 border-y border-slate-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40 relative overflow-hidden select-none" aria-label="Trusted Industry Leaders and Clients">
-      {/* Section Title */}
-      <div className="max-w-7xl mx-auto px-4 text-center mb-7">
-        <h3 className="text-xs sm:text-sm font-mono uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 font-semibold">
-          {title}
-        </h3>
+    <section className="py-8 bg-slate-50/70 dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 overflow-hidden relative" aria-label="Verified Client Projects">
+      {/* Side gradient fades */}
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent z-10 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 mb-3 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+        <span className="flex items-center gap-2 font-semibold uppercase tracking-wider text-[11px]">
+          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          Authentic Client Projects & Deliveries
+        </span>
+        <span className="hidden sm:inline text-[11px] text-slate-400">
+          Verified Web Platforms Built by TechCrestaX
+        </span>
       </div>
 
-      {/* Infinite Continuous Carousel Container with Left/Right Edge Fades */}
-      <div className="relative w-full overflow-hidden">
-        {/* Left Edge Mask */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#fafaf9] dark:from-[#0b1120] via-[#fafaf9]/80 dark:via-[#0b1120]/80 to-transparent z-10 pointer-events-none" />
-        {/* Right Edge Mask */}
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#fafaf9] dark:from-[#0b1120] via-[#fafaf9]/80 dark:via-[#0b1120]/80 to-transparent z-10 pointer-events-none" />
-
-        {/* Marquee Track: duplicated array ensures continuous non-breaking loop */}
-        <div className="animate-infinite-marquee flex items-center gap-12 sm:gap-16">
-          {/* First Loop */}
-          {brands.map((brand, i) => (
+      <div className="flex overflow-hidden select-none">
+        {/* Doubled marquee list for infinite loop */}
+        <div className="animate-infinite-marquee flex items-center gap-6 sm:gap-8 shrink-0">
+          {[...authenticClients, ...authenticClients].map((client, idx) => (
             <div
-              key={`b1-${i}`}
-              className="flex items-center gap-3 shrink-0 text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors duration-200 px-2 cursor-pointer group"
-              title={`${brand.name} • ${brand.category}`}
+              key={`${client.name}-${idx}`}
+              className="flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 transition-colors shrink-0"
             >
-              <div className="opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200">
-                {brand.svg}
+              <div className="w-8 h-8 rounded-xl bg-[#F7DCE5]/50 dark:bg-[#F7DCE5]/15 border border-[#eccbd6] dark:border-[#F7DCE5]/30 flex items-center justify-center font-display font-extrabold text-xs text-[#96405d] dark:text-[#F7DCE5]">
+                {client.name.substring(0, 2).toUpperCase()}
               </div>
-            </div>
-          ))}
 
-          {/* Second Duplicate Loop for seamless infinite loop */}
-          {brands.map((brand, i) => (
-            <div
-              key={`b2-${i}`}
-              className="flex items-center gap-3 shrink-0 text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 transition-colors duration-200 px-2 cursor-pointer group"
-              title={`${brand.name} • ${brand.category}`}
-            >
-              <div className="opacity-75 group-hover:opacity-100 group-hover:scale-105 transition-all duration-200">
-                {brand.svg}
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="font-display font-bold text-sm text-slate-900 dark:text-white">
+                    {client.name}
+                  </span>
+                  {client.isLive && (
+                    <span className="text-[10px] font-mono font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.2 rounded border border-emerald-200 dark:border-emerald-900">
+                      Live
+                    </span>
+                  )}
+                </div>
+                <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400 truncate max-w-[170px]">
+                  {client.domain} • {client.tagline}
+                </div>
               </div>
             </div>
           ))}

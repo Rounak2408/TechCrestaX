@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Phone, Mail, Sun, Moon } from 'lucide-react';
+import { Menu, X, ArrowUpRight, MessageSquare, Mail, Sun, Moon } from 'lucide-react';
 import Button from '../ui/Button';
 import { useTheme } from '../../context/ThemeContext';
 import { companyData } from '../../data/companyData';
@@ -53,8 +53,9 @@ export default function Navbar() {
   // Nav Links with section mapping
   const navLinks = [
     { name: 'Home', path: '/', id: 'hero' },
+    { name: 'Work', path: '/work', id: 'portfolio' },
     { name: 'Services', path: '/services', id: 'services' },
-    { name: 'Portfolio', path: '/work', id: 'portfolio' },
+    { name: 'Pricing', path: '/pricing', id: 'pricing' },
     { name: 'About', path: '/about', id: 'about' },
     { name: 'FAQ', path: '/faq', id: 'faq' },
     { name: 'Contact', path: '/contact', id: 'contact' },
@@ -66,7 +67,7 @@ export default function Navbar() {
       return;
     }
 
-    const sectionIds = ['contact', 'faq', 'about', 'portfolio', 'services', 'hero'];
+    const sectionIds = ['contact', 'faq', 'about', 'pricing', 'services', 'portfolio', 'hero'];
 
     const handleScrollSpy = () => {
       const scrollY = window.scrollY;
@@ -136,6 +137,9 @@ export default function Navbar() {
     if (link.id === 'portfolio') {
       return location.pathname.startsWith('/work') || location.pathname.startsWith('/portfolio');
     }
+    if (link.id === 'pricing') {
+      return location.pathname.startsWith('/pricing');
+    }
     if (link.id === 'faq') {
       return location.pathname.startsWith('/faq');
     }
@@ -201,7 +205,6 @@ export default function Navbar() {
               <div className="flex flex-col">
                 <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 dark:text-white flex items-center">
                   TechCresta<span className="text-slate-950 dark:text-white">X</span>
-                  <span className="ml-1.5 w-1.5 h-1.5 rounded-full bg-[#eccbd6]" />
                 </span>
                 <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500 dark:text-slate-400 -mt-1 hidden sm:block">
                   Digital Engineering
@@ -233,7 +236,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link)}
-                  className={`relative px-3.5 py-1.5 text-sm font-semibold rounded-full transition-all duration-200 ${
+                  className={`relative px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 ${
                     active
                       ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-xs border border-[#F7DCE5] dark:border-[#F7DCE5]/30 font-bold scale-[1.02]'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/60'
@@ -269,7 +272,7 @@ export default function Navbar() {
             </button>
 
             <Button to="/contact" variant="primary" size="sm" showArrow>
-              Start a Project
+              Request Estimate
             </Button>
           </div>
 
@@ -358,7 +361,7 @@ export default function Navbar() {
               showArrow
               onClick={() => setMobileMenuOpen(false)}
             >
-              Start a Project
+              Request Estimate
             </Button>
 
             <div className="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
@@ -373,10 +376,10 @@ export default function Navbar() {
                 href={companyData.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-slate-900 dark:hover:text-white py-1"
+                className="flex items-center gap-2 hover:text-slate-900 dark:hover:text-white py-1 font-semibold text-emerald-600 dark:text-emerald-400"
               >
-                <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <span>{companyData.contact.phone} (WhatsApp)</span>
+                <MessageSquare className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <span>Chat on WhatsApp</span>
               </a>
             </div>
           </div>

@@ -26,7 +26,7 @@ const iconMap = {
 
 export default function ServiceDetailPage() {
   const { slug } = useParams();
-  const service = servicesData.find((s) => s.slug === slug);
+  const service = servicesData.find((s) => s.slug === slug || s.legacySlugs?.includes(slug));
 
   if (!service) {
     return (

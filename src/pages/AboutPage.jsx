@@ -66,55 +66,21 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Verified Company Stats Bar */}
+        {/* Verified Company Engineering Standards Bar */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 sm:p-8 rounded-3xl bg-slate-50/70 dark:bg-slate-900/80 border border-slate-200/90 dark:border-slate-800 mb-16 shadow-xs">
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white">
-              {companyData.statsSummary.founded}
+          {companyData.trustPillars.map((pillar) => (
+            <div key={pillar.label}>
+              <div className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+                {pillar.value}
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
+                {pillar.label}
+              </div>
+              <div className="text-[11px] text-slate-500 dark:text-slate-400">
+                {pillar.detail}
+              </div>
             </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
-              Founded
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">
-              Rajkot, Gujarat
-            </div>
-          </div>
-
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white">
-              {companyData.statsSummary.projects}
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
-              Projects Delivered
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">
-              1–3 Week Sprints
-            </div>
-          </div>
-
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white">
-              {companyData.statsSummary.happyClients}
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
-              Happy Clients
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">
-              Global Partnerships
-            </div>
-          </div>
-
-          <div>
-            <div className="text-3xl sm:text-4xl font-bold font-display text-slate-900 dark:text-white">
-              {companyData.statsSummary.teamMembers}
-            </div>
-            <div className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300 mt-1">
-              Core Specialists
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400">
-              Design & Full-Stack
-            </div>
-          </div>
+          ))}
         </div>
 
         {/* Mission Statement Box */}
@@ -245,6 +211,34 @@ export default function AboutPage() {
                 You get clear milestone updates and dependable assistance throughout the project, backed by an included post-launch bug warranty and 24/7 project support.
               </p>
             </div>
+          </div>
+        </div>
+
+        {/* Technologies We Use (Official Business Profile Specification) */}
+        <div className="mb-20 p-8 sm:p-10 rounded-3xl bg-slate-50/80 dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+            <div>
+              <Badge variant="blush" size="sm" className="mb-2">
+                Core Engineering Stack
+              </Badge>
+              <h2 className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
+                Technologies We Use
+              </h2>
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                Selected for sub-second performance, clean component architecture, and long-term business scalability.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {companyData.technologiesWeUse.map((tech) => (
+              <div
+                key={tech}
+                className="bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-700 shadow-2xs flex items-center justify-center text-center font-mono font-bold text-sm text-slate-800 dark:text-slate-100 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 transition-colors"
+              >
+                {tech}
+              </div>
+            ))}
           </div>
         </div>
 

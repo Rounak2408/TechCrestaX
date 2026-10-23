@@ -3,8 +3,8 @@ import { Mail, Phone, MapPin, MessageSquare, Clock, ShieldCheck, Star, ExternalL
 import Breadcrumbs from '../components/ui/Breadcrumbs';
 import Badge from '../components/ui/Badge';
 import ProjectEnquiryForm from '../components/forms/ProjectEnquiryForm';
+import LocationMapSection from '../components/sections/LocationMapSection';
 import { companyData } from '../data/companyData';
-import { reviewsData } from '../data/reviewsData';
 
 import SEO from '../components/seo/SEO';
 import { organizationSchema, createBreadcrumbSchema } from '../data/seoSchemas';
@@ -42,8 +42,8 @@ export default function ContactPage() {
           "hire web developer Rajkot",
           "project inquiry TechCrestaX",
           "web development agency contact Gujarat",
-          "hello@techcrestax.com",
-          "+91 83404 26550",
+          "techcrestax@gmail.com",
+          "techcrestax whatsapp",
           "website quotation Rajkot"
         ]}
         canonical="https://www.techcrestax.com/contact"
@@ -108,9 +108,10 @@ export default function ContactPage() {
                       href={companyData.contact.whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline"
+                      className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1.5"
                     >
-                      {companyData.contact.phone}
+                      <span>Chat on WhatsApp</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
                     </a>
                     <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                       Fastest response for active scopes (under 2 hrs)
@@ -165,24 +166,30 @@ export default function ContactPage() {
               </ol>
             </div>
 
-            {/* Verified Client Ratings Box */}
+            {/* Verified Client Reputation Box */}
             <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 shadow-xs space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500">
                   Client Verification
                 </span>
-                <div className="flex items-center gap-1 text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
+                <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                  Google Verified Base
+                </span>
               </div>
               <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                Rated 5.0/5.0 across verified client projects including UrbanFit, Crave Restaurant, and TransitOps.
+                Authentic web deliverables for Scalpel.in, Agriqen Seeds, Sahyog Sagar, Law & Legal Bureau, and YOG4YOU.
               </p>
-              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center gap-1.5 text-[11px] font-mono text-emerald-600 dark:text-emerald-400">
-                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                <span>100% Client Satisfaction Track Record</span>
+              <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono">
+                <span className="text-slate-500">Public Reviews on Google</span>
+                <a
+                  href={companyData.contact.googleBusinessUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#96405d] dark:text-[#F7DCE5] font-bold hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Google Profile</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
               </div>
             </div>
           </div>
@@ -194,36 +201,7 @@ export default function ContactPage() {
         </div>
 
         {/* Verified Geographic Location & Google Maps Section */}
-        <div className="mb-16 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xs">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <Badge variant="blush" size="sm">
-                  Verified Headquarters
-                </Badge>
-                <span className="text-xs font-mono text-slate-500">Rajkot, Gujarat, India</span>
-              </div>
-              <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white">
-                Studio Location & Geographic Base
-              </h3>
-            </div>
-
-            <div className="text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700">
-              Direct GMB Sync: Ready upon founder API authorization
-            </div>
-          </div>
-
-          {/* Embedded Map of Rajkot, Gujarat */}
-          <div className="relative aspect-[21/9] min-h-[260px] w-full rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-100 dark:bg-slate-800">
-            <iframe
-              title="TechCrestaX Studio Location Map"
-              src="https://maps.google.com/maps?q=Rajkot,%20Gujarat,%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
-              className="w-full h-full border-0 grayscale-[25%] contrast-[105%]"
-              loading="lazy"
-              allowFullScreen
-            />
-          </div>
-        </div>
+        <LocationMapSection />
       </div>
     </div>
   );

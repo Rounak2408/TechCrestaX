@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, MessageSquare, ShieldCheck, Clock, Zap } from 'lucide-react';
+import { ArrowUpRight, MessageSquare, ShieldCheck, Clock, Zap, CheckCircle2 } from 'lucide-react';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import { companyData } from '../../data/companyData';
@@ -21,15 +21,16 @@ export default function ClosingCTA() {
               </Badge>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold font-display tracking-tight text-white leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold font-display tracking-tight text-white leading-tight">
               Ready to engineer your next{' '}
               <span className="text-[#F7DCE5]">digital milestone</span>?
             </h2>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
-              Whether you need a brand-defining website, custom application, or an intelligent AI workflow, TechCrestaX delivers with precision speed, craft, and transparent milestones.
+              Whether you need a brand-defining business website, custom web application, or e-commerce storefront, TechCrestaX delivers with precision speed, craft, and transparent milestones starting at ₹7,000+.
             </p>
 
+            {/* Direct CTAs - NO visible phone number */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
               <Button
                 to="/contact"
@@ -38,7 +39,7 @@ export default function ClosingCTA() {
                 showArrow
                 className="w-full sm:w-auto"
               >
-                Start Your Project
+                Request a Project Estimate
               </Button>
               <Button
                 href={companyData.contact.whatsappLink}
@@ -47,22 +48,27 @@ export default function ClosingCTA() {
                 icon={MessageSquare}
                 className="w-full sm:w-auto text-white border-slate-700 hover:bg-slate-800"
               >
-                Chat on WhatsApp (+91 83404 26550)
+                Chat on WhatsApp
               </Button>
             </div>
 
+            {/* Guarantees */}
             <div className="pt-8 border-t border-slate-800 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
               <span className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-[#F7DCE5]" />
-                <span>1–3 Week Typical Sprints</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F7DCE5]" />
+                <span>Websites starting at ₹7,000+</span>
               </span>
               <span className="flex items-center gap-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>100% Code Ownership</span>
+                <span>1 Year Free Maintenance</span>
               </span>
               <span className="flex items-center gap-1.5">
-                <Zap className="w-4 h-4 text-[#F7DCE5]" />
-                <span>Direct Lead Collaboration</span>
+                <Clock className="w-4 h-4 text-[#F7DCE5]" />
+                <span>1–3 Week Standard Delivery</span>
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <span>100% Code & IP Ownership</span>
               </span>
             </div>
           </div>

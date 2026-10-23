@@ -12,7 +12,7 @@ export const organizationSchema = {
   "logo": "https://www.techcrestax.com/logo.png",
   "image": "https://www.techcrestax.com/logo.png",
   "description": "TechCrestaX is a digital solutions and web development company based in Rajkot, Gujarat, India, specializing in custom website development, scalable applications, AI automation, and cloud solutions.",
-  "email": "hello@techcrestax.com",
+  "email": "techcrestax@gmail.com",
   "telephone": "+91 83404 26550",
   "foundingDate": "2026",
   "founder": {

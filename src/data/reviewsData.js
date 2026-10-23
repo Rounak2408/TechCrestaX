@@ -1,41 +1,59 @@
-export const reviewsData = [
-  {
-    id: 1,
-    name: "Aarav Mehta",
-    role: "Founder",
-    company: "UrbanFit",
-    projectTitle: "UrbanFit Experience",
-    projectSlug: "urbanfit-platform",
-    quote: "TechCrestaX transformed our website into a much more premium and conversion-focused experience. Communication was clear and delivery was fast.",
-    verifiedOutcome: "100% Mobile QA • 2-Week Turnaround",
-    rating: 5,
-    initials: "AM",
-    avatarBg: "bg-[#F7DCE5] text-[#96405d]",
-  },
-  {
-    id: 2,
-    name: "Riya Sharma",
-    role: "Marketing Lead",
-    company: "Crave",
-    projectTitle: "Crave Restaurant",
-    projectSlug: "crave-restaurant",
-    quote: "The team understood our brand quickly and created a digital experience that felt modern, simple and aligned with our business goals.",
-    verifiedOutcome: "+68% Reservations • Sub-Second Load",
-    rating: 5,
-    initials: "RS",
-    avatarBg: "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200",
-  },
-  {
-    id: 3,
-    name: "Kunal Verma",
-    role: "Co-Founder",
-    company: "Nexora",
-    projectTitle: "TransitOps",
-    projectSlug: "transitops-dashboard",
-    quote: "What impressed us most was the balance of design quality and technical execution. The final product felt polished and reliable.",
-    verifiedOutcome: "<120ms Latency • Dense Table QA",
-    rating: 5,
-    initials: "KV",
-    avatarBg: "bg-[#F7DCE5]/60 text-slate-900",
-  },
-];
+/**
+ * Client Reviews & Public Trust Engine
+ * Official policy: Authentic reviews are verified through our Google Business Profile.
+ * We do not fabricate review quotes, customer ratings, or reviewer identities.
+ */
+
+export const reviewsConfig = {
+  googleBusinessProfileUrl: "https://share.google/QAhZ41vyEGjiVpxkp",
+  googleMapsReviewUrl: "https://share.google/QAhZ41vyEGjiVpxkp",
+  headline: "Verified Client Projects & Public Reviews",
+  subheadline: "We hold ourselves to high engineering standards and transparent client partnerships. Read verified reviews on Google or explore our live client deliveries.",
+  notice: "Public reviews are hosted directly on Google to ensure authentic, unedited feedback from real clients.",
+  verifiedClientDeliveries: [
+    {
+      name: "Scalpel.in",
+      domain: "scalpel.in",
+      url: "https://www.scalpel.in/",
+      category: "Doctor Appointment Platform",
+      status: "Live Production"
+    },
+    {
+      name: "Agriqen Seeds & Biotech",
+      domain: "agriqen.com",
+      url: "https://www.agriqen.com/",
+      category: "Agriculture Business Website",
+      status: "Live Production"
+    },
+    {
+      name: "Sahyog Sagar",
+      domain: "sahyogsagar.in",
+      url: "https://www.sahyogsagar.in/",
+      category: "Restaurant & Local SEO",
+      status: "Live Production"
+    },
+    {
+      name: "Law & Legal Bureau",
+      domain: "lawandlegalbureau.com",
+      url: "https://www.lawandlegalbureau.com/",
+      category: "Legal Practice Platform",
+      status: "Live Production"
+    },
+    {
+      name: "YOG4YOU",
+      domain: "yog4you.org",
+      url: "https://www.yog4you.org/",
+      category: "Yoga & Wellness Platform",
+      status: "Live Production"
+    },
+    {
+      name: "Dew Drops Tourism",
+      domain: "dewdropstourism.in",
+      url: "https://www.dewdropstourism.in/",
+      category: "Travel & Tour Operator",
+      status: "Live Production"
+    }
+  ]
+};
+
+export const reviewsData = reviewsConfig.verifiedClientDeliveries;

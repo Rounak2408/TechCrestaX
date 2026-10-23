@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, ArrowUpRight, Mail, Phone, MapPin, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Mail, MessageSquare, MapPin, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { companyData } from '../../data/companyData';
 import { servicesData } from '../../data/servicesData';
 
@@ -23,7 +23,6 @@ export default function Footer() {
               />
               <span className="font-display font-extrabold text-xl tracking-tight text-white flex items-center">
                 TechCrestaX
-                <span className="ml-1.5 w-1.5 h-1.5 rounded-full bg-[#F7DCE5]" />
               </span>
             </Link>
 
@@ -104,6 +103,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/pricing" className="text-slate-400 hover:text-white transition-colors">
+                  Pricing & Maintenance
+                </Link>
+              </li>
+              <li>
                 <Link to="/about" className="text-slate-400 hover:text-white transition-colors">
                   About Us & Team
                 </Link>
@@ -146,21 +150,21 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#F7DCE5] shrink-0" />
+                <MessageSquare className="w-4 h-4 text-[#F7DCE5] shrink-0" />
                 <a
                   href={companyData.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-slate-400 hover:text-white transition-colors"
+                  className="text-slate-400 hover:text-white transition-colors font-medium"
                 >
-                  {companyData.contact.phone}
+                  Chat on WhatsApp
                 </a>
               </li>
             </ul>
 
             <div className="mt-6 p-3 rounded-2xl bg-slate-900/90 border border-slate-800 text-xs text-slate-400">
-              <span className="text-white font-medium block mb-1">Standard Turnaround:</span>
-              1 to 3 weeks across milestone-driven agile sprints.
+              <span className="text-white font-medium block mb-1">Transparent Base:</span>
+              Websites start at ₹7,000+ with 1st year maintenance free.
             </div>
           </div>
         </div>

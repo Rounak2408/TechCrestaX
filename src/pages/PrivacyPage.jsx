@@ -81,9 +81,9 @@ export default function PrivacyPage() {
               <a href={`mailto:${companyData.contact.primaryEmail}`} className="text-[#96405d] dark:text-[#f7dce5] font-semibold hover:underline">
                 {companyData.contact.primaryEmail}
               </a>
-              {' '}or via phone / WhatsApp at{' '}
-              <a href={companyData.contact.whatsappLink} className="text-[#96405d] dark:text-[#f7dce5] font-semibold hover:underline">
-                {companyData.contact.phone}
+              {' '}or via direct message on{' '}
+              <a href={companyData.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[#96405d] dark:text-[#f7dce5] font-semibold hover:underline">
+                WhatsApp
               </a>
               .
             </p>

@@ -10,9 +10,9 @@ export default function ProjectEnquiryForm() {
     email: '',
     company: '',
     phone: '',
-    serviceInterest: ['Website Development'],
+    serviceInterest: ['Website Design & Development'],
     message: '',
-    budgetRange: 'Standard Business Website ($1,200 – $2,500)',
+    budgetRange: 'Starter Business Website (₹7,000 – ₹15,000)',
     timeline: 'Standard Agile (1–3 Weeks)',
   });
 
@@ -21,20 +21,20 @@ export default function ProjectEnquiryForm() {
   const [isReadyToDispatch, setIsReadyToDispatch] = useState(false);
 
   const availableServices = [
-    'Website Development',
-    'App Development',
-    'AI Automation',
+    'Website Design & Development',
+    'E-commerce Website Development',
+    'Web Applications & Platforms',
     'UI/UX Design',
-    'Cloud & DevOps',
-    'Digital Growth & Technical SEO',
+    'SEO & Local SEO',
+    'Digital Growth & Online Presence',
   ];
 
   const budgetOptions = [
-    'Starter / Landing Page ($500 – $1,200)',
-    'Standard Business Website ($1,200 – $2,500)',
-    'Custom Web App / SaaS ($2,500 – $6,000)',
-    'AI & Workflow Automation ($1,500 – $4,000)',
-    'Flexible / Milestone-Based',
+    'Starter Business Website (₹7,000 – ₹15,000)',
+    'Commercial Platform / Custom Design (₹15,000 – ₹30,000)',
+    'E-commerce Store / Web App (₹25,000 – ₹50,000+)',
+    'SEO & Digital Growth Retainer (₹10,000 – ₹25,000/mo)',
+    'Custom Scope / Estimate on Consultation',
   ];
 
   const timelineOptions = [
@@ -132,7 +132,7 @@ Timeline:       ${formData.timeline}
 PROJECT OVERVIEW:
 ${formData.message}
 ====================================
-Official Contact: hello@techcrestax.com | WhatsApp: +91 83404 26550
+Official Contact: ${companyData.contact.primaryEmail} | WhatsApp: Chat on WhatsApp
 Rajkot, Gujarat, India`;
   };
 
@@ -146,7 +146,7 @@ Rajkot, Gujarat, India`;
     const text = encodeURIComponent(
       `Hello TechCrestaX! I am submitting an inquiry for a project:\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Company:* ${formData.company || 'N/A'}\n*Services:* ${formData.serviceInterest.join(', ')}\n*Budget:* ${formData.budgetRange}\n*Timeline:* ${formData.timeline}\n\n*Brief:* ${formData.message}`
     );
-    window.open(`https://wa.me/918340426550?text=${text}`, '_blank', 'noopener,noreferrer');
+    window.open(`${companyData.contact.whatsappLink}?text=${text}`, '_blank', 'noopener,noreferrer');
   };
 
   const handleCopyPayload = () => {
@@ -608,11 +608,11 @@ Rajkot, Gujarat, India`;
               </div>
               <div>
                 <div className="text-sm font-bold flex items-center gap-1.5">
-                  Send on WhatsApp
+                  Chat on WhatsApp
                   <ArrowRight className="w-3.5 h-3.5 opacity-60 group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <div className="text-xs text-emerald-100 font-mono">
-                  Fastest response (+91 83404 26550)
+                  Fastest response & instant brief review
                 </div>
               </div>
             </button>

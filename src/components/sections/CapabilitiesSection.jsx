@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowUpRight, Layout, Cpu, Bot, Palette, Cloud, TrendingUp, Check } from 'lucide-react';
+import { ArrowUpRight, Layout, ShoppingBag, Cpu, Palette, Search, TrendingUp, CheckCircle2, ArrowRight } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
@@ -8,10 +8,10 @@ import { servicesData } from '../../data/servicesData';
 
 const iconMap = {
   Layout: Layout,
+  ShoppingBag: ShoppingBag,
   Cpu: Cpu,
-  Bot: Bot,
   Palette: Palette,
-  Cloud: Cloud,
+  Search: Search,
   TrendingUp: TrendingUp,
 };
 
@@ -25,54 +25,32 @@ export default function CapabilitiesSection() {
     setHoveredServiceId(serviceId);
   };
 
-  const handleTouchMove = (e) => {
-    if (!e.touches || e.touches.length === 0) return;
-    const touch = e.touches[0];
-    const target = document.elementFromPoint(touch.clientX, touch.clientY);
-    if (target) {
-      const card = target.closest('[data-service-id]');
-      if (card) {
-        const id = card.getAttribute('data-service-id');
-        if (id && id !== activeServiceId) {
-          setActiveServiceId(id);
-          setHoveredServiceId(id);
-        }
-      }
-    }
-  };
-
   const handleCardClick = (service) => {
-    if (activeServiceId === service.id) {
-      navigate(`/services/${service.slug}`);
-    } else {
-      setActiveServiceId(service.id);
-      setHoveredServiceId(service.id);
-    }
+    navigate(`/services/${service.slug}`);
   };
 
   return (
-    <section className="py-16 lg:py-24 border-t border-slate-200/80 dark:border-slate-800 bg-white/60 dark:bg-slate-900/40 relative" aria-labelledby="capabilities-heading">
+    <section className="py-16 lg:py-24 border-t border-slate-200/80 dark:border-slate-800 bg-white dark:bg-[#090e1a] relative" aria-labelledby="capabilities-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <SectionHeading
-            eyebrow="What We Build"
-            title="Technology solutions designed to"
-            highlight="accelerate growth"
-            description="From first idea to final deployment, we create digital products that look premium, perform smoothly, and solve real business problems."
+            eyebrow="Core Services"
+            title="Six specialized disciplines built to"
+            highlight="scale your digital presence."
+            description="From initial brand discovery to live code deployment, we engineer digital products that communicate value, perform reliably, and convert visitors into active clients."
           />
 
-          <div className="shrink-0">
+          <div className="shrink-0 flex items-center gap-3">
             <Button to="/services" variant="secondary" showArrow>
-              View All 6 Services
+              Explore All 6 Services
             </Button>
           </div>
         </div>
 
-        {/* Services Grid with Touch and Hover Tracking */}
-        <div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          onTouchMove={handleTouchMove}
-        >
+        {/* 6 Approved Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesData.map((service, index) => {
             const Icon = iconMap[service.icon] || Layout;
             const isCardActive = hoveredServiceId !== null
@@ -89,92 +67,88 @@ export default function CapabilitiesSection() {
                 }}
                 onMouseLeave={() => setHoveredServiceId(null)}
                 onTouchStart={() => handleCardInteraction(service.id)}
-                onPointerDown={() => handleCardInteraction(service.id)}
-                onClick={() => handleCardClick(service)}
-                className={`group relative rounded-3xl p-6 sm:p-7 service-interactive-card flex flex-col justify-between overflow-hidden cursor-pointer select-none text-left touch-manipulation bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 transition-all ${
-                  isCardActive ? 'is-active' : ''
+                className={`group relative rounded-3xl p-6 sm:p-7 service-interactive-card flex flex-col justify-between overflow-hidden cursor-pointer text-left touch-manipulation bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 transition-all ${
+                  isCardActive ? 'is-active ring-1 ring-[#eccbd6]' : ''
                 }`}
+                onClick={() => handleCardClick(service)}
               >
                 {/* Luminous border glow aura overlay */}
-                <div
-                  className={`card-ambient-aura ${
-                    isCardActive ? 'opacity-100' : 'opacity-0'
-                  }`}
-                />
-
-                {/* Top accent line */}
-                <div
-                  className={`card-top-line ${
-                    isCardActive ? 'opacity-100 !scale-x-100' : ''
-                  }`}
-                />
+                <div className="card-ambient-aura" />
+                <div className="card-top-line" />
 
                 <div className="relative z-10">
+                  {/* Top Row: Icon & Step Number */}
                   <div className="flex items-center justify-between mb-5">
-                    <div
-                      className={`w-12 h-12 rounded-2xl border transition-all duration-300 shadow-xs flex items-center justify-center ${
-                        isCardActive
-                          ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-transparent scale-105 shadow-sm'
-                          : 'bg-[#F7DCE5]/40 dark:bg-slate-800 border-[#eccbd6] dark:border-slate-700 text-slate-900 dark:text-slate-200 group-hover:scale-105'
-                      }`}
-                    >
-                      <Icon className="w-5 h-5 transition-transform duration-300" />
+                    <div className="w-12 h-12 rounded-2xl bg-[#F7DCE5]/40 dark:bg-slate-800 border border-[#eccbd6] dark:border-slate-700 flex items-center justify-center text-[#96405d] dark:text-[#F7DCE5] group-hover:scale-105 transition-transform">
+                      <Icon className="w-5 h-5" />
                     </div>
-                    <Badge
-                      variant="blush"
-                      size="sm"
-                    >
-                      {service.badge}
-                    </Badge>
+
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-mono font-bold text-slate-400 dark:text-slate-500">
+                        0{index + 1}
+                      </span>
+                      <Badge variant="blush" size="sm">
+                        {service.badge}
+                      </Badge>
+                    </div>
                   </div>
 
-                  <h3
-                    className={`text-xl font-bold font-display transition-colors duration-200 mb-2 ${
-                      isCardActive
-                        ? 'text-slate-950 dark:text-white'
-                        : 'text-slate-900 dark:text-white group-hover:text-slate-950 dark:group-hover:text-white'
-                    }`}
-                  >
-                    {service.title}
+                  {/* Title & Purpose */}
+                  <h3 className="text-xl font-bold font-display text-slate-900 dark:text-white mb-2 group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors flex items-center justify-between">
+                    <span>{service.title}</span>
+                    <ArrowUpRight className="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all text-[#96405d] dark:text-[#F7DCE5]" />
                   </h3>
 
-                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
                     {service.shortDesc}
                   </p>
 
-                  {/* Highlights */}
-                  <ul className="space-y-2 mb-6 border-t border-slate-100 dark:border-slate-800 pt-4">
-                    {service.keyCapabilities.slice(0, 3).map((cap, i) => (
-                      <li
-                        key={i}
-                        className={`text-xs text-slate-600 dark:text-slate-300 flex items-center gap-2 transition-transform duration-200 ${
-                          isCardActive ? 'translate-x-1' : ''
-                        }`}
-                      >
-                        <Check className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
-                        <span>{cap}</span>
-                      </li>
+                  {/* Purpose Box */}
+                  <div className="mb-4 p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-700/60 text-xs text-slate-600 dark:text-slate-300">
+                    <span className="font-mono uppercase text-[10px] text-slate-400 dark:text-slate-500 block font-semibold mb-0.5">
+                      Core Purpose:
+                    </span>
+                    <span>{service.purpose}</span>
+                  </div>
+
+                  {/* Key Capabilities */}
+                  <div className="space-y-1.5 mb-5">
+                    {service.keyCapabilities.slice(0, 3).map((cap) => (
+                      <div key={cap} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="leading-snug">{cap}</span>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between relative z-10">
-                  <Link
-                    to={`/services/${service.slug}`}
-                    onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold rounded-lg py-1 px-2 -ml-1 text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] transition-colors"
-                  >
-                    <span>View Specifications</span>
-                    <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </Link>
+                {/* Bottom Row: Next Step & Link */}
+                <div className="relative z-10 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
+                  <div className="font-mono text-[11px] text-[#96405d] dark:text-[#F7DCE5] font-semibold flex items-center gap-1">
+                    <span>Explore Specifications</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                  </div>
 
-                  <span className="text-xs font-mono text-slate-400 dark:text-slate-500">
-                    0{index + 1}
+                  <span className="text-[11px] font-mono text-slate-400">
+                    Includes 1-Yr Maint.
                   </span>
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* Bottom Assurance Banner */}
+        <div className="mt-12 p-6 rounded-3xl bg-[#faf9fb] dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="flex items-center gap-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+              Need a blended scope combining website design, local SEO, and appointment workflows? We tailor custom milestone packages starting at ₹7,000+.
+            </p>
+          </div>
+          <Button to="/contact" variant="primary" size="sm" showArrow className="shrink-0">
+            Request Scope Review
+          </Button>
         </div>
       </div>
     </section>

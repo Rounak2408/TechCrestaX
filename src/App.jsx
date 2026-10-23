@@ -11,6 +11,7 @@ import FAQPage from './pages/FAQPage';
 import InsightsPage from './pages/InsightsPage';
 import InsightDetailPage from './pages/InsightDetailPage';
 import ContactPage from './pages/ContactPage';
+import PricingPage from './pages/PricingPage';
 import PrivacyPage from './pages/PrivacyPage';
 import NotFoundPage from './pages/NotFoundPage';
 
@@ -30,6 +31,7 @@ export default function App() {
         <Route path="/faqs" element={<FAQPage />} />
         <Route path="/insights" element={<InsightsPage />} />
         <Route path="/insights/:slug" element={<InsightDetailPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="/privacy-policy" element={<PrivacyPage />} />

@@ -14,8 +14,8 @@ Before implementing this upgrade, an audit of the public digital presence and as
 * **Headquarters & Operations:** Rajkot, Gujarat, India (serving national and international clients).
 * **Core Philosophy:** *"Engineering digital scale with aesthetic precision."* We build web applications that drive real revenue and user conversion, not just superficial visual templates.
 * **Verified Communication Channels:**
-  * Primary Email: `hello@techcrestax.com`
-  * Secondary Email: `techcrestax@gmail.com`
+  * Primary Email: `techcrestax@gmail.com`
+  * Secondary Email: `hello@techcrestax.com`
   * Phone & Direct WhatsApp: `+91 83404 26550` (`https://wa.me/918340426550`)
   * LinkedIn: `https://www.linkedin.com/company/techcrestaxofficial/`
   * Instagram: `https://www.instagram.com/techcrestax`

@@ -4,16 +4,16 @@ import LayeredAppWindow from './LayeredAppWindow';
 import ConnectedNodes3D from './ConnectedNodes3D';
 import { Palette, Bot, Cloud, Check, Cpu, Sparkles, Activity, ShieldCheck, Terminal, GitBranch } from 'lucide-react';
 
-export default function InteractiveServiceVisual({ slug = "website-development", className = "" }) {
-  if (slug === 'website-development') {
+export default function InteractiveServiceVisual({ slug = "website-design-development", className = "" }) {
+  if (slug === 'website-development' || slug === 'website-design-development' || slug === 'ecommerce-website-development') {
     return <DimensionalBrowserMockup className={className} />;
   }
 
-  if (slug === 'app-development' || slug === 'web-applications') {
+  if (slug === 'app-development' || slug === 'web-applications' || slug === 'web-applications-platforms') {
     return <LayeredAppWindow className={className} />;
   }
 
-  if (slug === 'digital-growth-seo') {
+  if (slug === 'digital-growth-seo' || slug === 'seo-local-seo' || slug === 'digital-growth-online-presence') {
     return <ConnectedNodes3D className={className} />;
   }
 

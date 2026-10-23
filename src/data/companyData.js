@@ -1,8 +1,8 @@
 export const companyData = {
   name: "TechCrestaX",
   legalName: "TechCrestaX",
-  tagline: "We build Websites that move your businesses forward.",
-  shortDescription: "TechCrestaX helps ambitious businesses launch premium websites, scalable applications, and intelligent digital experiences built for real growth.",
+  tagline: "Building digital experiences for businesses",
+  shortDescription: "TechCrestaX builds websites and digital experiences that move businesses forward. Custom web applications, e-commerce platforms, and SEO.",
   establishedYear: 2026,
   location: {
     city: "Rajkot",
@@ -12,30 +12,36 @@ export const companyData = {
     coverage: "Global Client Delivery & Digital Engineering",
   },
   contact: {
-    primaryEmail: "hello@techcrestax.com",
-    secondaryEmail: "techcrestax@gmail.com",
-    phone: "+91 83404 26550",
-    phoneRaw: "+918340426550",
+    primaryEmail: "techcrestax@gmail.com",
+    secondaryEmail: "hello@techcrestax.com",
     whatsappLink: "https://wa.me/918340426550",
+    whatsappLabel: "Chat on WhatsApp",
+    googleBusinessUrl: "https://share.google/QAhZ41vyEGjiVpxkp",
   },
+  technologiesWeUse: [
+    "React.js",
+    "JavaScript",
+    "Node.js",
+    "HTML & CSS",
+    "UI/UX Design Tools"
+  ],
   socials: {
     linkedin: "https://www.linkedin.com/company/techcrestaxofficial/",
     instagram: "https://www.instagram.com/techcrestax?igsh=MTlwYm4yYXI4ZXpxbQ==",
   },
-  verifiedMetrics: [
-    { label: "Projects Delivered", value: "25+", detail: "Milestone-verified delivery" },
-    { label: "Happy Clients", value: "15+", detail: "Long-term partnerships" },
-    { label: "Client Satisfaction", value: "98%", detail: "Consistent 5-star reviews" },
-    { label: "Project Support", value: "24/7", detail: "Dedicated engineering assistance" },
-  ],
-  statsSummary: {
-    projects: "25+",
-    happyClients: "15+",
-    clientSatisfaction: "98%",
-    projectSupport: "24/7",
-    founded: "2026",
-    teamMembers: "5",
+  pricingHighlights: {
+    startingPrice: "₹7,000+",
+    firstYearMaintenance: "Free for 1 Year (12 Months)",
+    subsequentMaintenance: "₹5,000 / Year",
+    domainHostingTerms: "Quoted Separately",
+    pricingNote: "Final pricing depends on pages, design complexity, integrations, content, and custom functionality.",
   },
+  trustPillars: [
+    { label: "Transparent Pricing", value: "₹7,000+", detail: "Starting base with zero hidden fees" },
+    { label: "First-Year Maintenance", value: "Free", detail: "12 months inclusive support" },
+    { label: "Delivery Speed", value: "1–3 Weeks", detail: "Agile milestone sprints" },
+    { label: "Code Ownership", value: "100%", detail: "Complete client IP & asset handover" },
+  ],
   team: [
     {
       name: "Rishu Thakur",

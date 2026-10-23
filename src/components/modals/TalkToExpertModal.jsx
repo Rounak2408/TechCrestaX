@@ -4,12 +4,10 @@ import {
   ShieldCheck, Star, Send, Lock, Phone, Mail,
   ChevronDown, Check
 } from 'lucide-react';
-import { reviewsData } from '../../data/reviewsData';
 import { companyData } from '../../data/companyData';
 
 export default function TalkToExpertModal() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -75,16 +73,6 @@ export default function TalkToExpertModal() {
     };
   }, [isCategoryOpen]);
 
-  // Review Navigation
-  const handlePrevReview = () => {
-    setCurrentReviewIndex((prev) => (prev === 0 ? reviewsData.length - 1 : prev - 1));
-  };
-
-  const handleNextReview = () => {
-    setCurrentReviewIndex((prev) => (prev === reviewsData.length - 1 ? 0 : prev + 1));
-  };
-
-  const currentReview = reviewsData[currentReviewIndex] || reviewsData[0];
 
   const validate = () => {
     const newErrors = {};
@@ -192,7 +180,7 @@ export default function TalkToExpertModal() {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 min-h-0 flex-1 overflow-y-auto">
               
-              {/* LEFT COLUMN: Dark Navy Verified Testimonial Showcase */}
+              {/* LEFT COLUMN: Dark Navy Verified Client Showcase */}
               <div className="hidden lg:flex lg:col-span-5 bg-gradient-to-br from-[#0b1329] via-[#0f172a] to-[#111c38] text-white p-7 sm:p-9 flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
                 <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-[#F7DCE5]/10 blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-slate-700/20 blur-3xl pointer-events-none" />
@@ -200,80 +188,69 @@ export default function TalkToExpertModal() {
                 <div className="relative z-10 space-y-6">
                   <div>
                     <span className="text-[11px] font-mono uppercase tracking-widest text-[#F7DCE5] font-bold block mb-2">
-                      Verified Client Feedback
+                      Official Client Deliveries
                     </span>
                     <h2 className="text-2xl sm:text-[26px] font-bold font-display leading-snug tracking-tight text-white">
                       We Build Websites That Move Businesses Forward
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
-                      You have a Vision, we are here to help you Achieve it!
+                      Custom design, modern React architecture, and transparent terms.
                     </p>
                   </div>
 
-                  {/* Rotating Testimonial Card */}
-                  <div className="bg-slate-900/90 text-slate-100 p-5 sm:p-6 rounded-2xl shadow-xl space-y-4 relative border border-slate-700/80">
-                    <div className="text-[#F7DCE5] font-serif text-3xl leading-none select-none">
-                      “
+                  {/* Pricing & Terms Highlights */}
+                  <div className="bg-slate-900/90 text-slate-100 p-5 rounded-2xl shadow-xl space-y-3.5 border border-slate-700/80">
+                    <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                      <span className="text-xs text-slate-400 font-mono">Website Development</span>
+                      <span className="text-xs font-mono font-bold text-[#F7DCE5]">Starts at ₹7,000+</span>
                     </div>
-
-                    <p className="text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal italic">
-                      "{currentReview.quote}"
-                    </p>
-
-                    <div className="pt-3 border-t border-slate-800 flex items-center gap-3">
-                      <div className={`w-9 h-9 rounded-full ${currentReview.avatarBg} font-mono font-bold text-xs flex items-center justify-center shrink-0`}>
-                        {currentReview.initials}
-                      </div>
-                      <div className="overflow-hidden">
-                        <div className="text-xs font-bold text-white truncate">
-                          {currentReview.name}
-                        </div>
-                        <div className="text-[11px] text-slate-400 truncate">
-                          {currentReview.role}, <span className="font-semibold text-slate-300">{currentReview.company}</span>
-                        </div>
-                      </div>
+                    <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
+                      <span className="text-xs text-slate-400 font-mono">1st-Year Maintenance</span>
+                      <span className="text-xs font-mono font-bold text-emerald-400">100% Free (12 Mo)</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-slate-400 font-mono">Code Ownership</span>
+                      <span className="text-xs font-mono font-bold text-white">100% Client-Owned</span>
                     </div>
                   </div>
 
-                  {/* Left / Right Carousel Controls */}
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={handlePrevReview}
-                      className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer"
-                      aria-label="Previous testimonial"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleNextReview}
-                      className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 border border-white/15 flex items-center justify-center text-white transition-colors cursor-pointer"
-                      aria-label="Next testimonial"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                    <span className="text-[11px] font-mono text-slate-400 ml-2">
-                      0{currentReviewIndex + 1} / 0{reviewsData.length}
+                  {/* Verified Deliveries */}
+                  <div className="space-y-2">
+                    <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 font-bold block">
+                      Live Verified Deliveries
                     </span>
+                    <div className="space-y-1.5 text-xs text-slate-300">
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                        <span className="font-semibold text-white">Scalpel.in</span>
+                        <span className="text-[11px] font-mono text-[#F7DCE5]">Doctor Appointment</span>
+                      </div>
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                        <span className="font-semibold text-white">Agriqen Seeds</span>
+                        <span className="text-[11px] font-mono text-[#F7DCE5]">Agriculture & Biotech</span>
+                      </div>
+                      <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                        <span className="font-semibold text-white">Sahyog Sagar</span>
+                        <span className="text-[11px] font-mono text-[#F7DCE5]">Restaurant & SEO</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 {/* Bottom Projects List */}
                 <div className="pt-6 border-t border-slate-800/80 relative z-10 mt-6 lg:mt-0">
-                  <div className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-2.5 font-bold">
-                    Featured Work & Case Studies
+                  <div className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-2 font-bold">
+                    Approved Client Portfolio
                   </div>
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-xs font-mono font-semibold text-slate-300">
-                    <span className="hover:text-white transition-colors">TransitOps</span>
+                  <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-slate-400">
+                    <span className="text-slate-200">Scalpel.in</span>
                     <span>•</span>
-                    <span className="hover:text-white transition-colors">UrbanFit</span>
+                    <span className="text-slate-200">Agriqen</span>
                     <span>•</span>
-                    <span className="hover:text-white transition-colors">Crave Restaurant</span>
+                    <span className="text-slate-200">Sahyog Sagar</span>
                     <span>•</span>
-                    <span className="hover:text-white transition-colors">AaoGhume</span>
+                    <span className="text-slate-200">Law & Legal</span>
                     <span>•</span>
-                    <span className="hover:text-white transition-colors">Finora</span>
+                    <span className="text-slate-200">YOG4YOU</span>
                   </div>
                 </div>
               </div>
