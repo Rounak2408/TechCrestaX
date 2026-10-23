@@ -149,6 +149,9 @@ export default function Navbar() {
   // Click handler: smooth scroll if on homepage, navigate otherwise
   const handleNavClick = (e, link) => {
     setMobileMenuOpen(false);
+    if (e?.currentTarget) {
+      e.currentTarget.blur();
+    }
 
     if (location.pathname === '/') {
       e.preventDefault();
@@ -236,7 +239,7 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={(e) => handleNavClick(e, link)}
-                  className={`relative px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 ${
+                  className={`relative px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 outline-none focus:outline-none focus-visible:outline-none select-none ${
                     active
                       ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-xs border border-[#F7DCE5] dark:border-[#F7DCE5]/30 font-bold scale-[1.02]'
                       : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-white/60 dark:hover:bg-slate-800/60'

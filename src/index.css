@@ -341,10 +341,17 @@ html.dark .bg-tech-dots {
   }
 }
 
-/* Accessible focus ring */
+/* Accessible focus ring - excludes navigation pills that manage their own active state */
 :focus-visible {
   outline: 2px solid #0f172a;
   outline-offset: 2px;
+}
+
+nav a:focus,
+nav a:focus-visible,
+nav button:focus,
+nav button:focus-visible {
+  outline: none !important;
 }
 
 html.dark :focus-visible {
