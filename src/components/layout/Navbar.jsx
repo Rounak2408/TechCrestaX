@@ -397,7 +397,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right Action Controls: CTA & 9-Dot Canvas Drawer (Option 05 Signature) */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden md:flex items-center gap-2.5">
             {/* Primary Coral-Orange CTA (Option 05 Signature) */}
             <Link
               to="/contact"
@@ -439,26 +439,20 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile Right Controls */}
+          {/* Mobile Right Controls: Single Hamburger Menu Toggle */}
           <div className="flex md:hidden items-center gap-2">
             <button
               type="button"
-              className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900"
+              className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700/80 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6248] active:scale-95 transition-all duration-200 cursor-pointer shadow-xs"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-expanded={mobileMenuOpen}
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-
-            <button
-              type="button"
-              className="p-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 focus-visible:ring-2 focus-visible:ring-slate-900"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-expanded={mobileMenuOpen}
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileMenuOpen ? (
+                <X className="w-5 h-5 text-[#FF6248]" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
             </button>
           </div>
         </div>
