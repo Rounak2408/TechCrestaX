@@ -67,31 +67,6 @@ export default function LightTrails({ intensity = 'default' }) {
             <stop offset="70%" stopColor="#FF6248" stopOpacity="0.3" />
             <stop offset="100%" stopColor="#FF6248" stopOpacity="0" />
           </linearGradient>
-
-          {/* Neon Glow Filters */}
-          <filter id="trailGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="8" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="pulseGlow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="14" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-
-          <filter id="orbitalGlow" x="-20%" y="-20%" width="140%" height="140%">
-            <feGaussianBlur stdDeviation="5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
         </defs>
 
         {/* ============================================================
@@ -107,7 +82,6 @@ export default function LightTrails({ intensity = 'default' }) {
           strokeWidth="1.2"
           strokeDasharray="8 16"
           className="opacity-20"
-          filter="url(#orbitalGlow)"
         />
 
         {/* Mid-Page Orbital Ellipse */}
@@ -120,7 +94,6 @@ export default function LightTrails({ intensity = 'default' }) {
           strokeWidth="1.2"
           strokeDasharray="10 20"
           className="opacity-15"
-          filter="url(#orbitalGlow)"
         />
 
         {/* Lower Orbital Ellipse (Near Pricing & Footer) */}
@@ -133,7 +106,6 @@ export default function LightTrails({ intensity = 'default' }) {
           strokeWidth="1.0"
           strokeDasharray="6 14"
           className="opacity-15"
-          filter="url(#orbitalGlow)"
         />
 
         {/* ============================================================
@@ -150,8 +122,8 @@ export default function LightTrails({ intensity = 'default' }) {
           d="M 0 760 Q 720 740 1440 760"
           stroke="#FFFFFF"
           strokeWidth="2.2"
-          className="animate-trail-flow-1"
-          style={{ strokeDasharray: '120 1800', filter: 'url(#pulseGlow)' }}
+          className="animate-trail-flow-1 opacity-70"
+          style={{ strokeDasharray: '120 1800' }}
         />
 
         {/* Boundary 2: Mid-Section Divider */}
@@ -165,8 +137,8 @@ export default function LightTrails({ intensity = 'default' }) {
           d="M 0 1680 Q 720 1700 1440 1680"
           stroke="#FFA07A"
           strokeWidth="2.0"
-          className="animate-trail-flow-2"
-          style={{ strokeDasharray: '150 1900', filter: 'url(#pulseGlow)' }}
+          className="animate-trail-flow-2 opacity-60"
+          style={{ strokeDasharray: '150 1900' }}
         />
 
         {/* ============================================================
@@ -176,10 +148,9 @@ export default function LightTrails({ intensity = 'default' }) {
         <path
           d="M 1400 120 C 1100 480, 500 650, 80 1100"
           stroke="url(#trailGrad1)"
-          strokeWidth="1.8"
+          strokeWidth="2.5"
           strokeLinecap="round"
-          className="opacity-30"
-          filter="url(#trailGlow)"
+          className="opacity-25"
         />
         {/* Moving Laser Energy Pulse */}
         <path
@@ -187,10 +158,9 @@ export default function LightTrails({ intensity = 'default' }) {
           stroke="#FFFFFF"
           strokeWidth="3.2"
           strokeLinecap="round"
-          className="animate-trail-flow-1"
+          className="animate-trail-flow-1 opacity-90"
           style={{
             strokeDasharray: '180 1800',
-            filter: 'url(#pulseGlow)',
           }}
         />
 
@@ -201,10 +171,9 @@ export default function LightTrails({ intensity = 'default' }) {
         <path
           d="M 60 1050 C 450 1450, 1150 1620, 1380 2050"
           stroke="url(#trailGrad2)"
-          strokeWidth="1.8"
+          strokeWidth="2.5"
           strokeLinecap="round"
-          className="opacity-25"
-          filter="url(#trailGlow)"
+          className="opacity-20"
         />
         {/* Moving Laser Energy Pulse */}
         <path
@@ -212,10 +181,9 @@ export default function LightTrails({ intensity = 'default' }) {
           stroke="#FFA07A"
           strokeWidth="3.0"
           strokeLinecap="round"
-          className="animate-trail-flow-2"
+          className="animate-trail-flow-2 opacity-85"
           style={{
             strokeDasharray: '220 2000',
-            filter: 'url(#pulseGlow)',
           }}
         />
 
@@ -226,10 +194,9 @@ export default function LightTrails({ intensity = 'default' }) {
         <path
           d="M 1390 2000 C 1050 2350, 350 2480, 80 2750"
           stroke="url(#trailGrad3)"
-          strokeWidth="1.6"
+          strokeWidth="2.2"
           strokeLinecap="round"
-          className="opacity-25"
-          filter="url(#trailGlow)"
+          className="opacity-20"
         />
         {/* Moving Laser Energy Pulse */}
         <path
@@ -237,10 +204,9 @@ export default function LightTrails({ intensity = 'default' }) {
           stroke="#FF7957"
           strokeWidth="2.8"
           strokeLinecap="round"
-          className="animate-trail-flow-3"
+          className="animate-trail-flow-3 opacity-80"
           style={{
             strokeDasharray: '160 1700',
-            filter: 'url(#pulseGlow)',
           }}
         />
       </svg>

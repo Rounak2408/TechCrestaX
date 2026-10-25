@@ -46,10 +46,19 @@ export default function Navbar() {
 
   const dropdownCloseTimeout = useRef(null);
 
-  // Scroll detection for sticky header state
+  // Scroll detection for sticky header state (memoized state update)
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 20;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -113,20 +122,21 @@ export default function Navbar() {
     { name: 'Contact', path: '/contact', id: 'enquiry' },
   ];
 
-  // Scroll spy on homepage
+  // Scroll spy on homepage (throttled via requestAnimationFrame)
   useEffect(() => {
     if (location.pathname !== '/') {
       return;
     }
 
     const sectionIds = ['enquiry', 'faq', 'pricing', 'about', 'services', 'portfolio', 'hero'];
+    let ticking = false;
 
-    const handleScrollSpy = () => {
+    const computeActiveSection = () => {
       const scrollY = window.scrollY;
       const triggerOffset = 180;
 
       if (scrollY < 120) {
-        setActiveSection('hero');
+        setActiveSection((prev) => (prev !== 'hero' ? 'hero' : prev));
         return;
       }
 
@@ -135,16 +145,26 @@ export default function Navbar() {
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= triggerOffset) {
-            setActiveSection(id);
+            setActiveSection((prev) => (prev !== id ? id : prev));
             return;
           }
         }
       }
 
-      setActiveSection('hero');
+      setActiveSection((prev) => (prev !== 'hero' ? 'hero' : prev));
     };
 
-    handleScrollSpy();
+    const handleScrollSpy = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          computeActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    computeActiveSection();
     window.addEventListener('scroll', handleScrollSpy, { passive: true });
     window.addEventListener('resize', handleScrollSpy, { passive: true });
 

@@ -38,6 +38,9 @@ export default function CinematicHeroBackground() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
+        if (entry.isIntersecting && !animationFrameId) {
+          animationFrameId = requestAnimationFrame(render);
+        }
       },
       { threshold: 0.05 }
     );
@@ -109,7 +112,7 @@ export default function CinematicHeroBackground() {
     // ==========================================
     const render = () => {
       if (!isVisible) {
-        animationFrameId = requestAnimationFrame(render);
+        animationFrameId = null;
         return;
       }
 
@@ -382,8 +385,6 @@ export default function CinematicHeroBackground() {
         ctx.save();
         ctx.fillStyle = '#FFA285';
         ctx.globalAlpha = Math.max(0, Math.min(1, currentAlpha));
-        ctx.shadowColor = '#FF6248';
-        ctx.shadowBlur = 10;
         ctx.beginPath();
         ctx.arc(px, py, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -396,7 +397,7 @@ export default function CinematicHeroBackground() {
     animationFrameId = requestAnimationFrame(render);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
       observer.disconnect();
     };

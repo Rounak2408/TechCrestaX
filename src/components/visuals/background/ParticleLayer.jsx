@@ -81,7 +81,7 @@ export default function ParticleLayer({ intensity = 'default' }) {
 
     const render = () => {
       if (!isTabVisible) {
-        animId = requestAnimationFrame(render);
+        animId = null;
         return;
       }
 
@@ -105,8 +105,6 @@ export default function ParticleLayer({ intensity = 'default' }) {
         ctx.save();
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
-        ctx.shadowColor = '#FF6248';
-        ctx.shadowBlur = 6;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
@@ -120,6 +118,9 @@ export default function ParticleLayer({ intensity = 'default' }) {
 
     const handleVisibilityChange = () => {
       isTabVisible = !document.hidden;
+      if (isTabVisible && !animId && !prefersReducedMotion) {
+        animId = requestAnimationFrame(render);
+      }
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);

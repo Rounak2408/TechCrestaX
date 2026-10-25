@@ -38,12 +38,15 @@ function PortfolioEmbers() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible = entry.isIntersecting;
+        if (entry.isIntersecting && !animId) {
+          animId = requestAnimationFrame(render);
+        }
       },
       { threshold: 0.05 }
     );
     observer.observe(canvas);
 
-    const count = 35;
+    const count = 28;
     const particles = [];
     for (let i = 0; i < count; i++) {
       particles.push({
@@ -62,7 +65,7 @@ function PortfolioEmbers() {
     let time = 0;
     const render = () => {
       if (!isVisible) {
-        animId = requestAnimationFrame(render);
+        animId = null;
         return;
       }
 
@@ -85,8 +88,6 @@ function PortfolioEmbers() {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(255, 110, 80, ${p.alpha})`;
-        ctx.shadowColor = '#FF6248';
-        ctx.shadowBlur = 8;
         ctx.fill();
       }
 
@@ -96,7 +97,7 @@ function PortfolioEmbers() {
     animId = requestAnimationFrame(render);
 
     return () => {
-      cancelAnimationFrame(animId);
+      if (animId) cancelAnimationFrame(animId);
       window.removeEventListener('resize', handleResize);
       observer.disconnect();
     };

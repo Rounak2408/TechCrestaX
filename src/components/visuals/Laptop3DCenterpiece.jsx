@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   ArrowUpRight, 
   Code, 
@@ -87,44 +87,65 @@ const capabilityCards = [
 ];
 
 export default function Laptop3DCenterpiece() {
-  const [tilt, setTilt] = useState({ x: 4, y: -6 });
-  const [isHovered, setIsHovered] = useState(false);
   const containerRef = useRef(null);
+  const sceneRef = useRef(null);
+  const isHoveredRef = useRef(false);
+  const isVisibleRef = useRef(true);
   const currentTiltRef = useRef({ x: 4, y: -6 });
   const targetTiltRef = useRef({ x: 4, y: -6 });
   const animFrameRef = useRef(null);
   const timeRef = useRef(0);
 
-  // 60FPS Smooth Lerp Physics Loop with Organic Idle Floating
+  // 60FPS Smooth Lerp Physics Loop with Organic Idle Floating - zero React re-renders!
   useEffect(() => {
     const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (isReduced) return;
 
     let running = true;
+
+    // IntersectionObserver to pause physics when scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisibleRef.current = entry.isIntersecting;
+        if (entry.isIntersecting && !animFrameRef.current) {
+          animFrameRef.current = requestAnimationFrame(animatePhysics);
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     const animatePhysics = () => {
       if (!running) return;
 
-      timeRef.current += 0.018;
+      if (!isVisibleRef.current) {
+        animFrameRef.current = null;
+        return;
+      }
 
-      if (!isHovered) {
+      timeRef.current += 0.016;
+
+      if (!isHoveredRef.current) {
         // Continuous gentle sinusoidal floating oscillation
-        const floatY = Math.sin(timeRef.current * 0.75) * 2.2;
-        const floatX = Math.cos(timeRef.current * 0.55) * 1.5;
+        const floatY = Math.sin(timeRef.current * 0.75) * 2.0;
+        const floatX = Math.cos(timeRef.current * 0.55) * 1.4;
         targetTiltRef.current = {
           x: 4 + floatX,
           y: -6 + floatY
         };
       }
 
-      // Smooth Linear Interpolation (Damping factor = 0.065 for liquid-smooth 60fps feel)
+      // Smooth Linear Interpolation (Damping factor = 0.065 for liquid-smooth feel)
       const damping = 0.065;
       currentTiltRef.current.x += (targetTiltRef.current.x - currentTiltRef.current.x) * damping;
       currentTiltRef.current.y += (targetTiltRef.current.y - currentTiltRef.current.y) * damping;
 
-      setTilt({
-        x: currentTiltRef.current.x,
-        y: currentTiltRef.current.y
-      });
+      if (sceneRef.current) {
+        sceneRef.current.style.transform = `rotateX(${currentTiltRef.current.x.toFixed(2)}deg) rotateY(${currentTiltRef.current.y.toFixed(2)}deg)`;
+      }
 
       animFrameRef.current = requestAnimationFrame(animatePhysics);
     };
@@ -133,9 +154,13 @@ export default function Laptop3DCenterpiece() {
 
     return () => {
       running = false;
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
+      observer.disconnect();
+      if (animFrameRef.current) {
+        cancelAnimationFrame(animFrameRef.current);
+        animFrameRef.current = null;
+      }
     };
-  }, [isHovered]);
+  }, []);
 
   // Smooth mouse movement parallax tracking
   const handleMouseMove = (e) => {
@@ -153,9 +178,12 @@ export default function Laptop3DCenterpiece() {
     };
   };
 
-  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseEnter = () => {
+    isHoveredRef.current = true;
+  };
+
   const handleMouseLeave = () => {
-    setIsHovered(false);
+    isHoveredRef.current = false;
   };
 
   const handleBuildClick = (e) => {
@@ -194,9 +222,10 @@ export default function Laptop3DCenterpiece() {
           2. MASTER 3D TILTED SCENE CONTAINER (Preserve 3D)
          ======================================================== */}
       <div 
-        className="relative w-full flex items-center justify-center transition-transform duration-150 ease-out"
+        ref={sceneRef}
+        className="relative w-full flex items-center justify-center will-change-transform"
         style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transform: 'rotateX(4deg) rotateY(-6deg)',
           transformStyle: 'preserve-3d'
         }}
       >

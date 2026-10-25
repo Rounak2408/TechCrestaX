@@ -364,12 +364,6 @@ html.dark .bg-tech-dots {
   animation-play-state: paused;
 }
 
-/* Premium Scroll Reveal System */
-.reveal-item,
-.text-reveal-wrap {
-  will-change: opacity, transform;
-}
-
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
