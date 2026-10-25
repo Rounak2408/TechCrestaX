@@ -104,13 +104,13 @@ export default function InsightDetailPage() {
             {article.title}
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed border-l-2 border-[#F7DCE5] pl-4 italic">
+          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed border-l-2 border-[#FFD4C9] pl-4 italic">
             {article.summary}
           </p>
 
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-[#96405d] dark:text-[#f7dce5]" />
+              <User className="w-4 h-4 text-[#C2410C] dark:text-[#FF7C42]" />
               <span className="font-semibold text-slate-800 dark:text-slate-200">{article.author}</span>
             </div>
 
@@ -166,13 +166,13 @@ export default function InsightDetailPage() {
               {otherArticles.slice(0, 2).map((other) => (
                 <div
                   key={other.id}
-                  className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#F7DCE5] dark:hover:border-[#F7DCE5]/40 rounded-2xl p-6 transition-all shadow-xs"
+                  className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#FF6B4A] dark:hover:border-[#FF6B4A]/40 rounded-2xl p-6 transition-all shadow-xs"
                 >
-                  <span className="text-[11px] font-mono text-[#96405d] dark:text-[#f7dce5] font-semibold uppercase block mb-1.5">
+                  <span className="text-[11px] font-mono text-[#C2410C] dark:text-[#FF7C42] font-semibold uppercase block mb-1.5">
                     {other.category}
                   </span>
                   <h4 className="text-base font-bold text-slate-900 dark:text-white mb-2">
-                    <Link to={`/insights/${other.slug}`} className="hover:text-[#96405d] dark:hover:text-[#f7dce5]">
+                    <Link to={`/insights/${other.slug}`} className="hover:text-[#FF6B4A] dark:hover:text-[#FF7C42]">
                       {other.title}
                     </Link>
                   </h4>
@@ -181,7 +181,7 @@ export default function InsightDetailPage() {
                   </p>
                   <Link
                     to={`/insights/${other.slug}`}
-                    className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#f7dce5] inline-flex items-center gap-1"
+                    className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#FF6B4A] dark:hover:text-[#FF7C42] inline-flex items-center gap-1"
                   >
                     <span>Read Article</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

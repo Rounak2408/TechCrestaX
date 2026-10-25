@@ -13,7 +13,7 @@ export default function ProjectEnquiryForm() {
     serviceInterest: ['Website Design & Development'],
     message: '',
     budgetRange: 'Starter Business Website (₹7,000 – ₹15,000)',
-    timeline: 'Standard Agile (1–3 Weeks)',
+    timeline: 'Rapid Agile (7 Days)',
   });
 
   const [errors, setErrors] = useState({});
@@ -38,9 +38,9 @@ export default function ProjectEnquiryForm() {
   ];
 
   const timelineOptions = [
-    'Standard Agile (1–3 Weeks)',
-    'Fast-Track Priority (1–2 Weeks)',
-    'Comprehensive Phased Roadmap (1–2 Months)',
+    'Rapid Agile (7 Days)',
+    'Fast-Track Priority (3–5 Days)',
+    'Comprehensive Phased Roadmap (2–4 Weeks)',
     'Flexible / Long-Term Retainer',
   ];
 
@@ -161,7 +161,7 @@ Rajkot, Gujarat, India`;
       {!isReadyToDispatch && (
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#96405d] dark:text-[#F7DCE5]">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C2410C] dark:text-[#FF7C42]">
               Step {currentStep} of 3
             </span>
             <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
@@ -175,12 +175,12 @@ Rajkot, Gujarat, India`;
           <div className="grid grid-cols-3 gap-2" role="progressbar" aria-valuenow={currentStep} aria-valuemin={1} aria-valuemax={3}>
             <div
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentStep >= 1 ? 'bg-[#eccbd6] dark:bg-[#F7DCE5]' : 'bg-slate-100 dark:bg-slate-800'
+                currentStep >= 1 ? 'bg-[#FF6B4A] dark:bg-[#FF6B4A]' : 'bg-slate-100 dark:bg-slate-800'
               }`}
             />
             <div
               className={`h-2 rounded-full transition-all duration-300 ${
-                currentStep >= 2 ? 'bg-[#eccbd6] dark:bg-[#F7DCE5]' : 'bg-slate-100 dark:bg-slate-800'
+                currentStep >= 2 ? 'bg-[#FF6B4A] dark:bg-[#FF6B4A]' : 'bg-slate-100 dark:bg-slate-800'
               }`}
             />
             <div
@@ -254,7 +254,7 @@ Rajkot, Gujarat, India`;
                     aria-invalid={!!errors.name}
                     aria-describedby={errors.name ? 'name-error' : undefined}
                     className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors ${
-                      errors.name ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
+                      errors.name ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A]'
                     }`}
                   />
                   {errors.name && (
@@ -281,7 +281,7 @@ Rajkot, Gujarat, India`;
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? 'email-error' : undefined}
                     className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors ${
-                      errors.email ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
+                      errors.email ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A]'
                     }`}
                   />
                   {errors.email && (
@@ -302,7 +302,7 @@ Rajkot, Gujarat, India`;
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="e.g. Nexora Studio or Stealth Startup"
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A] transition-colors"
                   />
                 </div>
 
@@ -316,14 +316,14 @@ Rajkot, Gujarat, India`;
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="+91 ... or international"
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A] transition-colors"
                   />
                 </div>
               </div>
 
               <div className="pt-4 flex items-center justify-between border-t border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-                  <ShieldCheck className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
+                  <ShieldCheck className="w-4 h-4 text-[#C2410C] dark:text-[#FF7C42] shrink-0" />
                   <span>Confidentiality guaranteed. No spam, ever.</span>
                 </div>
                 <Button type="button" onClick={handleNext} variant="primary" showArrow>
@@ -361,10 +361,10 @@ Rajkot, Gujarat, India`;
                         className={`px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-150 border cursor-pointer ${
                           isSelected
                             ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
-                            : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-[#eccbd6]'
+                            : 'bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-[#FF6B4A]'
                         }`}
                       >
-                        {isSelected && <span className="mr-1.5 font-bold text-[#F7DCE5] dark:text-slate-900">✓</span>}
+                        {isSelected && <span className="mr-1.5 font-bold text-[#FF6B4A] dark:text-slate-900">✓</span>}
                         {service}
                       </button>
                     );
@@ -400,7 +400,7 @@ Rajkot, Gujarat, India`;
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? 'message-error' : undefined}
                   className={`w-full bg-slate-50 dark:bg-slate-800 border rounded-xl p-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:bg-white dark:focus:bg-slate-700 transition-colors leading-relaxed ${
-                    errors.message ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5]'
+                    errors.message ? 'border-rose-400 focus:border-rose-500' : 'border-slate-200 dark:border-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A]'
                   }`}
                 />
                 {errors.message && (
@@ -436,10 +436,10 @@ Rajkot, Gujarat, India`;
               </div>
 
               {/* Pricing Clarity Notice Box */}
-              <div className="p-4 rounded-2xl bg-[#F7DCE5]/30 dark:bg-[#F7DCE5]/10 border border-[#eccbd6] dark:border-[#F7DCE5]/30 text-xs text-slate-700 dark:text-slate-300 space-y-1.5">
+              <div className="p-4 rounded-2xl bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9] dark:border-[#FF6B4A]/30 text-xs text-slate-700 dark:text-slate-300 space-y-1.5">
                 <div className="font-bold text-slate-900 dark:text-white flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5]" />
-                  <span>Transparent Milestone Pricing & 1–3 Week Sprints</span>
+                  <Clock className="w-3.5 h-3.5 text-[#C2410C] dark:text-[#FF7C42]" />
+                  <span>Transparent Milestone Pricing & 7-Day Sprints</span>
                 </div>
                 <p className="leading-relaxed">
                   Every proposal includes clear milestone deliverables (Discovery → UI/UX → React Build → Launch). No surprise add-ons. You retain 100% code ownership and post-launch bug warranty.
@@ -456,7 +456,7 @@ Rajkot, Gujarat, India`;
                     id="budgetRange"
                     value={formData.budgetRange}
                     onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A] transition-colors"
                   >
                     {budgetOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -474,7 +474,7 @@ Rajkot, Gujarat, India`;
                     id="timeline"
                     value={formData.timeline}
                     onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] transition-colors"
+                    className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-sm text-slate-900 dark:text-white focus:outline-none focus:bg-white dark:focus:bg-slate-700 focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A] transition-colors"
                   >
                     {timelineOptions.map((opt) => (
                       <option key={opt} value={opt}>
@@ -515,7 +515,7 @@ Rajkot, Gujarat, India`;
                   <button
                     type="button"
                     onClick={() => setCurrentStep(1)}
-                    className="text-xs font-semibold text-[#96405d] dark:text-[#F7DCE5] hover:underline cursor-pointer"
+                    className="text-xs font-semibold text-[#C2410C] dark:text-[#FF7C42] hover:underline cursor-pointer"
                   >
                     Edit Details
                   </button>
@@ -567,7 +567,7 @@ Rajkot, Gujarat, India`;
         /* ================= HONEST DISPATCH SCREEN ================= */
         <div className="py-4 space-y-6">
           <div className="text-center max-w-lg mx-auto space-y-3">
-            <div className="w-14 h-14 bg-[#F7DCE5] rounded-2xl flex items-center justify-center mx-auto text-[#96405d]">
+            <div className="w-14 h-14 bg-[#FF6B4A] rounded-2xl flex items-center justify-center mx-auto text-[#C2410C]">
               <Check className="w-7 h-7" strokeWidth={2.5} />
             </div>
             <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white">
@@ -584,7 +584,7 @@ Rajkot, Gujarat, India`;
               onClick={handleMailtoDispatch}
               className="flex items-center gap-3 p-4 bg-slate-900 text-white rounded-2xl hover:bg-slate-800 transition-all text-left shadow-sm group cursor-pointer border border-slate-800"
             >
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#F7DCE5] shrink-0 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-[#FF6B4A] shrink-0 group-hover:scale-105 transition-transform">
                 <Mail className="w-5 h-5" />
               </div>
               <div>
@@ -627,7 +627,7 @@ Rajkot, Gujarat, India`;
               <button
                 type="button"
                 onClick={handleCopyPayload}
-                className="text-xs font-mono text-[#96405d] dark:text-[#F7DCE5] hover:underline flex items-center gap-1.5 cursor-pointer font-bold"
+                className="text-xs font-mono text-[#C2410C] dark:text-[#FF7C42] hover:underline flex items-center gap-1.5 cursor-pointer font-bold"
               >
                 {copied ? (
                   <>

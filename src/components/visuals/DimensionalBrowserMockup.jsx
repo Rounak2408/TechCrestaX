@@ -54,8 +54,8 @@ export default function DimensionalBrowserMockup({
               </div>
               <span className="text-xs font-bold text-slate-900 dark:text-white">{title}</span>
             </div>
-            <span className="inline-flex items-center gap-1 text-[11px] font-mono text-[#96405d] dark:text-[#f7dce5] bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/20 border border-[#F7DCE5] px-2 py-0.5 rounded-full">
-              <Zap className="w-3 h-3 text-[#96405d] dark:text-[#f7dce5]" />
+            <span className="inline-flex items-center gap-1 text-[11px] font-mono text-[#C2410C] dark:text-[#FF7C42] bg-[#FF6B4A]/20 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9] px-2 py-0.5 rounded-full">
+              <Zap className="w-3 h-3 text-[#C2410C] dark:text-[#FF7C42]" />
               {badge}
             </span>
           </div>
@@ -78,7 +78,7 @@ export default function DimensionalBrowserMockup({
 
             <div className="bg-slate-900 text-white rounded-xl p-3 shadow-xs flex flex-col justify-between">
               <div className="text-[10px] font-mono text-slate-400 uppercase">Uptime</div>
-              <div className="text-xl font-bold font-mono text-[#F7DCE5]">99.98%</div>
+              <div className="text-xl font-bold font-mono text-[#FF6B4A]">99.98%</div>
               <div className="text-[9px] text-slate-300">Sub-second TTFB</div>
             </div>
           </div>
@@ -93,7 +93,7 @@ export default function DimensionalBrowserMockup({
               {[40, 65, 50, 80, 95, 75, 90].map((h, i) => (
                 <span
                   key={i}
-                  className="w-1.5 rounded-t bg-[#F7DCE5] border border-pink-200 transition-all duration-300"
+                  className="w-1.5 rounded-t bg-[#FF6B4A] border border-orange-200 transition-all duration-300"
                   style={{ height: `${h}%` }}
                 />
               ))}

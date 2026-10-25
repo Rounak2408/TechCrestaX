@@ -20,7 +20,7 @@ export const faqsData = [
   {
     id: 4,
     question: "How long does a website project take to launch?",
-    answer: "A standard business website typically delivers within 1 to 3 weeks through milestone-driven agile sprints. We share interactive staging preview links at each milestone so you can review real progress before final release.",
+    answer: "A standard business website typically delivers within 7 days through milestone-driven agile sprints. We share interactive staging preview links at each milestone so you can review real progress before final release.",
     category: "Delivery & Timelines",
   },
   {

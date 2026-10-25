@@ -32,7 +32,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
     // Create connecting lines
     const linePoints = [];
     const lineColors = [];
-    const blush = new THREE.Color('#F7DCE5');
+    const blush = new THREE.Color('#FF6B4A');
     const slate = new THREE.Color('#64748b');
     const faintSlate = new THREE.Color('#94a3b8');
 
@@ -190,8 +190,8 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
       <mesh ref={innerCoreRef}>
         <dodecahedronGeometry args={[0.36, 0]} />
         <meshStandardMaterial
-          color="#F7DCE5"
-          emissive="#e89db1"
+          color="#FF6B4A"
+          emissive="#FF7C42"
           emissiveIntensity={0.8}
           roughness={0.2}
           metalness={0.5}
@@ -223,8 +223,8 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
             >
               <sphereGeometry args={[0.065, 16, 16]} />
               <meshStandardMaterial
-                color={isHovered ? '#ffffff' : isBlush ? '#F7DCE5' : '#64748b'}
-                emissive={isHovered ? '#F7DCE5' : isBlush ? '#e89db1' : '#1e293b'}
+                color={isHovered ? '#ffffff' : isBlush ? '#FF6B4A' :  '#64748b'}
+                emissive={isHovered ? '#FF6B4A' : isBlush ? '#FF7C42' : '#1e293b'}
                 emissiveIntensity={isHovered ? 1.2 : isBlush ? 0.6 : 0.2}
                 roughness={0.25}
                 metalness={0.6}
@@ -235,7 +235,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
               <mesh rotation={[Math.PI / 2, 0, 0]}>
                 <ringGeometry args={[0.09, 0.105, 16]} />
                 <meshBasicMaterial
-                  color="#F7DCE5"
+                  color="#FF6B4A"
                   transparent
                   opacity={isHovered ? 0.8 : 0.4}
                   side={THREE.DoubleSide}
@@ -254,8 +254,8 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
         >
           <sphereGeometry args={[0.045, 12, 12]} />
           <meshStandardMaterial
-            color="#F7DCE5"
-            emissive="#e89db1"
+            color="#FF6B4A"
+            emissive="#FF7C42"
             emissiveIntensity={0.9}
             roughness={0.15}
             metalness={0.8}
@@ -267,7 +267,7 @@ function DimensionalScene({ prefersReducedMotion, isVisible }) {
       <group ref={ringsGroupRef}>
         <mesh rotation={[Math.PI / 3, 0.2, 0]}>
           <torusGeometry args={[2.0, 0.007, 16, 96]} />
-          <meshBasicMaterial color="#F7DCE5" transparent opacity={0.5} />
+          <meshBasicMaterial color="#FF6B4A" transparent opacity={0.5} />
         </mesh>
         <mesh rotation={[-Math.PI / 3.5, -0.3, 0]}>
           <torusGeometry args={[1.5, 0.005, 16, 80]} />
@@ -335,9 +335,9 @@ export default function GeometricCenterpiece3D({ className = '' }) {
         <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-slate-200/80 bg-white/80 backdrop-blur-sm shadow-md flex items-center justify-center">
           <svg viewBox="0 0 100 100" className="w-48 h-48 text-slate-700" fill="none" stroke="currentColor">
             <polygon points="50,10 90,30 90,70 50,90 10,70 10,30" strokeWidth="1.2" strokeOpacity="0.5" />
-            <polygon points="50,25 75,40 75,65 50,80 25,65 25,40" strokeWidth="1" strokeOpacity="0.7" stroke="#F7DCE5" />
+            <polygon points="50,25 75,40 75,65 50,80 25,65 25,40" strokeWidth="1" strokeOpacity="0.7" stroke="#FF6B4A" />
             <circle cx="50" cy="50" r="10" fill="#f8fafc" stroke="#0f172a" strokeWidth="1.5" />
-            <circle cx="50" cy="50" r="4" fill="#F7DCE5" />
+            <circle cx="50" cy="50" r="4" fill="#FF6B4A" />
           </svg>
         </div>
       </div>
@@ -363,15 +363,15 @@ export default function GeometricCenterpiece3D({ className = '' }) {
       >
         <ambientLight intensity={1.3} />
         <directionalLight position={[4, 5, 4]} intensity={1.6} color="#ffffff" />
-        <directionalLight position={[-4, -3, -3]} intensity={1.0} color="#F7DCE5" />
-        <pointLight position={[0, 0, 0]} intensity={1.6} distance={5} color="#F7DCE5" />
+        <directionalLight position={[-4, -3, -3]} intensity={1.0} color="#FF6B4A" />
+        <pointLight position={[0, 0, 0]} intensity={1.6} distance={5} color="#FF6B4A" />
 
         <DimensionalScene prefersReducedMotion={prefersReducedMotion} isVisible={isVisible} />
       </Canvas>
 
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-white/50 backdrop-blur-xs">
-          <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[#F7DCE5] animate-spin" />
+          <div className="w-8 h-8 rounded-full border-2 border-slate-200 border-t-[#FF6B4A] animate-spin" />
         </div>
       )}
     </div>

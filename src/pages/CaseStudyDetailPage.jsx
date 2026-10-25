@@ -60,7 +60,7 @@ export default function CaseStudyDetailPage() {
   const otherProjects = portfolioData.filter((p) => p.id !== project.id);
 
   return (
-    <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+    <div className="py-8 sm:py-12 bg-transparent min-h-screen">
       <SEO
         title={`${project.title} — ${project.subtitle} | TechCrestaX Case Study`}
         description={project.summary}
@@ -111,7 +111,7 @@ export default function CaseStudyDetailPage() {
               <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-bold font-display tracking-tight text-slate-900 dark:text-white leading-tight">
                 {project.title}
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-[#96405d] dark:text-[#F7DCE5] mt-1">
+              <p className="text-lg sm:text-xl font-medium text-[#C2410C] dark:text-[#FF7C42] mt-1">
                 {project.subtitle}
               </p>
             </div>
@@ -144,7 +144,7 @@ export default function CaseStudyDetailPage() {
                 <span className="text-[11px] font-mono uppercase text-slate-400 dark:text-slate-500 font-semibold block mb-1">
                   Sprint Turnaround
                 </span>
-                <span className="text-xs sm:text-sm font-bold text-[#96405d] dark:text-[#F7DCE5]">
+                <span className="text-xs sm:text-sm font-bold text-[#C2410C] dark:text-[#FF7C42]">
                   {project.timeline}
                 </span>
               </div>
@@ -238,7 +238,7 @@ export default function CaseStudyDetailPage() {
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-slate-900 hover:bg-[#F7DCE5] font-semibold text-xs sm:text-sm transition-all shadow-md shrink-0"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-slate-900 hover:bg-[#FF6B4A] font-semibold text-xs sm:text-sm transition-all shadow-md shrink-0"
                 >
                   <Globe className="w-4 h-4 text-emerald-600" />
                   <span>Launch Live Site</span>
@@ -264,7 +264,7 @@ export default function CaseStudyDetailPage() {
           </div>
 
           <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 sm:p-9 space-y-3 shadow-xs">
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#96405d] dark:text-[#F7DCE5] block">
+            <span className="text-xs font-mono font-bold uppercase tracking-wider text-[#C2410C] dark:text-[#FF7C42] block">
               02. The Engineering Delivery
             </span>
             <h2 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
@@ -301,7 +301,7 @@ export default function CaseStudyDetailPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
               {project.deliverables.map((del, idx) => (
                 <div key={idx} className="flex items-start gap-2.5 bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 rounded-2xl p-4">
-                  <Layers className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5] shrink-0 mt-0.5" />
+                  <Layers className="w-4 h-4 text-[#C2410C] dark:text-[#FF7C42] shrink-0 mt-0.5" />
                   <span className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                     {del}
                   </span>
@@ -314,7 +314,7 @@ export default function CaseStudyDetailPage() {
         {/* Start Similar Project Box */}
         <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 text-white border border-slate-800 mb-16 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
-            <span className="text-xs font-mono uppercase tracking-wider text-[#F7DCE5] font-bold">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#FF6B4A] font-bold">
               Transparent Sprints Starting at ₹7,000+
             </span>
             <h3 className="text-xl sm:text-2xl font-bold font-display">
@@ -347,7 +347,7 @@ export default function CaseStudyDetailPage() {
             <h3 className="text-2xl font-bold font-display text-slate-900 dark:text-white">
               Explore Related Client Projects
             </h3>
-            <Link to="/work" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5]">
+            <Link to="/work" className="text-xs font-bold text-slate-900 dark:text-white hover:text-[#FF6B4A] dark:hover:text-[#FF7C42]">
               View All 11 Projects →
             </Link>
           </div>
@@ -356,7 +356,7 @@ export default function CaseStudyDetailPage() {
             {otherProjects.slice(0, 3).map((p) => (
               <div
                 key={p.id}
-                className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 rounded-3xl p-6 transition-all shadow-xs flex flex-col justify-between group"
+                className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#FF6B4A] dark:hover:border-[#FF6B4A]/40 rounded-3xl p-6 transition-all shadow-xs flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
@@ -370,7 +370,7 @@ export default function CaseStudyDetailPage() {
                     )}
                   </div>
 
-                  <h4 className="text-lg font-bold font-display text-slate-900 dark:text-white mb-1 group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5]">
+                  <h4 className="text-lg font-bold font-display text-slate-900 dark:text-white mb-1 group-hover:text-[#FF6B4A] dark:group-hover:text-[#FF7C42]">
                     <Link to={`/work/${p.slug}`}>
                       {p.title}
                     </Link>
@@ -384,7 +384,7 @@ export default function CaseStudyDetailPage() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs">
-                  <Link to={`/work/${p.slug}`} className="font-bold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] inline-flex items-center gap-1">
+                  <Link to={`/work/${p.slug}`} className="font-bold text-slate-900 dark:text-white hover:text-[#FF6B4A] dark:hover:text-[#FF7C42] inline-flex items-center gap-1">
                     <span>Read Breakdown</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>

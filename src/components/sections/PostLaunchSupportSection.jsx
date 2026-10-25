@@ -37,7 +37,7 @@ export default function PostLaunchSupportSection() {
                 className="clean-card clean-card-hover p-6 rounded-2xl border border-slate-200/90 dark:border-slate-800 bg-white dark:bg-slate-900 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 border border-[#eccbd6] dark:border-[#F7DCE5]/30 flex items-center justify-center text-[#96405d] dark:text-[#F7DCE5] mb-5">
+                  <div className="w-10 h-10 rounded-xl bg-[#FF6B4A]/20 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9] dark:border-[#FF6B4A]/30 flex items-center justify-center text-[#C2410C] dark:text-[#FF7C42] mb-5">
                     <Icon className="w-5 h-5" />
                   </div>
                   <h3 className="text-base font-bold font-display text-slate-900 dark:text-white mb-2">
@@ -58,9 +58,9 @@ export default function PostLaunchSupportSection() {
         </div>
 
         {/* Support Banner Card */}
-        <div className="rounded-3xl border border-[#eccbd6] dark:border-[#F7DCE5]/20 bg-gradient-to-r from-[#F7DCE5]/30 via-white to-[#F7DCE5]/20 dark:from-[#F7DCE5]/10 dark:via-slate-900 dark:to-[#F7DCE5]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-3xl border border-[#FFD4C9] dark:border-[#FF6B4A]/20 bg-gradient-to-r from-[#FF6B4A]/30 via-white to-[#FF6B4A]/20 dark:from-[#FF6B4A]/10 dark:via-slate-900 dark:to-[#FF6B4A]/5 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-1 text-center sm:text-left">
-            <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#96405d] dark:text-[#F7DCE5]">
+            <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#C2410C] dark:text-[#FF7C42]">
               Direct Engineering Accessibility
             </div>
             <h4 className="text-lg sm:text-xl font-bold font-display text-slate-900 dark:text-white">

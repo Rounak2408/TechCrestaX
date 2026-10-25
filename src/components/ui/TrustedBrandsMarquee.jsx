@@ -128,7 +128,7 @@ const clientBrands = [
     domain: "divinemanenaturals.com",
     liveUrl: "https://divinemanenaturals.com/",
     isLive: true,
-    theme: "bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950/40 dark:to-rose-900/40 border-pink-200 dark:border-pink-800 text-rose-600 dark:text-rose-400",
+    theme: "bg-gradient-to-br from-pink-50 to-rose-100 dark:from-pink-950/40 dark:to-rose-900/40 border-orange-200 dark:border-pink-800 text-rose-600 dark:text-rose-400",
     logo: (
       <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.5C12 2.5 5.5 9 5.5 14a6.5 6.5 0 0 0 13 0c0-5-6.5-11.5-6.5-11.5z" fill="currentColor" fillOpacity="0.2" />
@@ -169,20 +169,20 @@ const clientBrands = [
 export default function TrustedBrandsMarquee() {
   return (
     <section
-      className="py-8 bg-slate-50/70 dark:bg-slate-950/70 border-y border-slate-200/80 dark:border-slate-800/80 overflow-hidden relative select-none"
+      className="py-8 bg-[#05080D] dark:bg-[#05080D] border-y border-white/10 overflow-hidden relative select-none"
       aria-label="Verified Client Deliveries"
     >
       {/* Side gradient fades */}
-      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 via-slate-50/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 via-slate-50/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#05080D] via-[#05080D]/90 to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#05080D] via-[#05080D]/90 to-transparent z-10 pointer-events-none" />
 
       {/* Header Eyebrow Row */}
-      <div className="max-w-7xl mx-auto px-4 mb-4 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
-        <span className="flex items-center gap-2 font-semibold uppercase tracking-wider text-[11px] text-slate-700 dark:text-slate-300">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+      <div className="max-w-7xl mx-auto px-4 mb-4 flex items-center justify-between text-xs font-mono text-[#A7B0BE]">
+        <span className="flex items-center gap-2 font-semibold uppercase tracking-wider text-[11px] text-slate-300">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
           Authentic Client Projects & Official Deliveries
         </span>
-        <span className="hidden sm:inline text-[11px] text-slate-400 font-mono">
+        <span className="hidden sm:inline text-[11px] text-[#A7B0BE] font-mono">
           Verified Web Platforms Built by TechCrestaX
         </span>
       </div>
@@ -205,11 +205,11 @@ export default function TrustedBrandsMarquee() {
               <CardWrapper
                 key={`${client.name}-${idx}`}
                 {...wrapperProps}
-                className="group flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-2xs hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 hover:shadow-md transition-all duration-200 shrink-0 cursor-pointer"
+                className="group flex items-center gap-3.5 px-4 py-2.5 rounded-2xl bg-[#0A111B] border border-white/10 shadow-xs hover:border-[#FF6248] hover:shadow-[0_0_20px_rgba(255,98,72,0.3)] hover:-translate-y-0.5 transition-all duration-300 shrink-0 cursor-pointer theme-card-interactive"
               >
                 {/* Official Brand Vector Logo Emblem */}
                 <div
-                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 border transition-transform duration-200 group-hover:scale-110 shadow-2xs ${client.theme}`}
+                  className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl flex items-center justify-center shrink-0 border transition-transform duration-300 group-hover:scale-110 shadow-2xs ${client.theme}`}
                 >
                   {client.logo}
                 </div>
@@ -217,13 +217,16 @@ export default function TrustedBrandsMarquee() {
                 {/* Company Name, Live Status & Tagline */}
                 <div className="text-left">
                   <div className="flex items-center gap-2">
-                    <span className="font-display font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors">
+                    <span className="font-display font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#FF6248] dark:group-hover:text-[#FF7957] transition-colors">
                       {client.name}
                     </span>
 
                     {client.isLive ? (
-                      <span className="text-[10px] font-mono font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.5 rounded-md border border-emerald-200/80 dark:border-emerald-800/80 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className="text-[10px] font-mono font-semibold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 px-1.5 py-0.5 rounded-md border border-emerald-200/80 dark:border-emerald-800/80 flex items-center gap-1.5">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                        </span>
                         Live
                       </span>
                     ) : (
@@ -233,7 +236,7 @@ export default function TrustedBrandsMarquee() {
                     )}
 
                     {client.liveUrl && (
-                      <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors opacity-0 group-hover:opacity-100" />
+                      <ExternalLink className="w-3 h-3 text-slate-400 group-hover:text-[#FF6B4A] dark:group-hover:text-[#FF7C42] transition-colors opacity-0 group-hover:opacity-100" />
                     )}
                   </div>
 

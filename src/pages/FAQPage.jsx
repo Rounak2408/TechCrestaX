@@ -5,6 +5,7 @@ import Badge from '../components/ui/Badge';
 import Button from '../components/ui/Button';
 import SectionHeading from '../components/ui/SectionHeading';
 import ClosingCTA from '../components/sections/ClosingCTA';
+import Reveal from '../components/motion/Reveal';
 import { faqsData } from '../data/faqsData';
 import { companyData } from '../data/companyData';
 
@@ -46,10 +47,10 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+    <div className="py-8 sm:py-12 bg-transparent min-h-screen">
       <SEO
         title="Frequently Asked Questions — Pricing, Timelines & Process | TechCrestaX"
-        description="Find answers to common questions about TechCrestaX web development sprints, 1-3 week delivery timelines, milestone pricing, and 100% code ownership."
+        description="Find answers to common questions about TechCrestaX web development sprints, 7-day delivery timelines, milestone pricing, and 100% code ownership."
         keywords={[
           "TechCrestaX FAQ",
           "web development pricing Rajkot",
@@ -65,16 +66,22 @@ export default function FAQPage() {
 
         {/* Hero Section */}
         <div className="max-w-3xl mb-12">
-          <Badge variant="blush" size="md" className="mb-3">
-            Official Knowledge Base
-          </Badge>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
-            Answers before{' '}
-            <span className="text-[#96405d] dark:text-[#F7DCE5]">starting your project</span>.
-          </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-            Find clear, founder-approved answers regarding project turnaround times, full-stack capabilities, mobile QA standards, source code ownership, and post-launch maintenance.
-          </p>
+          <Reveal delay={0} y={16}>
+            <Badge variant="blush" size="md" className="mb-3">
+              Official Knowledge Base
+            </Badge>
+          </Reveal>
+          <Reveal delay={60} y={24} as="div">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
+              Answers before{' '}
+              <span className="text-[#C2410C] dark:text-[#FF7C42]">starting your project</span>.
+            </h1>
+          </Reveal>
+          <Reveal delay={120} y={20} as="div">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+              Find clear, founder-approved answers regarding project turnaround times, full-stack capabilities, mobile QA standards, source code ownership, and post-launch maintenance.
+            </p>
+          </Reveal>
         </div>
 
         {/* Search & Filter Bar */}
@@ -86,7 +93,7 @@ export default function FAQPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search by topic, e.g. 'timeline', 'mobile', 'backend', 'warranty'..."
-              className="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#eccbd6] dark:focus:border-[#F7DCE5] focus:bg-white dark:focus:bg-slate-700 transition-colors shadow-xs"
+              className="w-full pl-11 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-[#FF6B4A] dark:focus:border-[#FF6B4A] focus:bg-white dark:focus:bg-slate-700 transition-colors shadow-xs"
             />
           </div>
 
@@ -102,7 +109,7 @@ export default function FAQPage() {
                   className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all cursor-pointer border ${
                     isActive
                       ? 'bg-slate-900 text-white dark:bg-white dark:text-slate-900 border-slate-900 dark:border-white shadow-xs'
-                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-[#eccbd6]'
+                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-[#FF6B4A]'
                   }`}
                 >
                   {cat}
@@ -122,7 +129,7 @@ export default function FAQPage() {
                   key={faq.id}
                   className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                     isOpen
-                      ? 'bg-slate-50/70 dark:bg-slate-800/60 border-[#eccbd6] dark:border-[#F7DCE5]/40 shadow-xs'
+                      ? 'bg-slate-50/70 dark:bg-slate-800/60 border-[#FFD4C9] dark:border-[#FF6B4A]/40 shadow-xs'
                       : 'bg-white dark:bg-slate-900 border-slate-200/90 dark:border-slate-800 hover:border-slate-300'
                   }`}
                 >
@@ -154,11 +161,17 @@ export default function FAQPage() {
                     </div>
                   </button>
 
-                  {isOpen && (
-                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-4">
-                      {faq.answer}
+                  <div 
+                    className={`grid transition-all duration-300 ease-out ${
+                      isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-5 pb-5 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-800/80 pt-4">
+                        {faq.answer}
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })
@@ -172,7 +185,7 @@ export default function FAQPage() {
         </div>
 
         {/* Direct Ask Question Card */}
-        <div className="rounded-3xl border border-[#eccbd6] dark:border-[#F7DCE5]/20 bg-[#F7DCE5]/30 dark:bg-[#F7DCE5]/10 p-6 sm:p-10 mb-16 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xs">
+        <div className="rounded-3xl border border-[#FFD4C9] dark:border-[#FF6B4A]/20 bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/10 p-6 sm:p-10 mb-16 flex flex-col lg:flex-row items-center justify-between gap-6 shadow-xs">
           <div className="space-y-2 text-center lg:text-left max-w-xl">
             <Badge variant="blush" size="sm">
               Direct Engineering Consultation

@@ -3,10 +3,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
 import TalkToExpertModal from '../modals/TalkToExpertModal';
+import GlobalAtmosphere from '../visuals/background/GlobalAtmosphere';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#fafaf9] dark:bg-[#0b1120] text-slate-800 dark:text-slate-100 selection:bg-lime-200 dark:selection:bg-lime-900 selection:text-slate-900 dark:selection:text-white transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-[#05080D] text-slate-900 dark:text-slate-100 selection:bg-[#FFD4C9] dark:selection:bg-[#FF6248]/30 selection:text-[#0f172a] dark:selection:text-white transition-colors duration-200 font-sans relative">
+      {/* Global Cinematic Background System: Ambient Glow, Grid, Light Trails & Particles */}
+      <GlobalAtmosphere />
+
       {/* Skip to Main Content Link for WCAG Accessibility */}
       <a
         href="#main-content"

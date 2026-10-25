@@ -127,16 +127,16 @@ export default function TalkToExpertModal() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-[#0b1329] dark:bg-slate-900 hover:bg-slate-900 dark:hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-2xl shadow-slate-900/40 border border-slate-700/80 hover:border-[#F7DCE5]/80 hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+          className="group relative flex items-center gap-2 sm:gap-2.5 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-[#0b1329] dark:bg-slate-900 hover:bg-slate-900 dark:hover:bg-slate-800 text-white font-semibold text-xs sm:text-sm shadow-2xl shadow-slate-900/40 border border-slate-700/80 hover:border-[#FF6B4A]/80 hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
           aria-label="Talk to an expert"
         >
           {/* Active Status Pulse Dot */}
           <span className="relative flex h-2.5 w-2.5 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F7DCE5] opacity-75" />
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F7DCE5]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B4A] opacity-75" />
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FF6B4A]" />
           </span>
 
-          <MessageSquare className="w-4 h-4 text-[#F7DCE5] group-hover:rotate-6 transition-transform" />
+          <MessageSquare className="w-4 h-4 text-[#FF6B4A] group-hover:rotate-6 transition-transform" />
           <span className="tracking-tight">Talk to an expert</span>
         </button>
       </div>
@@ -168,12 +168,12 @@ export default function TalkToExpertModal() {
             {/* Mobile Top Trust Bar */}
             <div className="lg:hidden bg-gradient-to-r from-[#0b1329] via-[#0f172a] to-[#111c38] text-white px-4 py-3 border-b border-slate-800 flex items-center justify-between pr-12">
               <div className="flex items-center gap-2">
-                <span className="flex h-2 w-2 rounded-full bg-[#F7DCE5] animate-pulse" />
+                <span className="flex h-2 w-2 rounded-full bg-[#FF6B4A] animate-pulse" />
                 <span className="text-[11px] font-mono font-medium text-slate-200">
                   TechCrestaX Studio
                 </span>
               </div>
-              <span className="text-[10px] font-mono text-[#F7DCE5] bg-[#F7DCE5]/20 border border-[#F7DCE5]/40 px-2 py-0.5 rounded-full">
+              <span className="text-[10px] font-mono text-[#FF6B4A] bg-[#FF6B4A]/10 border border-[#FF6B4A]/40 px-2 py-0.5 rounded-full">
                 Response &lt;12h
               </span>
             </div>
@@ -182,12 +182,12 @@ export default function TalkToExpertModal() {
               
               {/* LEFT COLUMN: Dark Navy Verified Client Showcase */}
               <div className="hidden lg:flex lg:col-span-5 bg-gradient-to-br from-[#0b1329] via-[#0f172a] to-[#111c38] text-white p-7 sm:p-9 flex-col justify-between relative overflow-hidden border-b lg:border-b-0 lg:border-r border-slate-800">
-                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-[#F7DCE5]/10 blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -left-24 w-60 h-60 rounded-full bg-[#FF6B4A]/10 blur-3xl pointer-events-none" />
                 <div className="absolute -bottom-24 -right-24 w-60 h-60 rounded-full bg-slate-700/20 blur-3xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-6">
                   <div>
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-[#F7DCE5] font-bold block mb-2">
+                    <span className="text-[11px] font-mono uppercase tracking-widest text-[#FF6B4A] font-bold block mb-2">
                       Official Client Deliveries
                     </span>
                     <h2 className="text-2xl sm:text-[26px] font-bold font-display leading-snug tracking-tight text-white">
@@ -202,7 +202,7 @@ export default function TalkToExpertModal() {
                   <div className="bg-slate-900/90 text-slate-100 p-5 rounded-2xl shadow-xl space-y-3.5 border border-slate-700/80">
                     <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
                       <span className="text-xs text-slate-400 font-mono">Website Development</span>
-                      <span className="text-xs font-mono font-bold text-[#F7DCE5]">Starts at ₹7,000+</span>
+                      <span className="text-xs font-mono font-bold text-[#FF6B4A]">Starts at ₹7,000+</span>
                     </div>
                     <div className="flex items-center justify-between pb-2.5 border-b border-slate-800">
                       <span className="text-xs text-slate-400 font-mono">1st-Year Maintenance</span>
@@ -222,15 +222,15 @@ export default function TalkToExpertModal() {
                     <div className="space-y-1.5 text-xs text-slate-300">
                       <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
                         <span className="font-semibold text-white">Scalpel.in</span>
-                        <span className="text-[11px] font-mono text-[#F7DCE5]">Doctor Appointment</span>
+                        <span className="text-[11px] font-mono text-[#FF6B4A]">Doctor Appointment</span>
                       </div>
                       <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
                         <span className="font-semibold text-white">Agriqen Seeds</span>
-                        <span className="text-[11px] font-mono text-[#F7DCE5]">Agriculture & Biotech</span>
+                        <span className="text-[11px] font-mono text-[#FF6B4A]">Agriculture & Biotech</span>
                       </div>
                       <div className="flex items-center justify-between p-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
                         <span className="font-semibold text-white">Sahyog Sagar</span>
-                        <span className="text-[11px] font-mono text-[#F7DCE5]">Restaurant & SEO</span>
+                        <span className="text-[11px] font-mono text-[#FF6B4A]">Restaurant & SEO</span>
                       </div>
                     </div>
                   </div>
@@ -377,13 +377,13 @@ export default function TalkToExpertModal() {
                                   }}
                                   className={`w-full px-3.5 py-2 text-left text-xs sm:text-sm flex items-center justify-between transition-colors cursor-pointer ${
                                     isSelected
-                                      ? 'bg-[#F7DCE5] text-[#96405d] dark:bg-[#F7DCE5]/20 dark:text-[#f7dce5] font-semibold'
+                                      ? 'bg-[#FF6B4A] text-[#C2410C] dark:bg-[#FF6B4A]/10 dark:text-[#FF7C42] font-semibold'
                                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700/60'
                                   }`}
                                 >
                                   <span className="truncate pr-2">{serviceName}</span>
                                   {isSelected && (
-                                    <Check className="w-3.5 h-3.5 text-[#96405d] dark:text-[#f7dce5] shrink-0" />
+                                    <Check className="w-3.5 h-3.5 text-[#C2410C] dark:text-[#FF7C42] shrink-0" />
                                   )}
                                 </button>
                               );
@@ -427,9 +427,9 @@ export default function TalkToExpertModal() {
                     {/* Submit CTA Button */}
                     <button
                       type="submit"
-                      className="w-full py-3 sm:py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer border border-[#F7DCE5]/40"
+                      className="w-full py-3 sm:py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer border border-[#FF6B4A]/40"
                     >
-                      <Send className="w-4 h-4 text-[#F7DCE5]" />
+                      <Send className="w-4 h-4 text-[#FF6B4A]" />
                       <span>Request Free Consultation</span>
                     </button>
 
@@ -462,7 +462,7 @@ export default function TalkToExpertModal() {
                 ) : (
                   /* Form Submission Confirmation View */
                   <div className="space-y-6 text-center my-auto py-6">
-                    <div className="w-14 h-14 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center mx-auto">
+                    <div className="w-14 h-14 rounded-full bg-[#FF6B4A] text-[#C2410C] flex items-center justify-center mx-auto">
                       <CheckCircle2 className="w-8 h-8" />
                     </div>
 

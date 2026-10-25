@@ -8,8 +8,9 @@ export default function Badge({
   className = '',
 }) {
   const variantStyles = {
-    blush: "bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 text-slate-900 dark:text-[#F7DCE5] border-[#eccbd6] dark:border-[#F7DCE5]/30",
-    lime: "bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 text-slate-900 dark:text-[#F7DCE5] border-[#eccbd6] dark:border-[#F7DCE5]/30", // graceful alias
+    coral: "bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/20 text-[#C2410C] dark:text-[#FF8C70] border-[#FFD4C9] dark:border-[#FF6B4A]/30",
+    blush: "bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/20 text-[#C2410C] dark:text-[#FF8C70] border-[#FFD4C9] dark:border-[#FF6B4A]/30",
+    lime: "bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/20 text-[#C2410C] dark:text-[#FF8C70] border-[#FFD4C9] dark:border-[#FF6B4A]/30",
     neutral: "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border-slate-200 dark:border-slate-700",
     emerald: "bg-emerald-50 dark:bg-emerald-950/60 text-emerald-900 dark:text-emerald-300 border-emerald-200 dark:border-emerald-900",
     cyan: "bg-sky-50 dark:bg-sky-950/60 text-sky-900 dark:text-sky-300 border-sky-200 dark:border-sky-900",
@@ -18,13 +19,14 @@ export default function Badge({
   };
 
   const dotColors = {
-    blush: "bg-[#b05273] dark:bg-[#F7DCE5]",
-    lime: "bg-[#b05273] dark:bg-[#F7DCE5]",
+    coral: "bg-[#FF6B4A]",
+    blush: "bg-[#FF6B4A]",
+    lime: "bg-[#FF6B4A]",
     neutral: "bg-slate-500",
     emerald: "bg-emerald-600",
     cyan: "bg-sky-600",
     amber: "bg-amber-600",
-    dark: "bg-[#F7DCE5]",
+    dark: "bg-[#FF6B4A]",
   };
 
   const sizeStyles = {

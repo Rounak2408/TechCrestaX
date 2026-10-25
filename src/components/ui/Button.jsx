@@ -17,7 +17,7 @@ export default function Button({
   type = 'button',
   ...props
 }) {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900 disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer";
+  const baseStyles = "relative overflow-hidden inline-flex items-center justify-center font-medium rounded-full transition-all duration-300 cubic-bezier(0.16,1,0.3,1) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 dark:focus-visible:ring-[#FF6248] focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-900 disabled:opacity-50 disabled:pointer-events-none select-none cursor-pointer hover:scale-[1.02] active:scale-[0.98]";
 
   const sizeStyles = {
     sm: "text-xs px-4 py-2 gap-1.5 font-semibold",
@@ -28,28 +28,38 @@ export default function Button({
 
   const variantStyles = {
     primary: "bg-[#0f172a] text-white hover:bg-[#1e293b] dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow active:scale-[0.99]",
-    blush: "bg-[#F7DCE5] text-slate-900 font-semibold border border-[#eccbd6] hover:bg-[#f3cbd7] dark:bg-[#F7DCE5] dark:text-slate-900 dark:hover:bg-[#fae6ee] shadow-xs active:scale-[0.99]",
-    secondary: "bg-white text-[#0f172a] dark:bg-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-xs active:scale-[0.99]",
-    outline: "bg-transparent text-[#0f172a] dark:text-white border border-slate-300 dark:border-slate-700 hover:border-slate-900 dark:hover:border-white hover:bg-slate-50/50 dark:hover:bg-slate-800/50 active:scale-[0.99]",
-    ghost: "bg-transparent text-[#475569] dark:text-slate-300 hover:text-[#0f172a] dark:hover:text-white hover:bg-[#F7DCE5]/30 dark:hover:bg-slate-800/70 active:scale-[0.99]",
-    lime: "bg-[#F7DCE5] text-slate-900 font-semibold border border-[#eccbd6] hover:bg-[#f3cbd7] shadow-xs active:scale-[0.99]",
+    coral: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-md hover:shadow-[0_10px_25px_-5px_rgba(255,98,72,0.5)] active:scale-[0.99]",
+    blush: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-md hover:shadow-[0_10px_25px_-5px_rgba(255,98,72,0.5)] active:scale-[0.99]",
+    secondary: "bg-white text-[#0f172a] dark:bg-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-[#FF6248]/50 dark:hover:border-[#FF6248]/40 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-xs active:scale-[0.99]",
+    outline: "bg-transparent text-[#0f172a] dark:text-white border border-slate-300 dark:border-slate-700 hover:border-[#FF6248] dark:hover:border-[#FF7957] hover:text-[#FF6248] dark:hover:text-[#FF7957] hover:bg-[#FF6248]/5 active:scale-[0.99]",
+    ghost: "bg-transparent text-[#475569] dark:text-slate-300 hover:text-[#FF6248] dark:hover:text-white hover:bg-[#FF6248]/10 dark:hover:bg-slate-800/70 active:scale-[0.99]",
+    lime: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-sm active:scale-[0.99]",
     dark: "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm",
     white: "bg-white text-slate-900 font-bold hover:bg-slate-100 shadow-sm active:scale-[0.99]",
-    darkOutline: "bg-slate-800/90 text-white font-medium border border-slate-700 hover:bg-slate-700 hover:border-slate-600 shadow-xs active:scale-[0.99]",
+    darkOutline: "bg-[#101722] text-white font-medium border border-white/15 hover:bg-[#151E2A] hover:border-white/30 shadow-xs active:scale-[0.99]",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size] || sizeStyles.md} ${variantStyles[variant] || variantStyles.primary} ${className}`;
 
+  const isHighlighted = variant === 'coral' || variant === 'blush' || variant === 'primary';
+
   const content = (
     <>
+      {/* Animated Light Sheen on Hover / Idle */}
+      {isHighlighted && (
+        <span
+          className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none transform -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out"
+          aria-hidden="true"
+        />
+      )}
       {isLoading ? (
-        <Loader2 className="w-4 h-4 animate-spin text-current" />
+        <Loader2 className="w-4 h-4 animate-spin text-current relative z-10" />
       ) : Icon ? (
-        <Icon className="w-4 h-4" />
+        <Icon className="w-4 h-4 relative z-10" />
       ) : null}
-      <span>{children}</span>
+      <span className="relative z-10">{children}</span>
       {showArrow && !isLoading && (
-        <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ArrowUpRight className="w-4 h-4 relative z-10 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       )}
     </>
   );

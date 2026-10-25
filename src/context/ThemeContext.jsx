@@ -1,42 +1,25 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext({
-  theme: 'light',
+  theme: 'dark',
   toggleTheme: () => {},
-  isDark: false,
+  isDark: true,
 });
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(() => {
-    // Default to light theme per prompt requirement
-    if (typeof window !== 'undefined') {
-      const savedTheme = localStorage.getItem('techcrestax_theme');
-      if (savedTheme === 'dark' || savedTheme === 'light') {
-        return savedTheme;
-      }
-    }
-    return 'light';
-  });
-
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
+    root.classList.add('dark');
     try {
-      localStorage.setItem('techcrestax_theme', theme);
+      localStorage.removeItem('techcrestax_theme');
     } catch {
-      // Ignore localStorage errors (e.g. private browsing)
+      // Ignore localStorage errors
     }
-  }, [theme]);
+  }, []);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
-
-  const isDark = theme === 'dark';
+  const theme = 'dark';
+  const toggleTheme = () => {};
+  const isDark = true;
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme, isDark }}>

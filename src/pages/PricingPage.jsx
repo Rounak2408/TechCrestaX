@@ -43,7 +43,7 @@ export default function PricingPage() {
   const pricingFaqs = faqsData.filter((f) => f.category === "Pricing & Terms" || f.category === "Maintenance & Warranty");
 
   return (
-    <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+    <div className="py-8 sm:py-12 bg-transparent min-h-screen">
       <SEO
         title="Transparent Pricing & 1-Year Free Maintenance — TechCrestaX"
         description="Clear, honest website development pricing starting at ₹7,000+. Includes free website maintenance for the first full year. No surprise agency markups."

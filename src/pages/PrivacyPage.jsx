@@ -78,11 +78,11 @@ export default function PrivacyPage() {
             </h2>
             <p>
               If you have any questions or data clarification requests, you may contact our team directly at{' '}
-              <a href={`mailto:${companyData.contact.primaryEmail}`} className="text-[#96405d] dark:text-[#f7dce5] font-semibold hover:underline">
+              <a href={`mailto:${companyData.contact.primaryEmail}`} className="text-[#C2410C] dark:text-[#FF7C42] font-semibold hover:underline">
                 {companyData.contact.primaryEmail}
               </a>
               {' '}or via direct message on{' '}
-              <a href={companyData.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[#96405d] dark:text-[#f7dce5] font-semibold hover:underline">
+              <a href={companyData.contact.whatsappLink} target="_blank" rel="noopener noreferrer" className="text-[#C2410C] dark:text-[#FF7C42] font-semibold hover:underline">
                 WhatsApp
               </a>
               .

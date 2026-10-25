@@ -1,127 +1,160 @@
 import React from 'react';
-import { ArrowUpRight, MessageSquare, ShieldCheck, Zap, Clock, Check } from 'lucide-react';
-import Button from '../ui/Button';
-import Badge from '../ui/Badge';
-import HeroProjectShowcase from '../visuals/HeroProjectShowcase';
-import { companyData } from '../../data/companyData';
+import { ArrowRight, ArrowUpRight, Database, ShieldCheck, Zap, Code, Sparkles } from 'lucide-react';
+import Laptop3DCenterpiece from '../visuals/Laptop3DCenterpiece';
+import CinematicHeroBackground from '../visuals/CinematicHeroBackground';
+import Reveal from '../motion/Reveal';
 
 export default function Hero() {
+  const scrollToSection = (e, sectionId) => {
+    e.preventDefault();
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', `#${sectionId}`);
+    }
+  };
+
   return (
-    <section className="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden" aria-label="Hero Introduction">
-      {/* Subtle background tech grid */}
-      <div className="absolute inset-0 bg-tech-dots opacity-40 pointer-events-none -z-10" />
+    <section 
+      className="relative isolate pt-6 pb-20 md:pt-10 md:pb-28 overflow-hidden bg-[#05080D] transition-colors" 
+      aria-label="Hero Introduction"
+    >
+      {/* Option 05 Exact Cinematic Background: Animated Floor Ring, Laser Streaks, Embers, Monoliths & Rocks */}
+      <CinematicHeroBackground />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 xl:gap-10 items-center">
           
-          {/* Left Column: Value Proposition & Official Positioning */}
-          <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2">
-              <Badge variant="blush" size="md">
-                Modern Web Engineering & Digital Studio
-              </Badge>
-            </div>
+          {/* ========================================================
+              LEFT COLUMN: High-Impact Agency Value Proposition
+             ======================================================== */}
+          <div className="lg:col-span-5 xl:col-span-5 space-y-6 text-center lg:text-left z-10">
+            
+            {/* Eyebrow Badge */}
+            <Reveal delay={0} y={16} className="inline-flex items-center">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0A111B]/90 border border-white/10 text-xs font-medium text-slate-200 shadow-xs backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[#FF6248] shadow-[0_0_8px_#FF6248] animate-pulse" />
+                <span className="uppercase tracking-wider font-semibold text-[11px]">Digital Engineering & Web Development Studio</span>
+              </div>
+            </Reveal>
 
-            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-bold font-display tracking-tight text-slate-900 dark:text-white leading-[1.18]">
-              We build websites and platforms that{' '}
-              <span className="text-[#96405d] dark:text-[#F7DCE5] font-bold inline-block">
-                move your business forward.
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              TechCrestaX designs and engineers custom, high-performance websites, e-commerce storefronts, and web platforms tailored to help businesses establish authority and drive measurable customer enquiries.
-            </p>
-
-            {/* Target Audience Clarity Pill */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1 text-xs text-slate-500 dark:text-slate-400">
-              <span className="font-mono uppercase tracking-wider text-[11px] text-slate-400 dark:text-slate-500">
-                Built For:
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
-                Ambitious Startups
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
-                Growing Businesses
-              </span>
-              <span className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-medium">
-                Professional Practices
-              </span>
-            </div>
-
-            {/* Primary & Secondary CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-              <Button to="/contact" variant="primary" size="lg" showArrow className="w-full sm:w-auto shadow-sm">
-                Request a Project Estimate
-              </Button>
-              <Button
-                href={companyData.contact.whatsappLink}
-                variant="secondary"
-                size="lg"
-                icon={MessageSquare}
-                className="w-full sm:w-auto"
+            {/* Target Headline from Attached Concept Image */}
+            <Reveal delay={80} y={24} as="div">
+              <h1 
+                aria-label="We Build Digital Experiences That Move Businesses Forward."
+                className="text-4xl sm:text-5xl lg:text-[50px] xl:text-[56px] font-extrabold font-display tracking-tight text-white leading-[1.08]"
               >
-                Chat on WhatsApp
-              </Button>
-            </div>
+                We Build Digital <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6248] via-[#FF7957] to-[#FFA07A] animate-gradient-shift">Experiences</span> That <br />
+                Move Businesses <br />
+                Forward.
+              </h1>
+            </Reveal>
 
-            {/* Official Guarantees from Business Profile */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 text-xs text-slate-600 dark:text-slate-300 pt-2 font-medium">
-              <span className="flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center text-[10px] font-bold">✓</span>
-                Websites starting at ₹7,000+
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center text-[10px] font-bold">✓</span>
-                1st Year Free Maintenance (12 Mo)
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center text-[10px] font-bold">✓</span>
-                1–3 Week Agile Delivery
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-4 h-4 rounded-full bg-[#F7DCE5] text-[#96405d] flex items-center justify-center text-[10px] font-bold">✓</span>
-                100% Code Ownership
-              </span>
-            </div>
+            {/* Supporting Paragraph from Attached Concept Image */}
+            <Reveal delay={160} y={20} as="div">
+              <p className="text-base sm:text-lg text-[#A7B0BE] max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                Strategy, design and development — everything you need to take your business online, in one place.
+              </p>
+            </Reveal>
 
-            {/* Verified Authentic Terms Row */}
-            <div className="pt-6 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-3 gap-3 sm:gap-6 text-left">
-              <div>
-                <div className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                  ₹7,000+
-                </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                  Starting Base Price
-                </div>
+            {/* Dual CTA Buttons from Attached Concept Image */}
+            <Reveal delay={240} y={20} as="div">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+                <a
+                  href="#enquiry"
+                  onClick={(e) => scrollToSection(e, 'enquiry')}
+                  className="relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#FF6248] hover:bg-[#FF7957] text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-[#FF6248]/30 hover:shadow-[#FF6248]/50 hover:-translate-y-0.5 cursor-pointer group"
+                >
+                  <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none transform -skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out" />
+                  <span className="relative z-10">Start a Project</span>
+                  <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+                </a>
+
+                <a
+                  href="#services"
+                  onClick={(e) => scrollToSection(e, 'services')}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0A111B]/80 hover:bg-[#101722] border border-white/15 hover:border-white/30 text-white font-semibold text-sm transition-all hover:-translate-y-0.5 cursor-pointer shadow-xs group"
+                >
+                  <span>Explore Our Services</span>
+                  <ArrowUpRight className="w-4 h-4 text-[#FF7957] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
               </div>
+            </Reveal>
 
-              <div>
-                <div className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                  1 Year Free
+            {/* Statistics Row with Verified Business Metrics */}
+            <Reveal delay={320} y={20} as="div">
+              <div className="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
+                
+                {/* Metric 1: Starting Price */}
+                <div className="p-2 rounded-xl transition-colors group">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Database className="w-4 h-4 text-[#FF6248]" />
+                    <span className="text-lg sm:text-xl font-bold font-display text-white">
+                      ₹7,000+
+                    </span>
+                  </div>
+                  <div className="text-xs text-[#A7B0BE] font-medium">
+                    Starting Price
+                  </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                  Website Maintenance
-                </div>
-              </div>
 
-              <div>
-                <div className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white">
-                  1–3 Weeks
+                {/* Metric 2: Free Maintenance */}
+                <div className="p-2 rounded-xl transition-colors group">
+                  <div className="flex items-center gap-2 mb-1">
+                    <ShieldCheck className="w-4 h-4 text-[#FF7957]" />
+                    <span className="text-lg sm:text-xl font-bold font-display text-white">
+                      1 Year Free
+                    </span>
+                  </div>
+                  <div className="text-xs text-[#A7B0BE] font-medium">
+                    Maintenance
+                  </div>
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                  Sprint Launch Time
+
+                {/* Metric 3: Delivery */}
+                <div className="p-2 rounded-xl transition-colors group">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Zap className="w-4 h-4 text-[#FF6248]" />
+                    <span className="text-lg sm:text-xl font-bold font-display text-white">
+                      7 Days
+                    </span>
+                  </div>
+                  <div className="text-xs text-[#A7B0BE] font-medium">
+                    Delivery
+                  </div>
                 </div>
+
+                {/* Metric 4: Code Ownership */}
+                <div className="p-2 rounded-xl transition-colors group">
+                  <div className="flex items-center gap-2 mb-1">
+                    <Code className="w-4 h-4 text-[#FF7957]" />
+                    <span className="text-lg sm:text-xl font-bold font-display text-white">
+                      100%
+                    </span>
+                  </div>
+                  <div className="text-xs text-[#A7B0BE] font-medium">
+                    Code Ownership
+                  </div>
+                </div>
+
               </div>
-            </div>
+            </Reveal>
+
           </div>
 
-          {/* Right Column: Authentic Interactive Live Project Showcase */}
-          <div className="lg:col-span-5 flex items-center justify-center relative">
-            <HeroProjectShowcase />
+          {/* ========================================================
+              RIGHT COLUMN: 3D Laptop with Floating Services Centerpiece
+             ======================================================== */}
+          <div className="lg:col-span-7 xl:col-span-7 flex items-center justify-center relative w-full overflow-visible">
+            <Reveal delay={140} y={24} as="div" className="w-full">
+              <Laptop3DCenterpiece />
+            </Reveal>
           </div>
+
         </div>
       </div>
     </section>
   );
 }
+

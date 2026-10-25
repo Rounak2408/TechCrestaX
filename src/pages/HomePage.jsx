@@ -2,17 +2,25 @@ import React from 'react';
 import SEO from '../components/seo/SEO';
 import Hero from '../components/sections/Hero';
 import TrustedBrandsMarquee from '../components/ui/TrustedBrandsMarquee';
-import CapabilitiesSection from '../components/sections/CapabilitiesSection';
 import PortfolioPreview from '../components/sections/PortfolioPreview';
-import PricingSection from '../components/sections/PricingSection';
-import ProcessSection from '../components/sections/ProcessSection';
+import CapabilitiesSection from '../components/sections/CapabilitiesSection';
 import WhyUsSection from '../components/sections/WhyUsSection';
-import TestimonialsSection from '../components/sections/TestimonialsSection';
+import ProcessSection from '../components/sections/ProcessSection';
+import PricingSection from '../components/sections/PricingSection';
+import HomeEnquirySection from '../components/sections/HomeEnquirySection';
 import FAQSection from '../components/sections/FAQSection';
-import LocationMapSection from '../components/sections/LocationMapSection';
 import ClosingCTA from '../components/sections/ClosingCTA';
 import { organizationSchema, websiteSchema, createFAQSchema } from '../data/seoSchemas';
 import { faqsData } from '../data/faqsData';
+
+function SectionBoundaryDivider() {
+  return (
+    <div className="relative w-full flex items-center justify-center pointer-events-none select-none z-10 overflow-hidden" aria-hidden="true">
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#FF6248]/30 to-transparent" />
+      <div className="absolute w-2/5 h-3 bg-[#FF6248]/10 blur-sm rounded-full" />
+    </div>
+  );
+}
 
 export default function HomePage() {
   const homeSchema = {
@@ -20,7 +28,7 @@ export default function HomePage() {
     "@graph": [
       organizationSchema,
       websiteSchema,
-      createFAQSchema(faqsData.slice(0, 5))
+      createFAQSchema(faqsData.slice(0, 4))
     ]
   };
 
@@ -28,7 +36,7 @@ export default function HomePage() {
     <div>
       <SEO
         title="TechCrestaX — Website Development, E-commerce & Web Platforms | Rajkot, Gujarat"
-        description="TechCrestaX builds websites that move businesses forward. Starting at ₹7,000+ with 1 year free maintenance. Specializing in modern websites, e-commerce, web applications, and SEO."
+        description="TechCrestaX builds high-performance websites and digital solutions. Starting at ₹7,000+ with 1 year free maintenance. Specializing in custom websites, e-commerce, web applications, and SEO."
         keywords={[
           "website development Rajkot",
           "web development company Gujarat",
@@ -43,48 +51,59 @@ export default function HomePage() {
         schema={homeSchema}
       />
 
-      {/* 1. Hero Section with Live Project Showcase */}
-      <section id="hero" className="scroll-mt-24">
+      {/* 1. Hero Section with Live 3D Project Showcase */}
+      <section id="hero" className="scroll-mt-20">
         <Hero />
       </section>
 
-      {/* Authentic Verified Client Deliveries Marquee */}
+      {/* Verified Client Deliveries Marquee */}
       <TrustedBrandsMarquee />
+      <SectionBoundaryDivider />
 
-      {/* 2. Portfolio / Selected Work Section */}
-      <section id="portfolio" className="scroll-mt-24">
+      {/* 2. Selected Work / Portfolio Section (Prominent) */}
+      <section id="portfolio" className="scroll-mt-20">
         <PortfolioPreview />
       </section>
+      <SectionBoundaryDivider />
 
       {/* 3. Services / Capabilities Section */}
-      <section id="services" className="scroll-mt-24">
+      <section id="services" className="scroll-mt-20">
         <CapabilitiesSection />
       </section>
+      <SectionBoundaryDivider />
 
-      {/* 4. Transparent Pricing Section */}
-      <section id="pricing" className="scroll-mt-24">
+      {/* 4. Why Choose TechCrestaX / Value Pillars */}
+      <section id="about" className="scroll-mt-20">
+        <WhyUsSection />
+      </section>
+      <SectionBoundaryDivider />
+
+      {/* 5. Delivery Methodology / Process */}
+      <section id="process" className="scroll-mt-20">
+        <ProcessSection />
+      </section>
+      <SectionBoundaryDivider />
+
+      {/* 6. Transparent Pricing Section */}
+      <section id="pricing" className="scroll-mt-20">
         <PricingSection />
       </section>
+      <SectionBoundaryDivider />
 
-      {/* 5. Process & Methodology */}
-      <section id="about" className="scroll-mt-24">
-        <ProcessSection />
-        <WhyUsSection />
-        <TestimonialsSection />
+      {/* 7. Project Enquiry Section (Frictionless Conversion) */}
+      <section id="enquiry" className="scroll-mt-20">
+        <HomeEnquirySection />
       </section>
+      <SectionBoundaryDivider />
 
-      {/* 6. FAQ Section */}
-      <section id="faq" className="scroll-mt-24">
-        <FAQSection limit={5} />
+      {/* 8. FAQs */}
+      <section id="faq" className="scroll-mt-20">
+        <FAQSection limit={4} />
       </section>
+      <SectionBoundaryDivider />
 
-      {/* Verified Studio Location & Google Maps */}
-      <LocationMapSection />
-
-      {/* 7. Contact / Project Discussion Section */}
-      <section id="contact" className="scroll-mt-24">
-        <ClosingCTA />
-      </section>
+      {/* 9. Cinematic Closing CTA */}
+      <ClosingCTA />
     </div>
   );
 }

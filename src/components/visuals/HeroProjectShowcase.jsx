@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Globe, ArrowUpRight, ShieldCheck, Zap, Stethoscope, Sprout, UtensilsCrossed, Scale, ExternalLink, CheckCircle2 } from 'lucide-react';
+import { ExternalLink, ArrowUpRight, ShieldCheck, Stethoscope, Sprout, UtensilsCrossed, Scale } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const showcaseProjects = [
   {
@@ -11,60 +12,52 @@ const showcaseProjects = [
     displayUrl: "www.scalpel.in",
     icon: Stethoscope,
     status: "Live Production",
-    highlight: "Appointment Scheduling Engine",
-    metrics: "Sub-Second Load • Mobile Clinic QA",
-    summary: "Specialized surgical consultation and appointment booking platform engineered with clean patient pathways and direct clinic inquiry routing.",
-    features: ["Doctor Appointment Booking Flow", "Surgical Procedure Catalog", "Direct Clinic WhatsApp Connect"],
-    stack: ["React", "Tailwind CSS", "Booking Engine", "Responsive UI"],
-    gradient: "from-sky-500/10 via-slate-50 to-[#F7DCE5]/20 dark:from-sky-950/20 dark:via-slate-900 dark:to-[#F7DCE5]/5"
+    summary: "Specialized surgical consultation platform engineered with direct patient appointment booking and clinic WhatsApp routing.",
+    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80",
+    badge: "Healthcare & Surgery",
+    tech: ["React", "Booking Engine", "Tailwind CSS"]
   },
   {
     id: "agriqen-seeds",
     title: "Agriqen Seeds",
     client: "Agriqen Seeds & Biotech Pvt. Ltd.",
-    category: "Agri-Biotech Corporate Website",
+    category: "Agri-Biotech Flagship",
     url: "https://www.agriqen.com/",
     displayUrl: "www.agriqen.com",
     icon: Sprout,
     status: "Live Production",
-    highlight: "Hybrid Seed Taxonomy",
-    metrics: "Product Catalog • Distributor Inquiries",
-    summary: "Corporate agricultural biotechnology flagship presenting hybrid seed varieties, crop research, and national distributor inquiry channels.",
-    features: ["Hybrid Crop Seed Catalog", "Distributor Lead Capture", "Zero Layout Shift Performance"],
-    stack: ["React", "Product Catalog", "Tailwind CSS", "Vite"],
-    gradient: "from-emerald-500/10 via-slate-50 to-[#F7DCE5]/20 dark:from-emerald-950/20 dark:via-slate-900 dark:to-[#F7DCE5]/5"
+    summary: "Corporate agricultural biotechnology platform showcasing hybrid seed varieties and regional distributor inquiry channels.",
+    image: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=1200&q=80",
+    badge: "Biotechnology & Seeds",
+    tech: ["React", "Product Catalog", "Tailwind CSS"]
   },
   {
     id: "sahyog-sagar",
     title: "Sahyog Sagar",
     client: "Sahyog Sagar Restaurant",
-    category: "Restaurant & Local SEO Platform",
+    category: "Restaurant & Local SEO",
     url: "https://www.sahyogsagar.in/",
     displayUrl: "www.sahyogsagar.in",
     icon: UtensilsCrossed,
     status: "Live Production",
-    highlight: "Digital Menu & Table Inquiries",
-    metrics: "Local SEO Schema • Fast Mobile Menu",
-    summary: "High-converting culinary web presence featuring interactive category menus, Google Maps discovery, and direct WhatsApp table bookings.",
-    features: ["Digital Mobile Menu Explorer", "Table Reservation Workflow", "Google LocalBusiness Schema"],
-    stack: ["React", "Local SEO", "Schema.org", "Tailwind CSS"],
-    gradient: "from-amber-500/10 via-slate-50 to-[#F7DCE5]/20 dark:from-amber-950/20 dark:via-slate-900 dark:to-[#F7DCE5]/5"
+    summary: "High-converting culinary web presence featuring interactive digital menus, Google Maps discovery, and direct WhatsApp table bookings.",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+    badge: "Hospitality & Dining",
+    tech: ["React", "Local SEO", "Digital Menu"]
   },
   {
     id: "law-and-legal-bureau",
     title: "Law & Legal Bureau",
     client: "Advocate Pankaj Kumar",
-    category: "Legal Practice & Consultation",
+    category: "Legal Practice Platform",
     url: "https://www.lawandlegalbureau.com/",
     displayUrl: "www.lawandlegalbureau.com",
     icon: Scale,
     status: "Live Production",
-    highlight: "Confidential Legal Intake",
-    metrics: "Practice Area Directory • Fast SLA",
-    summary: "Authoritative legal practice flagship showcasing litigation domains, counsel credentials, and confidential consultation scheduling.",
-    features: ["Litigation Practice Taxonomy", "Confidential Intake Flow", "Authoritative Typography"],
-    stack: ["React", "Semantic HTML5", "Tailwind CSS", "SEO Schema"],
-    gradient: "from-slate-500/10 via-slate-50 to-[#F7DCE5]/20 dark:from-slate-950/20 dark:via-slate-900 dark:to-[#F7DCE5]/5"
+    summary: "Authoritative legal practice website showcasing litigation domains, advocate credentials, and confidential consultation intake.",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80",
+    badge: "Legal Practice",
+    tech: ["React", "SEO Schema", "Tailwind CSS"]
   }
 ];
 
@@ -76,21 +69,21 @@ export default function HeroProjectShowcase() {
   return (
     <div className="relative mx-auto w-full max-w-[580px] select-none">
       {/* Soft Ambient Radial Backdrop */}
-      <div className="absolute -inset-4 bg-gradient-to-tr from-[#F7DCE5]/50 via-slate-100 to-[#F7DCE5]/25 dark:from-[#F7DCE5]/10 dark:via-slate-800/30 dark:to-transparent rounded-[36px] blur-2xl pointer-events-none -z-10" />
+      <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF6B4A]/20 via-slate-100 to-[#FFB627]/15 dark:from-[#FF6B4A]/10 dark:via-slate-800/30 dark:to-transparent rounded-[36px] blur-2xl pointer-events-none -z-10" />
 
       {/* Main Dimensional Window Container */}
-      <div className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-none overflow-hidden transition-all">
+      <div className="relative rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none overflow-hidden transition-all">
         
         {/* Browser Top Chrome Header */}
-        <div className="flex items-center justify-between px-4 py-3 bg-slate-50/90 dark:bg-slate-800/80 border-b border-slate-200/80 dark:border-slate-700/80">
+        <div className="flex items-center justify-between px-4 py-2.5 bg-slate-50 dark:bg-slate-800/80 border-b border-slate-200/80 dark:border-slate-700/80">
           <div className="flex items-center gap-2">
             <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-rose-400/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400/80" />
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
             </div>
-            <span className="text-[11px] font-mono font-medium text-slate-500 dark:text-slate-400 ml-1 hidden sm:inline">
-              TechCrestaX Project Delivery
+            <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500 ml-1.5 hidden sm:inline">
+              Verified Production Delivery
             </span>
           </div>
 
@@ -99,7 +92,7 @@ export default function HeroProjectShowcase() {
             href={activeProject.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px] font-mono text-slate-700 dark:text-slate-300 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5] transition-colors"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-[11px] font-mono text-slate-700 dark:text-slate-300 hover:border-[#FF6B4A]/60 dark:hover:border-[#FF6B4A]/50 transition-colors"
             title={`Open live site: ${activeProject.url}`}
           >
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
@@ -108,8 +101,8 @@ export default function HeroProjectShowcase() {
           </a>
         </div>
 
-        {/* Project Selector Segmented Control */}
-        <div className="grid grid-cols-4 p-1.5 bg-slate-100/80 dark:bg-slate-800/60 border-b border-slate-200/80 dark:border-slate-700/80 gap-1 text-center">
+        {/* Project Selector Segmented Tabs */}
+        <div className="grid grid-cols-4 p-1 bg-slate-100/90 dark:bg-slate-800/60 border-b border-slate-200/80 dark:border-slate-700/80 gap-1 text-center">
           {showcaseProjects.map((proj, idx) => {
             const isSelected = selectedIdx === idx;
             const ProjIcon = proj.icon;
@@ -118,100 +111,84 @@ export default function HeroProjectShowcase() {
                 key={proj.id}
                 type="button"
                 onClick={() => setSelectedIdx(idx)}
-                className={`py-2 px-1 rounded-xl text-xs font-semibold transition-all cursor-pointer flex flex-col items-center gap-0.5 ${
+                className={`py-2 px-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                   isSelected
-                    ? 'bg-white dark:bg-slate-900 text-slate-950 dark:text-white shadow-xs border border-[#eccbd6] dark:border-[#F7DCE5]/40 font-bold'
+                    ? 'bg-white dark:bg-slate-900 text-slate-950 dark:text-white shadow-xs border border-[#FFD4C9] dark:border-[#FF6B4A]/40 font-bold'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white'
                 }`}
               >
-                <div className="flex items-center gap-1">
-                  <ProjIcon className={`w-3.5 h-3.5 ${isSelected ? 'text-[#96405d] dark:text-[#F7DCE5]' : 'text-slate-400'}`} />
-                  <span className="truncate max-w-[70px] sm:max-w-none text-[11px] sm:text-xs">
-                    {proj.title}
-                  </span>
-                </div>
+                <ProjIcon className={`w-3.5 h-3.5 shrink-0 ${isSelected ? 'text-[#FF6B4A] dark:text-[#FF7C42]' : 'text-slate-400'}`} />
+                <span className="truncate text-[11px] sm:text-xs">
+                  {proj.title}
+                </span>
               </button>
             );
           })}
         </div>
 
-        {/* Project Showcase Canvas */}
-        <div className={`p-5 sm:p-6 bg-gradient-to-b ${activeProject.gradient} transition-colors min-h-[310px] flex flex-col justify-between`}>
-          <div>
-            {/* Top Status & Client Attribution */}
-            <div className="flex items-center justify-between mb-3.5">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F7DCE5]/70 dark:bg-[#F7DCE5]/15 text-[#96405d] dark:text-[#F7DCE5] border border-[#eccbd6] dark:border-[#F7DCE5]/30 text-[11px] font-mono font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#96405d] dark:bg-[#F7DCE5] animate-pulse" />
-                {activeProject.status}
-              </span>
+        {/* Interactive Visual Window Viewport */}
+        <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 dark:bg-slate-800 group">
+          <img
+            src={activeProject.image}
+            alt={`${activeProject.title} verified project delivery`}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
 
-              <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400 bg-white/80 dark:bg-slate-800/80 px-2.5 py-0.5 rounded-md border border-slate-200/80 dark:border-slate-700">
-                {activeProject.category}
-              </span>
-            </div>
+          {/* Vignette Overlay for Crisp Readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-black/20 pointer-events-none" />
 
-            {/* Project Title & Client Heading */}
-            <div className="mb-3">
-              <h3 className="text-xl sm:text-2xl font-bold font-display text-slate-900 dark:text-white flex items-center justify-between">
-                <span>{activeProject.title}</span>
-                <a
-                  href={activeProject.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-xs font-mono text-[#96405d] dark:text-[#F7DCE5] hover:underline"
-                >
-                  <span>Visit Live</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </a>
+          {/* Top Badge */}
+          <div className="absolute top-3 left-3 flex items-center gap-2">
+            <span className="px-2.5 py-1 rounded-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/80 dark:border-slate-700/80 text-[11px] font-semibold text-slate-900 dark:text-white shadow-xs">
+              {activeProject.badge}
+            </span>
+            <span className="px-2.5 py-1 rounded-full bg-emerald-500/90 text-white text-[10px] font-mono font-bold tracking-tight shadow-xs flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              Live Site
+            </span>
+          </div>
+
+          {/* Bottom Floating Info Glass Card */}
+          <div className="absolute bottom-3 left-3 right-3 p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200/90 dark:border-slate-700 shadow-lg flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="min-w-0">
+              <h3 className="font-display font-bold text-base text-slate-900 dark:text-white truncate">
+                {activeProject.title}
               </h3>
-              <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
-                Client: {activeProject.client}
+              <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-1 mt-0.5">
+                {activeProject.summary}
               </p>
             </div>
 
-            {/* Summary description */}
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
-              {activeProject.summary}
-            </p>
+            <div className="flex items-center gap-2 shrink-0">
+              <a
+                href={activeProject.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:hover:bg-slate-100 dark:text-slate-900 text-xs font-semibold transition-colors shadow-xs"
+              >
+                <span>Visit Site</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
 
-            {/* Verified Feature Checklist */}
-            <div className="space-y-1.5 mb-5 bg-white/70 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200/70 dark:border-slate-700/70">
-              {activeProject.features.map((feat) => (
-                <div key={feat} className="flex items-center gap-2 text-xs text-slate-700 dark:text-slate-200">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                  <span>{feat}</span>
-                </div>
-              ))}
+              <Link
+                to={`/work/${activeProject.id}`}
+                className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#FF6B4A]/10 hover:bg-[#FF6B4A]/20 text-[#C2410C] dark:text-[#FF8C70] text-xs font-semibold transition-colors border border-[#FFD4C9] dark:border-[#FF6B4A]/30"
+              >
+                Details
+              </Link>
             </div>
-          </div>
-
-          {/* Bottom Row: Tech Stack Pills & Official Attribution */}
-          <div className="pt-3 border-t border-slate-200/80 dark:border-slate-700/80 flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-slate-500 dark:text-slate-400">
-            <div className="flex flex-wrap items-center gap-1.5">
-              {activeProject.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="px-2 py-0.5 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-
-            <span className="text-[10px] text-slate-400">
-              Built by TechCrestaX
-            </span>
           </div>
         </div>
+
       </div>
 
-      {/* Floating Trust Indicator Pill */}
-      <div className="mt-3.5 flex items-center justify-between px-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+      {/* Verified Assurance Tag */}
+      <div className="mt-2.5 flex items-center justify-between px-2 text-[11px] font-mono text-slate-500 dark:text-slate-400">
         <span className="flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-emerald-500" />
-          <span>Verified Client Deliveries</span>
+          <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+          <span>Verified client platform</span>
         </span>
-        <span>Click tabs to preview real builds</span>
+        <span>Built by TechCrestaX</span>
       </div>
     </div>
   );

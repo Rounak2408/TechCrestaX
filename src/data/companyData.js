@@ -39,7 +39,7 @@ export const companyData = {
   trustPillars: [
     { label: "Transparent Pricing", value: "₹7,000+", detail: "Starting base with zero hidden fees" },
     { label: "First-Year Maintenance", value: "Free", detail: "12 months inclusive support" },
-    { label: "Delivery Speed", value: "1–3 Weeks", detail: "Agile milestone sprints" },
+    { label: "Delivery Speed", value: "7 Days", detail: "Rapid agile milestone delivery" },
     { label: "Code Ownership", value: "100%", detail: "Complete client IP & asset handover" },
   ],
   team: [
@@ -92,7 +92,7 @@ export const companyData = {
   ],
   commitments: [
     { title: "No hidden charges", detail: "Transparent milestone pricing with no surprise agency markups." },
-    { title: "Fast delivery", detail: "Standard projects launch within 1 to 3 weeks." },
+    { title: "Fast delivery", detail: "Standard projects launch in as fast as 7 days." },
     { title: "Long-term support", detail: "Post-launch warranty bug fixes and optional maintenance plans." },
   ],
   processSteps: [

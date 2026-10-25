@@ -4,6 +4,7 @@ import Breadcrumbs from '../components/ui/Breadcrumbs';
 import Badge from '../components/ui/Badge';
 import ProjectEnquiryForm from '../components/forms/ProjectEnquiryForm';
 import LocationMapSection from '../components/sections/LocationMapSection';
+import Reveal from '../components/motion/Reveal';
 import { companyData } from '../data/companyData';
 
 import SEO from '../components/seo/SEO';
@@ -33,7 +34,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-8 sm:py-12 bg-white dark:bg-[#090e1a] min-h-screen">
+    <div className="py-8 sm:py-12 bg-transparent min-h-screen">
       <SEO
         title="Contact Us — Start Your Web Project | TechCrestaX, Rajkot"
         description="Get in touch with TechCrestaX in Rajkot, Gujarat. Submit your project requirements for an estimate and technical consultation within 24 hours."
@@ -54,22 +55,29 @@ export default function ContactPage() {
 
         {/* Page Header */}
         <div className="max-w-3xl mb-12">
-          <Badge variant="blush" size="md" className="mb-3">
-            Start a Project
-          </Badge>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
-            Let's build something{' '}
-            <span className="text-[#96405d] dark:text-[#F7DCE5]">remarkable together</span>.
-          </h1>
-          <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
-            Have an upcoming project, website redesign, or custom web application in mind? Share your requirements below or reach out directly to our leadership team.
-          </p>
+          <Reveal delay={0} y={16}>
+            <Badge variant="blush" size="md" className="mb-3">
+              Start a Project
+            </Badge>
+          </Reveal>
+          <Reveal delay={60} y={24} as="div">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display tracking-tight text-slate-900 dark:text-white mb-4">
+              Let's build something{' '}
+              <span className="text-[#C2410C] dark:text-[#FF7C42]">remarkable together</span>.
+            </h1>
+          </Reveal>
+          <Reveal delay={120} y={20} as="div">
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed font-normal">
+              Have an upcoming project, website redesign, or custom web application in mind? Share your requirements below or reach out directly to our leadership team.
+            </p>
+          </Reveal>
         </div>
 
         {/* 2-Column Contact Experience */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-16">
           {/* Left Column: Verified Channels & Guarantees */}
           <div className="lg:col-span-5 space-y-6">
+            <Reveal delay={140} y={20}>
             <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-7 space-y-5 shadow-xs">
               <h2 className="text-xl font-bold font-display text-slate-900 dark:text-white">
                 Verified Direct Channels
@@ -77,7 +85,7 @@ export default function ContactPage() {
 
               <ul className="space-y-4 text-sm">
                 <li className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-2xl bg-[#F7DCE5]/50 dark:bg-slate-800 border border-[#eccbd6] flex items-center justify-center text-[#96405d] dark:text-[#F7DCE5] shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-2xl bg-[#FF6B4A]/15 dark:bg-slate-800 border border-[#FFD4C9] flex items-center justify-center text-[#C2410C] dark:text-[#FF7C42] shrink-0 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
@@ -86,7 +94,7 @@ export default function ContactPage() {
                     </span>
                     <a
                       href={`mailto:${companyData.contact.primaryEmail}`}
-                      className="font-semibold text-slate-900 dark:text-white hover:text-[#96405d] dark:hover:text-[#F7DCE5] transition-colors break-all"
+                      className="font-semibold text-slate-900 dark:text-white hover:text-[#FF6B4A] dark:hover:text-[#FF7C42] transition-colors break-all"
                     >
                       {companyData.contact.primaryEmail}
                     </a>
@@ -120,7 +128,7 @@ export default function ContactPage() {
                 </li>
 
                 <li className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-2xl bg-[#F7DCE5]/50 dark:bg-slate-800 border border-[#eccbd6] flex items-center justify-center text-[#96405d] dark:text-[#F7DCE5] shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-2xl bg-[#FF6B4A]/15 dark:bg-slate-800 border border-[#FFD4C9] flex items-center justify-center text-[#C2410C] dark:text-[#FF7C42] shrink-0 mt-0.5">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div>
@@ -141,7 +149,7 @@ export default function ContactPage() {
             {/* Next Steps Card */}
             <div className="bg-slate-50/80 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 rounded-3xl p-6 space-y-3.5">
               <h3 className="text-sm font-bold font-display text-slate-900 dark:text-white flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5]" />
+                <Clock className="w-4 h-4 text-[#C2410C] dark:text-[#FF7C42]" />
                 What Happens Next?
               </h3>
               <ol className="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -185,23 +193,28 @@ export default function ContactPage() {
                   href={companyData.contact.googleBusinessUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#96405d] dark:text-[#F7DCE5] font-bold hover:underline inline-flex items-center gap-1"
+                  className="text-[#C2410C] dark:text-[#FF7C42] font-bold hover:underline inline-flex items-center gap-1"
                 >
                   <span>Google Profile</span>
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>
+            </Reveal>
           </div>
 
           {/* Right Column: Interactive Form */}
           <div className="lg:col-span-7">
-            <ProjectEnquiryForm />
+            <Reveal delay={180} y={24}>
+              <ProjectEnquiryForm />
+            </Reveal>
           </div>
         </div>
 
         {/* Verified Geographic Location & Google Maps Section */}
-        <LocationMapSection />
+        <Reveal delay={200} y={24}>
+          <LocationMapSection />
+        </Reveal>
       </div>
     </div>
   );

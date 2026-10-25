@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
       <div className="absolute inset-0 bg-tech-dots opacity-25 pointer-events-none" />
 
       {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#F7DCE5]/20 dark:bg-[#F7DCE5]/5 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -34,9 +34,9 @@ export default function TestimonialsSection() {
               href={reviewsConfig.googleBusinessProfileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white shadow-xs transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 hover:border-[#FF6B4A] dark:hover:border-[#FF6B4A]/40 text-xs sm:text-sm font-semibold text-slate-900 dark:text-white shadow-xs transition-all"
             >
-              <Globe className="w-4 h-4 text-[#96405d] dark:text-[#F7DCE5]" />
+              <Globe className="w-4 h-4 text-[#C2410C] dark:text-[#FF7C42]" />
               <span>View Google Business Profile</span>
               <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
             </a>
@@ -112,11 +112,11 @@ export default function TestimonialsSection() {
                     href={delivery.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-[#eccbd6] dark:hover:border-[#F7DCE5]/40 transition-all group flex flex-col justify-between"
+                    className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 hover:border-[#FF6B4A] dark:hover:border-[#FF6B4A]/40 transition-all group flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between gap-1 mb-1">
-                        <span className="font-display font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#96405d] dark:group-hover:text-[#F7DCE5] transition-colors truncate">
+                        <span className="font-display font-bold text-sm text-slate-900 dark:text-white group-hover:text-[#FF6B4A] dark:group-hover:text-[#FF7C42] transition-colors truncate">
                           {delivery.name}
                         </span>
                         <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white shrink-0" />
@@ -139,7 +139,7 @@ export default function TestimonialsSection() {
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-[#F7DCE5]/30 dark:bg-[#F7DCE5]/10 border border-[#eccbd6] dark:border-[#F7DCE5]/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-700 dark:text-slate-300">
+            <div className="p-4 rounded-2xl bg-[#FF6B4A]/10 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9] dark:border-[#FF6B4A]/20 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-700 dark:text-slate-300">
               <span className="text-center sm:text-left">
                 Every project is launched under strict QA protocols with complete source code handover.
               </span>
@@ -147,7 +147,7 @@ export default function TestimonialsSection() {
                 href={companyData.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 font-bold text-[#96405d] dark:text-[#F7DCE5] hover:underline flex items-center gap-1"
+                className="shrink-0 font-bold text-[#C2410C] dark:text-[#FF7C42] hover:underline flex items-center gap-1"
               >
                 <span>Chat on WhatsApp</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

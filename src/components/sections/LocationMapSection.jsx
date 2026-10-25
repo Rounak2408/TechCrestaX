@@ -20,7 +20,7 @@ export default function LocationMapSection() {
             </Badge>
             <h2 id="location-heading" className="text-3xl sm:text-4xl font-bold font-display tracking-tight text-slate-900 dark:text-white">
               Based in Rajkot, Gujarat.{' '}
-              <span className="text-[#96405d] dark:text-[#F7DCE5]">Delivering Worldwide.</span>
+              <span className="text-[#FF6B4A] dark:text-[#FF7C42]">Delivering Worldwide.</span>
             </h2>
             <p className="text-base text-slate-600 dark:text-slate-300 mt-2 max-w-2xl leading-relaxed">
               Our engineering studio is located in Rajkot, Gujarat, India. We collaborate with clients across India and globally through milestone-driven sprints and transparent communication.
@@ -32,9 +32,9 @@ export default function LocationMapSection() {
               href={googleMapsDirectionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:bg-slate-800 text-xs sm:text-sm font-semibold shadow-xs hover:scale-105 active:scale-95 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900 hover:bg-[#FF6B4A] text-xs sm:text-sm font-semibold shadow-xs hover:scale-105 active:scale-95 transition-all"
             >
-              <Navigation className="w-4 h-4 text-[#F7DCE5] dark:text-[#96405d]" />
+              <Navigation className="w-4 h-4 text-[#FF6B4A] dark:text-[#FF7C42]" />
               <span>Open in Google Maps</span>
               <ExternalLink className="w-3.5 h-3.5 opacity-60" />
             </a>
@@ -59,7 +59,7 @@ export default function LocationMapSection() {
           <div className="static lg:absolute lg:top-6 lg:left-6 lg:max-w-sm w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-md p-5 sm:p-6 rounded-2xl sm:rounded-3xl border-t lg:border border-slate-200/90 dark:border-slate-800 shadow-xl space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
               <div className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-xl bg-[#F7DCE5] text-[#96405d] flex items-center justify-center font-bold shadow-2xs">
+                <div className="w-9 h-9 rounded-xl bg-[#FF6B4A]/10 text-[#C2410C] dark:text-[#FF8C70] border border-[#FFD4C9] flex items-center justify-center font-bold shadow-2xs">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
@@ -80,11 +80,11 @@ export default function LocationMapSection() {
 
             <div className="space-y-2 text-xs text-slate-600 dark:text-slate-300">
               <div className="flex items-center gap-2">
-                <Clock className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
+                <Clock className="w-3.5 h-3.5 text-[#FF6B4A] dark:text-[#FF7C42] shrink-0" />
                 <span>Working Hours: Mon – Sat, 9:30 AM – 7:30 PM</span>
               </div>
               <div className="flex items-center gap-2">
-                <Globe2 className="w-3.5 h-3.5 text-[#96405d] dark:text-[#F7DCE5] shrink-0" />
+                <Globe2 className="w-3.5 h-3.5 text-[#FF6B4A] dark:text-[#FF7C42] shrink-0" />
                 <span>Timezone: Indian Standard Time (IST, UTC+5:30)</span>
               </div>
             </div>
@@ -94,9 +94,9 @@ export default function LocationMapSection() {
                 href={companyData.contact.whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#F7DCE5] hover:bg-[#f3cbd7] text-slate-950 text-xs font-bold transition-all shadow-2xs"
+                className="flex-1 inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#FF6B4A] hover:bg-[#E85938] text-white text-xs font-bold transition-all shadow-2xs"
               >
-                <MessageSquare className="w-3.5 h-3.5 text-[#96405d]" />
+                <MessageSquare className="w-3.5 h-3.5 text-white" />
                 <span>Chat on WhatsApp</span>
               </a>
               <a

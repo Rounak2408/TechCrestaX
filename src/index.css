@@ -11,13 +11,24 @@
     --border-subtle: #f1f3f7;
     --border-hover: #e2e8f0;
     
-    /* Soft Blush Pink Palette (#F7DCE5) - The only new accent color */
-    --accent-blush: #F7DCE5;
-    --accent-blush-soft: rgba(247, 220, 229, 0.45);
-    --accent-blush-subtle: rgba(247, 220, 229, 0.22);
-    --accent-blush-border: #eccbd6;
-    --accent-blush-text: #96405d;
-    --accent-blush-hover: #f1ccd8;
+    /* Alpha Agency Theme Palette (Reference: alphaagency.site) */
+    --accent-coral: #FF6B4A;
+    --accent-coral-hover: #E85938;
+    --accent-coral-active: #D84C2C;
+    --accent-coral-secondary: #FF7C42;
+    --accent-coral-amber: #FFB627;
+    --accent-coral-soft: rgba(255, 107, 74, 0.12);
+    --accent-coral-subtle: rgba(255, 107, 74, 0.06);
+    --accent-coral-border: #FFD4C9;
+    --accent-coral-text: #C2410C;
+
+    /* Maintain compatibility aliases for existing token consumers */
+    --accent-blush: #FF6B4A;
+    --accent-blush-soft: rgba(255, 107, 74, 0.12);
+    --accent-blush-subtle: rgba(255, 107, 74, 0.06);
+    --accent-blush-border: #FFD4C9;
+    --accent-blush-text: #C2410C;
+    --accent-blush-hover: #E85938;
 
     --text-primary: #0f172a;
     --text-secondary: #475569;
@@ -25,38 +36,60 @@
   }
 
   html.dark {
-    --bg-canvas: #090e1a;
-    --bg-surface: #0f172a;
-    --bg-surface-subtle: #162137;
-    --bg-dark-section: #050811;
-    --border-subtle: #1e293b;
-    --border-hover: #334155;
+    /* Option 05 / Premium & Bold Cinematic Studio Palette */
+    --background: #05080D;
+    --background-secondary: #0A111B;
+    --surface: #101722;
+    --surface-elevated: #151E2A;
+    --accent: #FF6248;
+    --accent-bright: #FF7957;
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --glow-accent: rgba(255, 98, 72, 0.22);
 
-    --accent-blush: #F7DCE5;
-    --accent-blush-soft: rgba(247, 220, 229, 0.2);
-    --accent-blush-subtle: rgba(247, 220, 229, 0.1);
-    --accent-blush-border: rgba(247, 220, 229, 0.35);
-    --accent-blush-text: #fbd6e3;
-    --accent-blush-hover: rgba(247, 220, 229, 0.28);
+    --bg-canvas: #05080D;
+    --bg-surface: #0A111B;
+    --bg-surface-subtle: #101722;
+    --bg-surface-elevated: #151E2A;
+    --bg-dark-section: #05080D;
+    --border-hover: rgba(255, 255, 255, 0.2);
 
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    /* Alpha Agency & Option 05 Dark Theme Accent */
+    --accent-coral: #FF6248;
+    --accent-coral-bright: #FF7957;
+    --accent-coral-hover: #FF7957;
+    --accent-coral-active: #E04D34;
+    --accent-coral-secondary: #FF7957;
+    --accent-coral-amber: #FFB627;
+    --accent-coral-soft: rgba(255, 98, 72, 0.22);
+    --accent-coral-subtle: rgba(255, 98, 72, 0.12);
+    --accent-coral-border: rgba(255, 98, 72, 0.45);
+    --accent-coral-text: #FF7957;
+
+    /* Compatibility aliases */
+    --accent-blush: #FF6248;
+    --accent-blush-soft: rgba(255, 98, 72, 0.22);
+    --accent-blush-subtle: rgba(255, 98, 72, 0.12);
+    --accent-blush-border: rgba(255, 98, 72, 0.45);
+    --accent-blush-text: #FF7957;
+    --accent-blush-hover: rgba(255, 98, 72, 0.3);
+
+    --text-primary: #F8FAFC;
+    --text-secondary: #A7B0BE;
+    --text-muted: #6B7A90;
   }
 
   body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    font-family: 'Manrope', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  h1, h2, h3, h4, h5, h6, .font-display {
-    font-family: 'Manrope', sans-serif;
-    letter-spacing: -0.015em;
-    font-weight: 700;
+  h1, h2, h3, h4, h5, h6, .font-display, button, nav {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.02em;
   }
 
   p {
@@ -69,33 +102,33 @@
 }
 
 /* =========================================================================
-   DARK THEME RESILIENCY & HIGH CONTRAST ENGINE
+   DARK THEME RESILIENCY & HIGH CONTRAST ENGINE (Option 05 Cinematic)
    ========================================================================= */
 html.dark {
   color-scheme: dark;
 }
 
 html.dark body {
-  background-color: #090e1a !important;
-  color: #f8fafc !important;
+  background-color: #05080D !important;
+  color: #F8FAFC !important;
 }
 
 /* Sections inherit the dark canvas */
 html.dark section {
   background-color: transparent !important;
-  border-color: #1e293b !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* White cards become rich dark surfaces */
 html.dark .bg-white:not(button):not(a):not(.keep-white) {
-  background-color: #0f172a !important;
+  background-color: #0A111B !important;
 }
 
 html.dark .bg-slate-50:not(button):not(a),
 html.dark .bg-slate-50\/60,
 html.dark .bg-slate-50\/70,
 html.dark .bg-slate-100:not(button):not(a) {
-  background-color: #162137 !important;
+  background-color: #101722 !important;
 }
 
 html.dark .bg-\[\#fafaf9\],
@@ -107,7 +140,7 @@ html.dark .bg-white\/60,
 html.dark .bg-white\/70,
 html.dark .bg-white\/80,
 html.dark .bg-white\/90 {
-  background-color: #090e1a !important;
+  background-color: #05080D !important;
 }
 
 /* High contrast typography in dark mode */
@@ -136,11 +169,11 @@ html.dark .border-slate-200,
 html.dark .border-slate-200\/80,
 html.dark .border-slate-200\/90,
 html.dark .border-slate-100 {
-  border-color: #1e293b !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 html.dark .border-slate-300 {
-  border-color: #334155 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
 }
 
 /* Text inputs and selects in dark mode */
@@ -198,18 +231,18 @@ html.dark .clean-card {
 }
 
 .clean-card-hover:hover {
-  border-color: #F7DCE5;
-  box-shadow: 0 12px 28px -6px rgba(247, 220, 229, 0.35), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  border-color: #FFB3A1;
+  box-shadow: 0 12px 28px -6px rgba(255, 107, 74, 0.25), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
   transform: translateY(-2px);
 }
 
 html.dark .clean-card-hover:hover {
-  border-color: rgba(247, 220, 229, 0.35);
+  border-color: rgba(255, 107, 74, 0.45);
   box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.5);
 }
 
 /* =========================================================================
-   INTERACTIVE SERVICE & CAPABILITY CARDS - REFINED SOFT BLUSH ENGINE
+   INTERACTIVE SERVICE & CAPABILITY CARDS - ALPHA AGENCY CORAL ENGINE
    ========================================================================= */
 .service-interactive-card {
   position: relative;
@@ -228,34 +261,34 @@ html.dark .service-interactive-card {
   background-color: #0f172a;
 }
 
-/* Light Mode: Subtle Blush Pink Border & Soft Aura */
+/* Light Mode: Vibrant Coral Border & Soft Aura */
 .service-interactive-card:hover,
 .service-interactive-card:active,
 .service-interactive-card.is-active,
 .service-interactive-card:focus-within {
-  border-color: #eccbd6 !important;
-  box-shadow: 0 0 0 3px rgba(247, 220, 229, 0.4), 0 16px 28px -8px rgba(247, 220, 229, 0.35), 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+  border-color: #FFB3A1 !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.25), 0 16px 28px -8px rgba(255, 107, 74, 0.22), 0 4px 12px rgba(15, 23, 42, 0.04) !important;
   transform: translateY(-3px);
 }
 
-/* Dark Mode: Soft Blush Glow Border */
+/* Dark Mode: Vibrant Coral Glow Border */
 html.dark .service-interactive-card:hover,
 html.dark .service-interactive-card:active,
 html.dark .service-interactive-card.is-active,
 html.dark .service-interactive-card:focus-within {
-  border-color: rgba(247, 220, 229, 0.45) !important;
-  box-shadow: 0 0 0 3px rgba(247, 220, 229, 0.15), 0 16px 28px -8px rgba(0, 0, 0, 0.6) !important;
+  border-color: rgba(255, 107, 74, 0.5) !important;
+  box-shadow: 0 0 0 3px rgba(255, 107, 74, 0.15), 0 16px 28px -8px rgba(0, 0, 0, 0.6) !important;
   transform: translateY(-3px);
 }
 
-/* Soft Blush Top Line */
+/* Alpha Agency Coral Top Line */
 .service-interactive-card .card-top-line {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #F7DCE5, #f5b7cb, #F7DCE5);
+  background: linear-gradient(90deg, #FF6B4A, #FFB627, #FF7C42);
   opacity: 0;
   transform: scaleX(0.4);
   transition: opacity 0.25s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
@@ -275,7 +308,7 @@ html.dark .service-interactive-card:focus-within {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: radial-gradient(circle at 50% 0%, rgba(247, 220, 229, 0.3), transparent 70%);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 107, 74, 0.2), transparent 70%);
   opacity: 0;
   transition: opacity 0.25s ease;
   pointer-events: none;
@@ -331,6 +364,12 @@ html.dark .bg-tech-dots {
   animation-play-state: paused;
 }
 
+/* Premium Scroll Reveal System */
+.reveal-item,
+.text-reveal-wrap {
+  will-change: opacity, transform;
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
@@ -338,6 +377,14 @@ html.dark .bg-tech-dots {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal-item,
+  .text-reveal-wrap {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    will-change: auto !important;
   }
 }
 
@@ -355,5 +402,353 @@ nav button:focus-visible {
 }
 
 html.dark :focus-visible {
-  outline: 2px solid #F7DCE5;
+  outline: 2px solid #FF6248;
 }
+
+/* =========================================================================
+   OPTION 05 CINEMATIC STUDIO UTILITIES
+   ========================================================================= */
+.cinematic-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cinematic-perspective {
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.cinematic-orange-glow {
+  box-shadow: 0 0 50px -10px rgba(255, 98, 72, 0.35), 0 0 20px -5px rgba(255, 98, 72, 0.2);
+}
+
+.cinematic-neon-trail {
+  position: relative;
+}
+.cinematic-neon-trail::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255,98,72,0.8), rgba(255,121,87,0.3) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* =========================================================================
+   CINEMATIC THEME-WIDE ANIMATION SYSTEM (Option 05 / Alpha Agency)
+   ========================================================================= */
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulseGlowCoral {
+  0%, 100% {
+    box-shadow: 0 0 16px rgba(255, 98, 72, 0.2), 0 0 0 1px rgba(255, 98, 72, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 38px rgba(255, 98, 72, 0.5), 0 0 0 2px rgba(255, 121, 87, 0.6);
+  }
+}
+
+@keyframes pulseSoftGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  50%, 100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+@keyframes laserTravelHorizontal {
+  0% {
+    left: -20%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+@keyframes gradientShiftSmooth {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotateSlowContinuous {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes borderFlowConic {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes radarPingEffect {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* Master Animation Utility Classes */
+.animate-float-gentle {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow-coral {
+  animation: pulseGlowCoral 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft-glow {
+  animation: pulseSoftGlow 5s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotateSlowContinuous 24s linear infinite;
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShiftSmooth 6s ease infinite;
+}
+
+/* Button & Card Shimmer Light Sweep */
+.btn-shimmer-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: translateX(-150%) skewX(-20deg);
+  animation: shimmerSweep 3.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+/* Card Specular Glow on Hover */
+.theme-card-interactive {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.theme-card-interactive:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 98, 72, 0.7) !important;
+  box-shadow: 0 12px 36px -10px rgba(255, 98, 72, 0.35), 0 0 0 1px rgba(255, 121, 87, 0.3) !important;
+}
+
+/* Linear-style Conic Rotating Neon Border for Featured Items */
+.featured-border-beam {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-border-beam::before {
+  content: '';
+  position: absolute;
+  inset: -100%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255, 98, 72, 0.8) 60deg,
+    rgba(255, 121, 87, 1) 120deg,
+    transparent 180deg
+  );
+  animation: borderFlowConic 5s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.featured-border-beam > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Live Radar Ping Effect */
+.live-radar-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background-color: #34d399;
+  animation: radarPingEffect 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+.coral-radar-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background-color: #FF6248;
+  animation: radarPingEffect 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  pointer-events: none;
+}
+
+/* =========================================================================
+   GLOBAL ATMOSPHERE LIGHT TRAILS & GRID ANIMATIONS
+   ========================================================================= */
+
+@keyframes gridDriftSlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(24px, 24px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-grid-drift {
+  animation: gridDriftSlow 60s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes trailFlow1 {
+  0% {
+    stroke-dashoffset: 1980;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes trailFlow2 {
+  0% {
+    stroke-dashoffset: 2220;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes trailFlow3 {
+  0% {
+    stroke-dashoffset: 1860;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-trail-flow-1 {
+  animation: trailFlow1 7.5s linear infinite;
+}
+
+.animate-trail-flow-2 {
+  animation: trailFlow2 9.5s linear infinite;
+}
+
+.animate-trail-flow-3 {
+  animation: trailFlow3 8.5s linear infinite;
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-120%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(280%) skewX(-15deg);
+  }
+}
+
+.animate-sheen {
+  animation: sheen 1.8s ease-in-out infinite;
+}
+
+@keyframes bounceGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounceGentle 3.2s ease-in-out infinite;
+}
+
+
+

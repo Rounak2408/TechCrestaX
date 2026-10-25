@@ -7,7 +7,7 @@ export default function BusinessGrowthDashboard() {
   return (
     <div className="relative mx-auto w-full max-w-[580px] select-none">
       {/* Soft Ambient Radial Backdrop */}
-      <div className="absolute -inset-4 bg-gradient-to-tr from-[#F7DCE5]/40 via-slate-100 to-[#F7DCE5]/20 dark:from-[#F7DCE5]/10 dark:via-slate-800/30 dark:to-transparent rounded-[36px] blur-2xl pointer-events-none -z-10" />
+      <div className="absolute -inset-4 bg-gradient-to-tr from-[#FF6B4A]/40 via-slate-100 to-[#FF6B4A]/20 dark:from-[#FF6B4A]/10 dark:via-slate-800/30 dark:to-transparent rounded-[36px] blur-2xl pointer-events-none -z-10" />
 
       {/* Main Glass Dashboard Card */}
       <div className="relative rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/60 dark:shadow-none p-4 sm:p-5 transition-all">
@@ -25,7 +25,7 @@ export default function BusinessGrowthDashboard() {
             </span>
           </div>
 
-          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#F7DCE5]/60 dark:bg-[#F7DCE5]/15 border border-[#eccbd6] dark:border-[#F7DCE5]/30 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-[#F7DCE5]">
+          <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FF6B4A]/20 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9] dark:border-[#FF6B4A]/30 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-[#FF7C42]">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>Active Sprint</span>
           </div>
@@ -38,7 +38,7 @@ export default function BusinessGrowthDashboard() {
             onClick={() => setActiveMetric('performance')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
               activeMetric === 'performance'
-                ? 'bg-slate-50/80 dark:bg-slate-800/80 border-[#eccbd6] dark:border-[#F7DCE5]/40 shadow-xs'
+                ? 'bg-slate-50/80 dark:bg-slate-800/80 border-[#FFD4C9] dark:border-[#FF6B4A]/40 shadow-xs'
                 : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 hover:border-slate-300'
             }`}
           >
@@ -64,7 +64,7 @@ export default function BusinessGrowthDashboard() {
             onClick={() => setActiveMetric('timeline')}
             className={`p-3.5 rounded-2xl border transition-all cursor-pointer ${
               activeMetric === 'timeline'
-                ? 'bg-slate-50/80 dark:bg-slate-800/80 border-[#eccbd6] dark:border-[#F7DCE5]/40 shadow-xs'
+                ? 'bg-slate-50/80 dark:bg-slate-800/80 border-[#FFD4C9] dark:border-[#FF6B4A]/40 shadow-xs'
                 : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 hover:border-slate-300'
             }`}
           >
@@ -74,7 +74,7 @@ export default function BusinessGrowthDashboard() {
             </div>
             <div className="flex items-baseline gap-2">
               <span className="text-2xl sm:text-3xl font-bold font-display text-slate-900 dark:text-white">
-                1–3 <span className="text-xs text-slate-400 font-normal">Weeks</span>
+                7 <span className="text-xs text-slate-400 font-normal">Days</span>
               </span>
               <span className="text-[11px] font-mono font-semibold text-sky-600 dark:text-sky-400">
                 Agile
@@ -108,8 +108,8 @@ export default function BusinessGrowthDashboard() {
             <svg viewBox="0 0 480 110" preserveAspectRatio="none" className="w-full h-full">
               <defs>
                 <linearGradient id="blushCurveGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#F7DCE5" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#F7DCE5" stopOpacity="0.05" />
+                  <stop offset="0%" stopColor="#FF6B4A" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#FF6B4A" stopOpacity="0.05" />
                 </linearGradient>
               </defs>
 
@@ -134,9 +134,9 @@ export default function BusinessGrowthDashboard() {
               />
 
               {/* Milestone Dots */}
-              <circle cx="10" cy="95" r="4" fill="#0f172a" stroke="#F7DCE5" strokeWidth="2" />
-              <circle cx="150" cy="72" r="4" fill="#0f172a" stroke="#F7DCE5" strokeWidth="2" />
-              <circle cx="300" cy="40" r="4" fill="#0f172a" stroke="#F7DCE5" strokeWidth="2" />
+              <circle cx="10" cy="95" r="4" fill="#0f172a" stroke="#FF6B4A" strokeWidth="2" />
+              <circle cx="150" cy="72" r="4" fill="#0f172a" stroke="#FF6B4A" strokeWidth="2" />
+              <circle cx="300" cy="40" r="4" fill="#0f172a" stroke="#FF6B4A" strokeWidth="2" />
               <circle cx="470" cy="12" r="5" fill="#10b981" stroke="#ffffff" strokeWidth="2" />
             </svg>
 
@@ -172,7 +172,7 @@ export default function BusinessGrowthDashboard() {
         </div>
 
         {/* Bottom Status Guarantee */}
-        <div className="mt-3 flex items-center justify-between px-3 py-2 rounded-xl bg-[#F7DCE5]/40 dark:bg-[#F7DCE5]/10 border border-[#eccbd6]/80 dark:border-[#F7DCE5]/20 text-[11px]">
+        <div className="mt-3 flex items-center justify-between px-3 py-2 rounded-xl bg-[#FF6B4A]/12 dark:bg-[#FF6B4A]/10 border border-[#FFD4C9]/80 dark:border-[#FF6B4A]/20 text-[11px]">
           <span className="flex items-center gap-1.5 text-slate-800 dark:text-slate-200 font-medium">
             <ShieldCheck className="w-3.5 h-3.5 text-[#b05273] shrink-0" />
             <span>Post-Launch Bug Fix Warranty Included</span>

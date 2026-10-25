@@ -51,7 +51,7 @@ export const servicesData = [
       },
       {
         q: "What is the typical turnaround time?",
-        a: "A standard business website typically launches within 1 to 3 weeks through milestone-driven agile sprints."
+        a: "A standard business website typically launches within 7 days through milestone-driven agile sprints."
       }
     ]
   },
