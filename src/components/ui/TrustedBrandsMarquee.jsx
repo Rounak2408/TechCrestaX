@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 // Custom, authentic vector logos for each official client
@@ -167,8 +167,27 @@ const clientBrands = [
 ];
 
 export default function TrustedBrandsMarquee() {
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       className="py-8 bg-[#05080D] dark:bg-[#05080D] border-y border-white/10 overflow-hidden relative select-none"
       aria-label="Verified Client Deliveries"
     >
@@ -189,7 +208,10 @@ export default function TrustedBrandsMarquee() {
 
       {/* Infinite Seamless Marquee Slider */}
       <div className="flex overflow-hidden">
-        <div className="animate-infinite-marquee flex items-center gap-4 sm:gap-6 shrink-0 py-1">
+        <div 
+          className="animate-infinite-marquee flex items-center gap-4 sm:gap-6 shrink-0 py-1"
+          style={{ animationPlayState: isVisible ? 'running' : 'paused' }}
+        >
           {[...clientBrands, ...clientBrands].map((client, idx) => {
             const CardWrapper = client.liveUrl ? 'a' : 'div';
             const wrapperProps = client.liveUrl

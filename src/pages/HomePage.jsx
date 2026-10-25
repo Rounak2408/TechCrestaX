@@ -67,43 +67,45 @@ export default function HomePage() {
       <SectionBoundaryDivider />
 
       {/* 3. Services / Capabilities Section */}
-      <section id="services" className="scroll-mt-20">
+      <section id="services" className="scroll-mt-20 content-auto">
         <CapabilitiesSection />
       </section>
       <SectionBoundaryDivider />
 
       {/* 4. Why Choose TechCrestaX / Value Pillars */}
-      <section id="about" className="scroll-mt-20">
+      <section id="about" className="scroll-mt-20 content-auto">
         <WhyUsSection />
       </section>
       <SectionBoundaryDivider />
 
       {/* 5. Delivery Methodology / Process */}
-      <section id="process" className="scroll-mt-20">
+      <section id="process" className="scroll-mt-20 content-auto">
         <ProcessSection />
       </section>
       <SectionBoundaryDivider />
 
       {/* 6. Transparent Pricing Section */}
-      <section id="pricing" className="scroll-mt-20">
+      <section id="pricing" className="scroll-mt-20 content-auto">
         <PricingSection />
       </section>
       <SectionBoundaryDivider />
 
       {/* 7. Project Enquiry Section (Frictionless Conversion) */}
-      <section id="enquiry" className="scroll-mt-20">
+      <section id="enquiry" className="scroll-mt-20 content-auto">
         <HomeEnquirySection />
       </section>
       <SectionBoundaryDivider />
 
       {/* 8. FAQs */}
-      <section id="faq" className="scroll-mt-20">
+      <section id="faq" className="scroll-mt-20 content-auto">
         <FAQSection limit={4} />
       </section>
       <SectionBoundaryDivider />
 
       {/* 9. Cinematic Closing CTA */}
-      <ClosingCTA />
+      <div className="content-auto">
+        <ClosingCTA />
+      </div>
     </div>
   );
 }

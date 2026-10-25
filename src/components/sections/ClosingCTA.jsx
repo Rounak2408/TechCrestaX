@@ -42,7 +42,8 @@ export default function ClosingCTA() {
           src="/portfolio_volcanic_backdrop.jpg"
           alt=""
           className="w-full h-full object-cover object-center opacity-85"
-          loading="eager"
+          loading="lazy"
+          decoding="async"
         />
 
         {/* Vertical Fade Gradients for Seamless Transitions */}

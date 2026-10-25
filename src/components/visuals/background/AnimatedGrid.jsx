@@ -30,7 +30,7 @@ export default function AnimatedGrid({ intensity = 'default' }) {
     >
       {/* 1. Fine Technical 44px Coordinate Grid */}
       <div
-        className="absolute -inset-[100px] w-[calc(100%+200px)] h-[calc(100%+200px)] animate-grid-drift"
+        className="absolute -inset-[100px] w-[calc(100%+200px)] h-[calc(100%+200px)] sm:animate-grid-drift"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(255, 98, 72, 0.07) 1px, transparent 1px),

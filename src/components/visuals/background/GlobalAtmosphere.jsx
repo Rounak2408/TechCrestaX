@@ -50,8 +50,10 @@ export default function GlobalAtmosphere() {
       {/* 3. Sweeping Curved Light Trails Connecting Viewport Sections */}
       <LightTrails intensity={currentPreset} />
 
-      {/* 4. Restrained Floating Embers & Particle Drift Canvas */}
-      <ParticleLayer intensity={currentPreset} />
+      {/* 4. Restrained Floating Embers & Particle Drift Canvas (Desktop & Tablet) */}
+      <div className="hidden sm:block">
+        <ParticleLayer intensity={currentPreset} />
+      </div>
     </div>
   );
 }
